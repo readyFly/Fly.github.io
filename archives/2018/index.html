@@ -34,7 +34,7 @@
   <script>
     (function(){
         if('{{ page.password }}'){
-            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+            if (prompt('请输入文章密码') == '{{ page.password }}'){
                 alert('密码错误！');
                 history.back();
             }
@@ -89,6 +89,32 @@
       
   
     <h1 class="entry-title">
+      <a class="archive-article-title" href="/2018/03/07/如何快速配置hexo博客/">如何快速配置hexo博客</a>
+    </h1>
+  
+
+  </header>
+  <footer class="entry-meta">
+    <a href="/2018/03/07/如何快速配置hexo博客/">
+    <time datetime="2018-03-07T03:01:13.000Z" class="entry-date">
+        2018-03-07
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo博客/">hexo博客</a></li></ul>
+
+    </footer>
+</article>
+  
+    
+    
+    <article class="post type-post status-publish format-standard hentry archive-type-post">
+  <header class="entry-header">
+      
+  
+    <h1 class="entry-title">
       <a class="archive-article-title" href="/2018/03/07/hello-world/">我的第一篇文章</a>
     </h1>
   
@@ -133,6 +159,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/07/如何快速配置hexo博客/">如何快速配置hexo博客</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/07/hello-world/">我的第一篇文章</a>
           </li>
         
@@ -145,7 +175,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo博客/">hexo博客</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -154,7 +184,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a>
+      <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo博客/" style="font-size: 10px;">hexo博客</a>
     </div>
   </aside>
 
