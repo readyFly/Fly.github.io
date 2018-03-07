@@ -5,7 +5,7 @@
   
   
   <meta name="description" content="Dijkstra算法
-算法思想1)算法思想：1设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了），第二组为其余未确定最短路径的顶点集合" />
+算法思想1)算法思想：123456设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）第二组为其余未确定最短路径的" />
   
 
   
@@ -16,20 +16,20 @@
   
   <title>最短路径算法 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dijkstra算法 算法思想1)算法思想：1设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了），第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源点v到S">
+  <meta name="description" content="Dijkstra算法 算法思想1)算法思想：123456设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最短路径算法">
 <meta property="og:url" content="https://readyfly.github.io/2018/03/07/最短路径算法/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="Dijkstra算法 算法思想1)算法思想：1设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了），第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源点v到S">
+<meta property="og:description" content="Dijkstra算法 算法思想1)算法思想：123456设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/2.gif">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/2.jpg">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/3.jpg">
-<meta property="og:updated_time" content="2018-03-07T12:22:14.287Z">
+<meta property="og:updated_time" content="2018-03-07T14:30:45.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最短路径算法">
-<meta name="twitter:description" content="Dijkstra算法 算法思想1)算法思想：1设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了），第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源点v到S">
+<meta name="twitter:description" content="Dijkstra算法 算法思想1)算法思想：123456设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源">
 <meta name="twitter:image" content="https://readyfly.github.io/upload_image/2.gif">
   
   
@@ -97,14 +97,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjeh20r710003v4i206w4x0ek" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjeh7sn8c0007j8i2d4iz1nyc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <p>Dijkstra算法</p>
-<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>1)算法思想：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了），第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。在加入的过程中，总保持从源点v到S中各顶点的最短路径长度不大于从源点v到U中任何顶点的最短路径长度。此外，每个顶点对应一个距离，S中的顶点的距离就是从v到此顶点的最短路径长度，U中的顶点的距离，是从v到此顶点只包括S中的顶点为中间顶点的当前最短路径长度。</span><br></pre></td></tr></table></figure></p>
+<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>1)算法思想：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合</span><br><span class="line">（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）</span><br><span class="line">第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。</span><br><span class="line">在加入的过程中，总保持从源点v到S中各顶点的最短路径长度不大于从源点v到U中任何顶点的最短路径长度。</span><br><span class="line"></span><br><span class="line">此外，每个顶点对应一个距离，S中的顶点的距离就是从v到此顶点的最短路径长度，U中的顶点的距离，是从v到此顶点只包括S中的顶点为中间顶点的当前最短路径长度。</span><br></pre></td></tr></table></figure></p>
 <p>2)算法步骤：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a.初始时，S只包含源点，即S＝&#123;v&#125;，v的距离为0。U包含除v外的其他顶点，即:U=&#123;其余顶点&#125;，若v与U中顶点u有边，则&lt;u,v&gt;正常有权值，若u不是v的出边邻接点，则&lt;u,v&gt;权值为∞。</span><br><span class="line"></span><br><span class="line">b.从U中选取一个距离v最小的顶点k，把k，加入S中（该选定的距离就是v到k的最短路径长度）。</span><br><span class="line"></span><br><span class="line">c.以k为新考虑的中间点，修改U中各顶点的距离；若从源点v到顶点u的距离（经过顶点k）比原来距离（不经过顶点k）短，则修改顶点u的距离值，修改后的距离值的顶点k的距离加上边上的权。</span><br><span class="line"></span><br><span class="line">d.重复步骤b和c直到所有顶点都包含在S中。</span><br></pre></td></tr></table></figure></p>
 <p>执行动画过程如下图:</p>
 <p><img src="/upload_image/2.gif" alt=""></p>
@@ -132,6 +132,8 @@
     
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/03/07/排序算法总结/" rel="prev"><span class="meta-nav">←</span> 排序算法总结</a></span>
     
     
         <span class="nav-next"><a href="/2018/03/07/如何快速配置hexo博客/" rel="next">如何快速配置hexo博客 <span class="meta-nav">→</span></a></span>
@@ -163,6 +165,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2018/03/07/排序算法总结/">排序算法总结</a>
+          </li>
         
           <li>
             <a href="/2018/03/07/最短路径算法/">最短路径算法</a>
