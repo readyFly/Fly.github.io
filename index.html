@@ -75,6 +75,154 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-二叉树前序、中序、后序遍历" class="post-二叉树前序、中序、后序遍历 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/16/二叉树前序、中序、后序遍历/">二叉树前序、中序、后序遍历</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/二叉树前序、中序、后序遍历/" data-id="cjetc363c0003ici29e4xxsvv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>首先得知道什么是前序，中序，后序遍历：</p>
+<p>前序遍历：<br>    1.访问根节点<br>    2.前序遍历左子树<br>    3.前序遍历右子树<br>中序遍历：<br>    1.中序遍历左子树<br>    2.访问根节点<br>    3.中序遍历右子树<br>后序遍历：<br>    1.后序遍历左子树<br>    2.后序遍历右子树<br>    3.访问根节点</p>
+<h2 id="一、已知前序、中序遍历，求后序遍历"><a href="#一、已知前序、中序遍历，求后序遍历" class="headerlink" title="一、已知前序、中序遍历，求后序遍历"></a>一、已知前序、中序遍历，求后序遍历</h2><p>例：</p>
+<p>前序遍历:         GDAFEMHZ</p>
+<p>中序遍历:         ADEFGHMZ</p>
+<p>步骤：<br>1 确定根,确定左子树，确定右子树。</p>
+<p>2 在左子树中递归。</p>
+<p>3 在右子树中递归。</p>
+<p>4 打印当前根。</p>
+<h3 id="画树求法："><a href="#画树求法：" class="headerlink" title="画树求法："></a>画树求法：</h3><ul>
+<li><p>第一步，根据前序遍历的特点，我们知道根结点为G</p>
+</li>
+<li><p>第二步，观察中序遍历ADEFGHMZ。其中root节点G左侧的ADEF必然是root的左子树，G右侧的HMZ必然是root的右子树。</p>
+</li>
+<li><p>第三步，观察左子树ADEF，左子树的中的根节点必然是大树的root的leftchild。在前序遍历中，大树的root的leftchild位于root之后，所以左子树的根节点为D。</p>
+</li>
+<li><p>第四步，同样的道理，root的右子树节点HMZ中的根节点也可以通过前序遍历求得。在前序遍历中，一定是先把root和root的所有左子树节点遍历完之后才会遍历右子树，并且遍历的左子树的第一个节点就是左子树的根节点。同理，遍历的右子树的第一个节点就是右子树的根节点。</p>
+</li>
+<li><p>第五步，观察发现，上面的过程是递归的。先找到当前树的根节点，然后划分为左子树，右子树，然后进入左子树重复上面的过程，然后进入右子树重复上面的过程。最后就可以还原一棵树了</p>
+</li>
+</ul>
+<p>根据后序的遍历规则，我们可以知道，后序遍历顺序为：AEFDHZMG</p>
+<h2 id="二、已知中序和后序遍历，求前序遍历"><a href="#二、已知中序和后序遍历，求前序遍历" class="headerlink" title="二、已知中序和后序遍历，求前序遍历"></a>二、已知中序和后序遍历，求前序遍历</h2><p>依然是上面的题，这次我们只给出中序和后序遍历：</p>
+<p>中序遍历:       ADEFGHMZ</p>
+<p>后序遍历:       AEFDHZMG</p>
+<h3 id="画树求法：-1"><a href="#画树求法：-1" class="headerlink" title="画树求法："></a>画树求法：</h3><p>第一步，根据后序遍历的特点，我们知道后序遍历最后一个结点即为根结点，即根结点为G。</p>
+<p>第二步，观察中序遍历ADEFGHMZ。其中root节点G左侧的ADEF必然是root的左子树，G右侧的HMZ必然是root的右子树。</p>
+<p>第三步，观察左子树ADEF，左子树的中的根节点必然是大树的root的leftchild。在前序遍历中，大树的root的leftchild位于root之后，所以左子树的根节点为D。</p>
+<p>第四步，同样的道理，root的右子树节点HMZ中的根节点也可以通过前序遍历求得。在前后序遍历中，一定是先把root和root的所有左子树节点遍历完之后才会遍历右子树，并且遍历的左子树的第一个节点就是左子树的根节点。同理，遍历的右子树的第一个节点就是右子树的根节点。</p>
+<p>第五步，观察发现，上面的过程是递归的。先找到当前树的根节点，然后划分为左子树，右子树，然后进入左子树重复上面的过程，然后进入右子树重复上面的过程。最后就可以还原一棵树了。</p>
+<p>** 大体步骤差不多，主要是遍历方式的不同</p>
+<p>输出结果：GDAFEMHZ</p>
+<h2 id="已知前序和后序求中序遍历"><a href="#已知前序和后序求中序遍历" class="headerlink" title="已知前序和后序求中序遍历"></a>已知前序和后序求中序遍历</h2><p>这样是不能得到一个唯一的二叉树出来的！</p>
+<p>参考代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">Code highlighting produced by Actipro CodeHighlighter (freeware)http://www.CodeHighlighter.com/--&gt;  1 /*</span><br><span class="line">    功能: 1.利用树的前序和中序序列创建树</span><br><span class="line">          2.利用树的后序和中序序列创建树</span><br><span class="line">*/</span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstring&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">char pre[50] = <span class="string">"ABDHLEKCFG"</span>;        //前序序列</span><br><span class="line">char mid[50] = <span class="string">"HLDBEKAFCG"</span>;        //中序序列</span><br><span class="line">char post[50] = <span class="string">"LHDKEBFGCA"</span>;        //后序序列</span><br><span class="line"></span><br><span class="line">typedef struct _Node</span><br><span class="line">&#123;</span><br><span class="line">    char v;</span><br><span class="line">    struct _Node *left;</span><br><span class="line">    struct _Node *right;</span><br><span class="line">&#125;Node, *PNode;</span><br><span class="line"></span><br><span class="line">void PostTravelTree(PNode pn);        //树的后序递归遍历</span><br><span class="line">void PreTravelTree(PNode pn);        //树的前序递归遍历</span><br><span class="line">void PreMidCreateTree(PNode &amp;pn, int i, int j, int len);        //利用前序中序序列创建树</span><br><span class="line">void PostMidCreateTree(PNode &amp;pn, int i, int j, int len);        //利用后序中序序列创建树</span><br><span class="line">int Position(char c);                //确定c在中序序列mid中的下标,假设树的各个节点的值各不相同</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() </span><br><span class="line">&#123; </span><br><span class="line">    PNode root1 = NULL, root2= NULL;</span><br><span class="line"></span><br><span class="line">    PreMidCreateTree(root1, 0, 0, strlen(mid));</span><br><span class="line">    PostTravelTree(root1); cout&lt;&lt;endl;    </span><br><span class="line">    PostMidCreateTree(root2, strlen(post)-1, 0, strlen(mid));</span><br><span class="line">    PreTravelTree(root2); cout&lt;&lt;endl;    </span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int Position(char c)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">return</span> strchr(mid,c)-mid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*  利用前序中序序列创建树,参考了http://hi.baidu.com/sulipol/blog/item/f01a20011dcce31a738b6524.html</span><br><span class="line"> *的实现,代码十分简洁,竟然只有短短的<span class="string">"令人发指"</span>的8行,递归实在太彪悍了!!!!!!!!!!!!!!!!!!!!!</span><br><span class="line"> *        i: 子树的前序序列字符串的首字符在pre[]中的下标</span><br><span class="line"> *        j: 子树的中序序列字符串的首字符在mid[]中的下标</span><br><span class="line"> *      len: 子树的字符串序列的长度</span><br><span class="line"> */</span><br><span class="line">void PreMidCreateTree(PNode &amp;pn, int i, int j, int len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= 0)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    </span><br><span class="line">    pn = new Node;</span><br><span class="line">    pn-&gt;v = pre[i];</span><br><span class="line">    int m = Position(pre[i]);</span><br><span class="line">    PreMidCreateTree(pn-&gt;left, i+1, j, m-j);            //m-j为左子树字符串长度</span><br><span class="line">    PreMidCreateTree(pn-&gt;right, i+(m-j)+1, m+1, len-1-(m-j));    //len-1-(m-j)为右子树字符串长度</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*  利用后序中序序列创建树</span><br><span class="line"> *        i: 子树的后序序列字符串的尾字符在post[]中的下标</span><br><span class="line"> *        j: 子树的中序序列字符串的首字符在mid[]中的下标</span><br><span class="line"> *      len: 子树的字符串序列的长度</span><br><span class="line"> */</span><br><span class="line">void PostMidCreateTree(PNode &amp;pn, int i, int j, int len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= 0)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line"></span><br><span class="line">    pn = new Node;</span><br><span class="line">    pn-&gt;v = post[i];</span><br><span class="line">    int m = Position(post[i]);</span><br><span class="line">    PostMidCreateTree(pn-&gt;left, i-1-(len-1-(m-j)), j, m-j);//注意参数:m-j左子树的长度,len-1-(m-j)右子树的长度</span><br><span class="line">    PostMidCreateTree(pn-&gt;right, i-1, m+1, len-1-(m-j));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PostTravelTree(PNode pn)        //后序递归遍历</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(pn)</span><br><span class="line">    &#123;</span><br><span class="line">        PostTravelTree(pn-&gt;left);    </span><br><span class="line">        PostTravelTree(pn-&gt;right);</span><br><span class="line">        cout&lt;&lt;pn-&gt;v&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PreTravelTree(PNode pn)        //前序递归遍历</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(pn)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;pn-&gt;v&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        PreTravelTree(pn-&gt;left);    </span><br><span class="line">        PreTravelTree(pn-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/16/二叉树前序、中序、后序遍历/">
+    <time datetime="2018-03-16T02:25:19.000Z" class="entry-date">
+        2018-03-16
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-数据结构之前缀、中缀、后缀表达式" class="post-数据结构之前缀、中缀、后缀表达式 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">数据结构之前缀、中缀、后缀表达式</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjetc363w0008ici22iccwzn6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>首先，举个例子吧：<br>(3 + 4) × 5 - 6 就是中缀表达式</p>
+<ul>
+<li>× + 3 4 5 6 前缀表达式<br>3 4 + 5 × 6 - 后缀表达式</li>
+</ul>
+<p><img src="/upload_image/图示.jpg" alt=""><br>如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。<br>** 二叉树前序、中序、后序遍历见文章<a href="http://readyfly.github.io">我的博客</a></p>
+<h2 id="中缀表达式"><a href="#中缀表达式" class="headerlink" title="中缀表达式"></a>中缀表达式</h2><p>操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。</p>
+<h2 id="前缀表达式"><a href="#前缀表达式" class="headerlink" title="前缀表达式"></a>前缀表达式</h2><p>前缀表达式的运算符位于操作数之前。</p>
+<ul>
+<li><p>从右至左扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算（栈顶元素 op 次顶元素），并将结果入栈；重复上述过程直到表达式最左端，最后运算得出的值即为表达式的结果。<br>例如前缀表达式“- × + 3 4 5 6”：<br>(1) 从右至左扫描，将6、5、4、3压入堆栈；<br>(2) 遇到+运算符，因此弹出3和4（3为栈顶元素，4为次顶元素，注意与后缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 接下来是×运算符，因此弹出7和5，计算出7×5=35，将35入栈；<br>(4) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
+</li>
+<li><p>将中缀转换为前缀<br>遵循以下步骤：</p>
+</li>
+</ul>
+<p>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从右至左扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为右括号“)”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的较高或相等，也将运算符压入S1；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是右括号“)”，则直接压入S1；<br>(5-2) 如果是左括号“(”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到右括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最左边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果即为中缀表达式对应的前缀表达式。<br>例如，将中缀表达式“1+((2+3)×4)-5”转换为前缀表达式的过程如下：</p>
+<p><img src="/upload_image/后缀.jpg" alt=""></p>
+<h2 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h2><p>后缀表达式与前缀表达式类似，只是运算符位于操作数之后</p>
+<ul>
+<li><p>例如后缀表达式“3 4 + 5 × 6 -”：<br>(1) 从左至右扫描，将3和4压入堆栈；<br>(2) 遇到+运算符，因此弹出4和3（4为栈顶元素，3为次顶元素，注意与前缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 将5入栈；<br>(4) 接下来是×运算符，因此弹出5和7，计算出7×5=35，将35入栈；<br>(5) 将6入栈；<br>(6) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
+</li>
+<li><p>将中缀表达式转换为后缀表达式：<br>与转换为前缀表达式相似，遵循以下步骤：<br>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从左至右扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为左括号“(”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的高，也将运算符压入S1（注意转换为前缀表达式时是优先级较高或相同，而这里则不包括相同的情况）；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是左括号“(”，则直接压入S1；<br>(5-2) 如果是右括号“)”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到左括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最右边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果的逆序即为中缀表达式对应的后缀表达式（转换为前缀表达式时不用逆序）。</p>
+</li>
+</ul>
+<p>例如，将中缀表达式“1+((2+3)×4)-5”转换为后缀表达式的过程如下：</p>
+<p><img src="/upload_image/中缀.jpg" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">
+    <time datetime="2018-03-16T02:02:24.000Z" class="entry-date">
+        2018-03-16
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-C-里非常实用的库函数" class="post-C-里非常实用的库函数 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -90,7 +238,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjeplqgys0000uki2xa8sfpab" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjetc362s0001ici2nhqmlemh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -179,7 +327,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjeplqh050005uki25mudoo3g" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjetc363m0005ici2gydru2li" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -229,7 +377,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjeplqgzz0004uki2wctjz3le" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjetc36460009ici2l4lhfa0i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -281,7 +429,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjeplqgzs0003uki20pwzrdm0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjetc363m0004ici2l264dt9q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -331,7 +479,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/hello-world/" data-id="cjeplqgza0001uki25tunedk7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/hello-world/" data-id="cjetc36280000ici2yrtn5yot" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -394,6 +542,14 @@
       <ul>
         
           <li>
+            <a href="/2018/03/16/二叉树前序、中序、后序遍历/">二叉树前序、中序、后序遍历</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">数据结构之前缀、中缀、后缀表达式</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/08/C-里非常实用的库函数/">C++里非常实用的库函数</a>
           </li>
         
@@ -405,14 +561,6 @@
             <a href="/2018/03/07/最短路径算法/">最短路径算法</a>
           </li>
         
-          <li>
-            <a href="/2018/03/07/如何快速配置hexo博客/">如何快速配置hexo博客</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/07/hello-world/">我的第一篇文章</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -422,7 +570,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -431,7 +579,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
     </div>
   </aside>
 
