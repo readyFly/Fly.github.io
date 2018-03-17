@@ -24,7 +24,7 @@
 <meta property="og:description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/mysql.jpg">
-<meta property="og:updated_time" content="2018-03-17T11:55:32.378Z">
+<meta property="og:updated_time" content="2018-03-17T12:24:53.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql学习笔记">
 <meta name="twitter:description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。">
@@ -97,7 +97,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjevcc5nx0002hgi2xn3ox74n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjevchrog0001k8i2jdwi51pl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -110,9 +110,9 @@
 <p>其中遇到的问题有：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1: Action 20:51:31: INSTALL. </span><br><span class="line">1: 1: MySQL Server 5.7 2: &#123;81B27388-3733-4B65-8D84-AD9C9113B498&#125; </span><br><span class="line">1: Action 20:51:31: FindRelatedProducts. Searching <span class="keyword">for</span> related applications</span><br><span class="line">1: Action 20:51:31: AppSearch. Searching <span class="keyword">for</span> installed applications</span><br><span class="line">1: Action 20:51:31: LaunchConditions. Evaluating launch conditions</span><br><span class="line">1: This application requires Visual Studio 2013 Redistributable. Please install the Redistributable <span class="keyword">then</span> run this installer again.</span><br><span class="line">1: 1: MySQL Server 5.7 2: &#123;81B27388-3733-4B65-8D84-AD9C9113B498&#125; 3: 3 </span><br><span class="line">1: The action <span class="string">'Install'</span> <span class="keyword">for</span> product <span class="string">'MySQL Server 5.7.20'</span> failed.</span><br></pre></td></tr></table></figure></p>
 <p><img src="/upload_image/mysql.jpg" alt=""></p>
 <p>报错信息有一句提示到：该应用程序需要Visual Studio 2013 Redistributable。请安装Redistributable并再次运行此安装程序。</p>
-<p>找了一下，在微软的官网上可以[下载]到(<a href="https://link.jianshu.com/?t=https://www.microsoft.com/zh-cn/download/details.aspx?id=40784" target="_blank" rel="noopener">https://link.jianshu.com/?t=https://www.microsoft.com/zh-cn/download/details.aspx?id=40784</a>)</p>
+<p>找了一下，在微软的官网上可以<a href="https://link.jianshu.com/?t=https://www.microsoft.com/zh-cn/download/details.aspx?id=40784" target="_blank" rel="noopener">下载</a>到</p>
 <p>重新安装Mysql即可安装成功。</p>
-<p>真的十分感谢[博客]！(<a href="https://www.jianshu.com/p/38dc7867446f" target="_blank" rel="noopener">https://www.jianshu.com/p/38dc7867446f</a>)</p>
+<p>真的十分感谢<a href="https://www.jianshu.com/p/38dc7867446f" target="_blank" rel="noopener">博客</a>！</p>
 <ul>
 <li>其中还看出现的问题的安装界面一直卡在一个地方，解决方法是：</li>
 </ul>
@@ -130,6 +130,7 @@ HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL
 <p>有可能部分注册表项没有，将能找到的mysql相关注册表项全删除，可以通过搜索MySQL关键字删除注册表项; </p>
 <pre><code>(5)重新安装MySQL就可以了。
 </code></pre><p>一篇感觉还挺详细的安装方法<a href="http://blog.csdn.net/qq_27093465/article/details/52807666" target="_blank" rel="noopener">博客</a></p>
+<p>安装完毕，接下来就开始学习之旅了！</p>
 
       
     </div><!-- .entry-content -->
