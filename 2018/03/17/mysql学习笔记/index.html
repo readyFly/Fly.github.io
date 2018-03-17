@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。" />
+  
 
   
   
@@ -11,15 +13,22 @@
   
   
   
-  <title>Tag: C++ 库函数 | readyFly</title>
+  <title>mysql学习笔记 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="readyFly">
-<meta property="og:url" content="https://readyfly.github.io/tags/C-库函数/index.html">
+  <meta name="description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql学习笔记">
+<meta property="og:url" content="https://readyfly.github.io/2018/03/17/mysql学习笔记/index.html">
 <meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/mysql.jpg">
+<meta property="og:updated_time" content="2018-03-17T11:55:32.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="readyFly">
+<meta name="twitter:title" content="mysql学习笔记">
+<meta name="twitter:description" content="最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/mysql.jpg">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -73,46 +82,87 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-mysql学习笔记" class="post-mysql学习笔记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/08/C-里非常实用的库函数/">C++里非常实用的库函数</a>
+    <h1 class="entry-title article-title">
+      mysql学习笔记
     </h1>
   
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/08/C-里非常实用的库函数/">
-    <time datetime="2018-03-08T13:18:41.000Z" class="entry-date">
-        2018-03-08
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjevbga6x00015wi2djzl3d4n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。<br><a id="more"></a></p>
+<p>分为两种方式：手动安装版的和自动安装版的，其中的问题真的好多。。。</p>
+<h2 id="手动安装版"><a href="#手动安装版" class="headerlink" title="手动安装版"></a>手动安装版</h2><p>链接<a href="http://sw.bos.baidu.com/sw-search-sp/software/dbe4e07f278c8/mysql-installer-community-5.7.20.msi" target="_blank" rel="noopener">安装链接</a></p>
+<p>详细的参见<a href="https://jingyan.baidu.com/article/a3f121e4a6eb67fc9052bbf4.html" target="_blank" rel="noopener">百度经验</a></p>
+<p>其中遇到的问题有：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1: Action 20:51:31: INSTALL. </span><br><span class="line">1: 1: MySQL Server 5.7 2: &#123;81B27388-3733-4B65-8D84-AD9C9113B498&#125; </span><br><span class="line">1: Action 20:51:31: FindRelatedProducts. Searching <span class="keyword">for</span> related applications</span><br><span class="line">1: Action 20:51:31: AppSearch. Searching <span class="keyword">for</span> installed applications</span><br><span class="line">1: Action 20:51:31: LaunchConditions. Evaluating launch conditions</span><br><span class="line">1: This application requires Visual Studio 2013 Redistributable. Please install the Redistributable <span class="keyword">then</span> run this installer again.</span><br><span class="line">1: 1: MySQL Server 5.7 2: &#123;81B27388-3733-4B65-8D84-AD9C9113B498&#125; 3: 3 </span><br><span class="line">1: The action <span class="string">'Install'</span> <span class="keyword">for</span> product <span class="string">'MySQL Server 5.7.20'</span> failed.</span><br></pre></td></tr></table></figure></p>
+<p><img src="/upload_image/mysql.jpg" alt=""></p>
+<p>报错信息有一句提示到：该应用程序需要Visual Studio 2013 Redistributable。请安装Redistributable并再次运行此安装程序。</p>
+<p>找了一下，在微软的官网上可以[下载]到(<a href="https://link.jianshu.com/?t=https://www.microsoft.com/zh-cn/download/details.aspx?id=40784" target="_blank" rel="noopener">https://link.jianshu.com/?t=https://www.microsoft.com/zh-cn/download/details.aspx?id=40784</a>)</p>
+<p>重新安装Mysql即可安装成功。</p>
+<p>真的十分感谢[博客]！(<a href="https://www.jianshu.com/p/38dc7867446f" target="_blank" rel="noopener">https://www.jianshu.com/p/38dc7867446f</a>)</p>
+<ul>
+<li>其中还看出现的问题的安装界面一直卡在一个地方，解决方法是：</li>
+</ul>
+<p>1、C:\Windows\system32&gt;net start mysql<br>发生系统错误 2。  </p>
+<p>系统找不到指定的文件。 </p>
+<p>参见博客<a href="http://blog.csdn.net/mhmyqn/article/details/17043921" target="_blank" rel="noopener">博客</a></p>
+<p>2、关于卸载了重新安装的时候总是会卡住，mysql 安装到最后一步时,一直会失败会卡住的问题：</p>
+<p>主要可以从以下几个方面解决：</p>
+<ul>
+<li>安装时最后一步出现服务器未响应的解决办法 ​​​​<br>  (1)在控制面板–&gt;程序–&gt;卸载mySQL<br>  (2)在相应盘下删除MySQL文件<br>  (3)C盘的programData目录下显示隐藏文件，将MySQL文件删除。<br>  (4)删除注册表中的三项： <pre><code>HKEY_LOCAL_MACHINE/SYSTEM/ControlSet001/Services/Eventlog/Application/MySQL 
+HKEY_LOCAL_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL 
+HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL
+</code></pre></li>
+</ul>
+<p>有可能部分注册表项没有，将能找到的mysql相关注册表项全删除，可以通过搜索MySQL关键字删除注册表项; </p>
+<pre><code>(5)重新安装MySQL就可以了。
+</code></pre><p>一篇感觉还挺详细的安装方法<a href="http://blog.csdn.net/qq_27093465/article/details/52807666" target="_blank" rel="noopener">博客</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/17/mysql学习笔记/">
+    <time datetime="2018-03-17T11:35:10.000Z" class="entry-date">
+        2018-03-17
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-库函数/">C++ 库函数</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 
     </footer>
 </article>
-  
-  
-    </div></section>
-  
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/03/16/二叉树前序、中序、后序遍历/" rel="next">二叉树前序、中序、后序遍历 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
