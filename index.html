@@ -75,6 +75,79 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-双向循环链表" class="post-双向循环链表 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/03/20/双向循环链表/">双向循环链表</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjez1c6ab0001uci2v16a5ui5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>这次复习一下双向循环链表，真的经常用到……</p>
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><p>双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表,其中的结点如下：</p>
+<p><img src="/upload_image/dnode.jpg" alt=""></p>
+<p>其中，Data为结点存储的数据元素，prev指针指向该结点的前驱结点，next指针指向该结点的后继结点。双向链表通常含有一个表头结点，亦称哨兵结点(Sentinel Node)，用于简化插入和删除等操作。带头结点的非空双向链表如下图所示：</p>
+<p><img src="/upload_image/dnode2.jpg" alt=""></p>
+<p>接下来看一下链表的构造及其使用方法：</p>
+<ul>
+<li>双向链表的构造<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Node pNode;</span><br><span class="line">typedef struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct Node *prior, *next;</span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>*初始化双向循环链表（head的头尾均指向本身）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void InitList(pNode **head)</span><br><span class="line">&#123;</span><br><span class="line">    pNode *p;</span><br><span class="line">    *head = (pNode *)malloc(sizeof(pNode));</span><br><span class="line">    <span class="keyword">if</span> ((*head) == NULL)</span><br><span class="line">        <span class="built_in">exit</span>(0);</span><br><span class="line">    (*head)-&gt;next = (*head);</span><br><span class="line">    (*head)-&gt;prior = (*head);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查找操作：</li>
+</ul>
+<p>在带表头的双向链表中查找数据域为一特定值的某个结点时，可从表头结点开始向后依次匹配各结点数据域的值，若与特定值相同则返回指向该结点的指针，否则继续往后遍历直至表尾。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>*前插操作：</p>
+<p><img src="/upload_image/insert.jpg" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void DInsertBefore(pNode *p,typedef x)</span><br><span class="line">      &#123;</span><br><span class="line">      	//在带头结点的双链表中，将值为x的新结点插入*p之前，设p≠NULL</span><br><span class="line">        pNode *s=malloc(sizeof(pNode));</span><br><span class="line">        //①（为链表结点动态分配内存）</span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        //② （将数据X的值赋给s-&gt;data)</span><br><span class="line">        s-&gt;prior=p-&gt;prior;</span><br><span class="line">        //③ (将结点p的前驱的值赋给s的前驱 使s的前驱指向原来p之前的结点)</span><br><span class="line">        s-&gt;next=p;</span><br><span class="line">        //④ （使s的后驱指向p 经过2.3.4步结点s各个部分赋值完毕）</span><br><span class="line">        p-&gt;prior-&gt;next=s;</span><br><span class="line">        //⑤ （原来p之前的结点的后驱指向s）</span><br><span class="line">        p-&gt;prior=s;</span><br><span class="line">        //⑥  （使p的前驱指向s）</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除操作：</li>
+</ul>
+<p><img src="/upload_image/del.jpg" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void DDeleteNode(DListNode *p)</span><br><span class="line">     &#123;</span><br><span class="line">     	  //在带头结点的双链表中，删除结点*p，设*p为非终端结点</span><br><span class="line">         p-&gt;prior-&gt;next=p-&gt;next;</span><br><span class="line">         //① （使p的前一个结点的后驱直接指向 原来的p的后驱）</span><br><span class="line">         p-&gt;next-&gt;prior=p-&gt;prior;</span><br><span class="line">         //② （使p的后一个结点的前驱 直接为原来p的前一个结点）</span><br><span class="line">         free(p);</span><br><span class="line">         //③ （释放p的内存 这个很重要 特别是处理大量数据时）</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>注意：在双链表中插入和删除必须同时修改两个方向上的指针！</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>双向链表通常采用带表头结点的循环链表形式，即双向循环链表。双向循环链表在双向链表的基础上，将表头结点的前驱指针指向尾结点，尾结点的后驱指针指向头结点，首尾相连形成一个双向环。</p>
+<p><img src="/upload_image/dp.png" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/20/双向循环链表/">
+    <time datetime="2018-03-20T01:48:46.000Z" class="entry-date">
+        2018-03-20
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双向循环链表/">双向循环链表</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-mysql学习笔记2" class="post-mysql学习笔记2 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -90,7 +163,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjevchrp60004k8i2mv8h0c6j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjez1c6cu000huci2stqeo7rf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -163,7 +236,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjevchrog0001k8i2jdwi51pl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjez1c6az0004uci2z8ldbzuh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -213,7 +286,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/二叉树前序、中序、后序遍历/" data-id="cjevchrpc0005k8i2xmzc09n6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/二叉树前序、中序、后序遍历/" data-id="cjez1c69i0000uci2ndc0p4yl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -292,7 +365,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjevchrq1000bk8i2antt61ku" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjez1c6ds000nuci2luifvl5t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -361,7 +434,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjevchrny0000k8i20eqqub0m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjez1c6cc000duci2ay7i905h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -450,7 +523,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjevchrpt0009k8i2h7cgppwx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjez1c6co000guci2twfv2rlj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -500,7 +573,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjevchrq7000dk8i28bybg1xc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjez1c6ci000fuci25005fiad" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -552,7 +625,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjevchrpl0008k8i22w8hrppi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjez1c6at0003uci2htjzuag4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -602,7 +675,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/hello-world/" data-id="cjevchroy0003k8i2mooxkfom" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/hello-world/" data-id="cjez1c6c6000cuci28zo94j5f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -665,6 +738,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/20/双向循环链表/">双向循环链表</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/17/mysql学习笔记2/">mysql学习笔记2</a>
           </li>
         
@@ -680,10 +757,6 @@
             <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">数据结构之前缀、中缀、后缀表达式</a>
           </li>
         
-          <li>
-            <a href="/2018/03/08/C-里非常实用的库函数/">C++里非常实用的库函数</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -693,7 +766,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -702,7 +775,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
     </div>
   </aside>
 
