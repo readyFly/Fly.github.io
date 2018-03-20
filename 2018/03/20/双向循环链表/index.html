@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://readyfly.github.io/upload_image/insert.jpg">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/del.jpg">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/dp.png">
-<meta property="og:updated_time" content="2018-03-20T02:23:21.078Z">
+<meta property="og:updated_time" content="2018-03-20T02:50:01.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="双向循环链表">
 <meta name="twitter:description" content="这次复习一下双向循环链表，真的经常用到…… 双链表双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表,其中的结点如下：  其中，Data为结点存储的数据元素，prev指针指向该结点的前驱结点，next指针指向该结点的后继结点。双向链表通常含有一个表头">
@@ -104,7 +104,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjez1c6ab0001uci2v16a5ui5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjez2a8d1000800i25xjebkqm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -117,17 +117,20 @@
 <p><img src="/upload_image/dnode2.jpg" alt=""></p>
 <p>接下来看一下链表的构造及其使用方法：</p>
 <ul>
-<li>双向链表的构造<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Node pNode;</span><br><span class="line">typedef struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct Node *prior, *next;</span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
+<li><p>双向链表的构造</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Node pNode;</span><br><span class="line">typedef struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct Node *prior, *next;</span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化双向循环链表（head的头尾均指向本身）</p>
 </li>
 </ul>
-<p>*初始化双向循环链表（head的头尾均指向本身）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void InitList(pNode **head)</span><br><span class="line">&#123;</span><br><span class="line">    pNode *p;</span><br><span class="line">    *head = (pNode *)malloc(sizeof(pNode));</span><br><span class="line">    <span class="keyword">if</span> ((*head) == NULL)</span><br><span class="line">        <span class="built_in">exit</span>(0);</span><br><span class="line">    (*head)-&gt;next = (*head);</span><br><span class="line">    (*head)-&gt;prior = (*head);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>查找操作：</li>
 </ul>
 <p>在带表头的双向链表中查找数据域为一特定值的某个结点时，可从表头结点开始向后依次匹配各结点数据域的值，若与特定值相同则返回指向该结点的指针，否则继续往后遍历直至表尾。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>*前插操作：</p>
+<ul>
+<li>前插操作：</li>
+</ul>
 <p><img src="/upload_image/insert.jpg" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void DInsertBefore(pNode *p,typedef x)</span><br><span class="line">      &#123;</span><br><span class="line">      	//在带头结点的双链表中，将值为x的新结点插入*p之前，设p≠NULL</span><br><span class="line">        pNode *s=malloc(sizeof(pNode));</span><br><span class="line">        //①（为链表结点动态分配内存）</span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        //② （将数据X的值赋给s-&gt;data)</span><br><span class="line">        s-&gt;prior=p-&gt;prior;</span><br><span class="line">        //③ (将结点p的前驱的值赋给s的前驱 使s的前驱指向原来p之前的结点)</span><br><span class="line">        s-&gt;next=p;</span><br><span class="line">        //④ （使s的后驱指向p 经过2.3.4步结点s各个部分赋值完毕）</span><br><span class="line">        p-&gt;prior-&gt;next=s;</span><br><span class="line">        //⑤ （原来p之前的结点的后驱指向s）</span><br><span class="line">        p-&gt;prior=s;</span><br><span class="line">        //⑥  （使p的前驱指向s）</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <ul>
