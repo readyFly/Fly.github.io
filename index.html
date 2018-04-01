@@ -90,13 +90,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjfg76o9n0005fwi2g910al16" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjfg7iqth0005c4i2ruyoaakv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>最近遇到的一些干货知识整理</p>
+        <p>最近用到的一些python sklearn机器学习干货知识整理</p>
         
           <p class="article-more-link">
             <a href="/2018/04/01/python学习/#more" class="more-link">More <span class="meta-nav">→</span></a>
@@ -140,44 +140,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjfg76oa90009fwi2ke001jgp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjfg7iqu00009c4i2n2xv0cg0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>这次复习一下双向循环链表，真的经常用到……</p>
-<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><p>双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表,其中的结点如下：</p>
-<p><img src="/upload_image/dnode.jpg" alt=""></p>
-<p>其中，Data为结点存储的数据元素，prev指针指向该结点的前驱结点，next指针指向该结点的后继结点。双向链表通常含有一个表头结点，亦称哨兵结点(Sentinel Node)，用于简化插入和删除等操作。带头结点的非空双向链表如下图所示：</p>
-<p><img src="/upload_image/dnode2.jpg" alt=""></p>
-<p>接下来看一下链表的构造及其使用方法：</p>
-<ul>
-<li><p>双向链表的构造</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Node pNode;</span><br><span class="line">typedef struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int data;</span><br><span class="line">    struct Node *prior, *next;</span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化双向循环链表（head的头尾均指向本身）</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void InitList(pNode **head)</span><br><span class="line">&#123;</span><br><span class="line">    pNode *p;</span><br><span class="line">    *head = (pNode *)malloc(sizeof(pNode));</span><br><span class="line">    <span class="keyword">if</span> ((*head) == NULL)</span><br><span class="line">        <span class="built_in">exit</span>(0);</span><br><span class="line">    (*head)-&gt;next = (*head);</span><br><span class="line">    (*head)-&gt;prior = (*head);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查找操作：</li>
-</ul>
-<p>在带表头的双向链表中查找数据域为一特定值的某个结点时，可从表头结点开始向后依次匹配各结点数据域的值，若与特定值相同则返回指向该结点的指针，否则继续往后遍历直至表尾。</p>
-<ul>
-<li>前插操作：</li>
-</ul>
-<p><img src="/upload_image/insert.jpg" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void DInsertBefore(pNode *p,typedef x)</span><br><span class="line">      &#123;</span><br><span class="line">      	//在带头结点的双链表中，将值为x的新结点插入*p之前，设p≠NULL</span><br><span class="line">        pNode *s=malloc(sizeof(pNode));</span><br><span class="line">        //①（为链表结点动态分配内存）</span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        //② （将数据X的值赋给s-&gt;data)</span><br><span class="line">        s-&gt;prior=p-&gt;prior;</span><br><span class="line">        //③ (将结点p的前驱的值赋给s的前驱 使s的前驱指向原来p之前的结点)</span><br><span class="line">        s-&gt;next=p;</span><br><span class="line">        //④ （使s的后驱指向p 经过2.3.4步结点s各个部分赋值完毕）</span><br><span class="line">        p-&gt;prior-&gt;next=s;</span><br><span class="line">        //⑤ （原来p之前的结点的后驱指向s）</span><br><span class="line">        p-&gt;prior=s;</span><br><span class="line">        //⑥  （使p的前驱指向s）</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除操作：</li>
-</ul>
-<p><img src="/upload_image/del.jpg" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void DDeleteNode(DListNode *p)</span><br><span class="line">     &#123;</span><br><span class="line">     	  //在带头结点的双链表中，删除结点*p，设*p为非终端结点</span><br><span class="line">         p-&gt;prior-&gt;next=p-&gt;next;</span><br><span class="line">         //① （使p的前一个结点的后驱直接指向 原来的p的后驱）</span><br><span class="line">         p-&gt;next-&gt;prior=p-&gt;prior;</span><br><span class="line">         //② （使p的后一个结点的前驱 直接为原来p的前一个结点）</span><br><span class="line">         free(p);</span><br><span class="line">         //③ （释放p的内存 这个很重要 特别是处理大量数据时）</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>注意：在双链表中插入和删除必须同时修改两个方向上的指针！</p>
-<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>双向链表通常采用带表头结点的循环链表形式，即双向循环链表。双向循环链表在双向链表的基础上，将表头结点的前驱指针指向尾结点，尾结点的后驱指针指向头结点，首尾相连形成一个双向环。</p>
-<p><img src="/upload_image/dp.png" alt=""></p>
-
+        <p>这次复习一下双向循环链表，真的经常用到……<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/20/双向循环链表/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -216,44 +190,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjfg76o9g0004fwi29np2mu8w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjfg7iqta0004c4i2uatnfosx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>安装配置好后就开始正式的学习了！</p>
-<h2 id="连接退出"><a href="#连接退出" class="headerlink" title="连接退出"></a>连接退出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">Enter password:******</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS 名称 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>如果数据库不存在则创建，存在则不创建。</li>
-<li>创建<strong>_</strong>数据库，并设定编码集为utf8</li>
-</ol>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use RUNOOB;</span><br></pre></td></tr></table></figure>
-<p>执行以上命令后，你就已经成功选择了数据库，在后续的操作中都会在此数据库中执行。</p>
-<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (column_name column_type);</span><br></pre></td></tr></table></figure>
-<p>例如：（例子来自<a href="http://www.runoob.com/mysql/mysql-create-tables.html" target="_blank" rel="noopener">菜鸟教程</a>）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `runoob_tbl`(</span><br><span class="line">   `runoob_id` INT UNSIGNED AUTO_INCREMENT,</span><br><span class="line">   `runoob_title` VARCHAR(100) NOT NULL,</span><br><span class="line">   `runoob_author` VARCHAR(40) NOT NULL,</span><br><span class="line">   `submission_date` DATE,</span><br><span class="line">   PRIMARY KEY ( `runoob_id` )</span><br><span class="line">)ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure></p>
-<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE table_name ;</span><br></pre></td></tr></table></figure>
-<p>在mysql&gt;命令提示窗口中删除数据表SQL语句为 DROP TABLE ：</p>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
-<p>如果数据是字符型，必须使用单引号或者双引号，如：”value”。</p>
-<p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use RUNOOB;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; INSERT INTO runoob_tbl </span><br><span class="line">    -&gt; (runoob_title, runoob_author, submission_date)</span><br><span class="line">    -&gt; VALUES</span><br><span class="line">    -&gt; (<span class="string">"学习 PHP"</span>, <span class="string">"菜鸟教程"</span>, NOW());</span><br></pre></td></tr></table></figure>
-<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name,column_name</span><br><span class="line">FROM table_name</span><br><span class="line">[WHERE Clause]</span><br><span class="line">[LIMIT N][ OFFSET M]</span><br></pre></td></tr></table></figure>
-<h2 id="WHERE-子句-读取数据"><a href="#WHERE-子句-读取数据" class="headerlink" title="WHERE 子句 读取数据"></a>WHERE 子句 读取数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN FROM table_name1, table_name2...</span><br><span class="line">[WHERE condition1 [AND [OR]] condition2.....</span><br></pre></td></tr></table></figure>
-<h2 id="UPDATE-查询-更新数据"><a href="#UPDATE-查询-更新数据" class="headerlink" title="UPDATE 查询 更新数据"></a>UPDATE 查询 更新数据</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name SET field1=new-value1, field2=new-value2</span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></table></figure>
-<p>注：如果更新的本来就不存在，则等于没操作。</p>
-<h2 id="DELETE-语句-删除-MySQL-数据表中的记录"><a href="#DELETE-语句-删除-MySQL-数据表中的记录" class="headerlink" title="DELETE 语句 删除 MySQL 数据表中的记录"></a>DELETE 语句 删除 MySQL 数据表中的记录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name [WHERE Clause]</span><br></pre></td></tr></table></figure>
-<p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM runoob_tbl WHERE runoob_id=3;</span><br></pre></td></tr></table></figure>
-<p>注：drop 语句删除数据库！</p>
-<p>到现在已经知道了在 MySQL 中使用 SQL SELECT 命令来读取数据， 同时我们可以在 SELECT 语句中使用 WHERE 子句来获取指定的记录。</p>
-<p>WHERE 子句中可以使用等号 = 来设定获取数据的条件，如 “runoob_author = ‘RUNOOB.COM’”。</p>
-<p>但是有时候我们需要获取 runoob_author 字段含有 “COM” 字符的所有记录，这时我们就需要在 WHERE 子句中使用 SQL LIKE 子句。<br>SQL LIKE 子句中使用百分号 %字符来表示任意字符，类似于UNIX或正则表达式中的星号 *。如果没有使用百分号 %, LIKE 子句与等号一样。</p>
-<h2 id="link语句"><a href="#link语句" class="headerlink" title="link语句"></a>link语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE field1 LIKE condition1 [AND [OR]] filed2 = <span class="string">'somevalue'</span></span><br></pre></td></tr></table></figure>
-<p><img src="/upload_image/mysql2.jpg" alt=""></p>
-<p>今天就到这里吧！未完待续……</p>
-
+        <p>安装配置mysql好后就开始正式的学习了！<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/17/mysql学习笔记2/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -289,7 +237,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjfg76o980003fwi2ir897iie" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjfg7iqt20003c4i2ie5zlkcw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -339,47 +287,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/二叉树前序、中序、后序遍历/" data-id="cjfg76o9y0008fwi2vbu6otmr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/二叉树前序、中序、后序遍历/" data-id="cjfg7iqtr0008c4i2srxza3c0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>首先得知道什么是前序，中序，后序遍历：</p>
-<p>前序遍历：<br>    1.访问根节点<br>    2.前序遍历左子树<br>    3.前序遍历右子树<br>中序遍历：<br>    1.中序遍历左子树<br>    2.访问根节点<br>    3.中序遍历右子树<br>后序遍历：<br>    1.后序遍历左子树<br>    2.后序遍历右子树<br>    3.访问根节点</p>
-<h2 id="一、已知前序、中序遍历，求后序遍历"><a href="#一、已知前序、中序遍历，求后序遍历" class="headerlink" title="一、已知前序、中序遍历，求后序遍历"></a>一、已知前序、中序遍历，求后序遍历</h2><p>例：</p>
-<p>前序遍历:         GDAFEMHZ</p>
-<p>中序遍历:         ADEFGHMZ</p>
-<p>步骤：<br>1 确定根,确定左子树，确定右子树。</p>
-<p>2 在左子树中递归。</p>
-<p>3 在右子树中递归。</p>
-<p>4 打印当前根。</p>
-<h3 id="画树求法："><a href="#画树求法：" class="headerlink" title="画树求法："></a>画树求法：</h3><ul>
-<li><p>第一步，根据前序遍历的特点，我们知道根结点为G</p>
-</li>
-<li><p>第二步，观察中序遍历ADEFGHMZ。其中root节点G左侧的ADEF必然是root的左子树，G右侧的HMZ必然是root的右子树。</p>
-</li>
-<li><p>第三步，观察左子树ADEF，左子树的中的根节点必然是大树的root的leftchild。在前序遍历中，大树的root的leftchild位于root之后，所以左子树的根节点为D。</p>
-</li>
-<li><p>第四步，同样的道理，root的右子树节点HMZ中的根节点也可以通过前序遍历求得。在前序遍历中，一定是先把root和root的所有左子树节点遍历完之后才会遍历右子树，并且遍历的左子树的第一个节点就是左子树的根节点。同理，遍历的右子树的第一个节点就是右子树的根节点。</p>
-</li>
-<li><p>第五步，观察发现，上面的过程是递归的。先找到当前树的根节点，然后划分为左子树，右子树，然后进入左子树重复上面的过程，然后进入右子树重复上面的过程。最后就可以还原一棵树了</p>
-</li>
-</ul>
-<p>根据后序的遍历规则，我们可以知道，后序遍历顺序为：AEFDHZMG</p>
-<h2 id="二、已知中序和后序遍历，求前序遍历"><a href="#二、已知中序和后序遍历，求前序遍历" class="headerlink" title="二、已知中序和后序遍历，求前序遍历"></a>二、已知中序和后序遍历，求前序遍历</h2><p>依然是上面的题，这次我们只给出中序和后序遍历：</p>
-<p>中序遍历:       ADEFGHMZ</p>
-<p>后序遍历:       AEFDHZMG</p>
-<h3 id="画树求法：-1"><a href="#画树求法：-1" class="headerlink" title="画树求法："></a>画树求法：</h3><p>第一步，根据后序遍历的特点，我们知道后序遍历最后一个结点即为根结点，即根结点为G。</p>
-<p>第二步，观察中序遍历ADEFGHMZ。其中root节点G左侧的ADEF必然是root的左子树，G右侧的HMZ必然是root的右子树。</p>
-<p>第三步，观察左子树ADEF，左子树的中的根节点必然是大树的root的leftchild。在前序遍历中，大树的root的leftchild位于root之后，所以左子树的根节点为D。</p>
-<p>第四步，同样的道理，root的右子树节点HMZ中的根节点也可以通过前序遍历求得。在前后序遍历中，一定是先把root和root的所有左子树节点遍历完之后才会遍历右子树，并且遍历的左子树的第一个节点就是左子树的根节点。同理，遍历的右子树的第一个节点就是右子树的根节点。</p>
-<p>第五步，观察发现，上面的过程是递归的。先找到当前树的根节点，然后划分为左子树，右子树，然后进入左子树重复上面的过程，然后进入右子树重复上面的过程。最后就可以还原一棵树了。</p>
-<p>** 大体步骤差不多，主要是遍历方式的不同</p>
-<p>输出结果：GDAFEMHZ</p>
-<h2 id="已知前序和后序求中序遍历"><a href="#已知前序和后序求中序遍历" class="headerlink" title="已知前序和后序求中序遍历"></a>已知前序和后序求中序遍历</h2><p>这样是不能得到一个唯一的二叉树出来的！</p>
-<p>参考代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">Code highlighting produced by Actipro CodeHighlighter (freeware)http://www.CodeHighlighter.com/--&gt;  1 /*</span><br><span class="line">    功能: 1.利用树的前序和中序序列创建树</span><br><span class="line">          2.利用树的后序和中序序列创建树</span><br><span class="line">*/</span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstring&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">char pre[50] = <span class="string">"ABDHLEKCFG"</span>;        //前序序列</span><br><span class="line">char mid[50] = <span class="string">"HLDBEKAFCG"</span>;        //中序序列</span><br><span class="line">char post[50] = <span class="string">"LHDKEBFGCA"</span>;        //后序序列</span><br><span class="line"></span><br><span class="line">typedef struct _Node</span><br><span class="line">&#123;</span><br><span class="line">    char v;</span><br><span class="line">    struct _Node *left;</span><br><span class="line">    struct _Node *right;</span><br><span class="line">&#125;Node, *PNode;</span><br><span class="line"></span><br><span class="line">void PostTravelTree(PNode pn);        //树的后序递归遍历</span><br><span class="line">void PreTravelTree(PNode pn);        //树的前序递归遍历</span><br><span class="line">void PreMidCreateTree(PNode &amp;pn, int i, int j, int len);        //利用前序中序序列创建树</span><br><span class="line">void PostMidCreateTree(PNode &amp;pn, int i, int j, int len);        //利用后序中序序列创建树</span><br><span class="line">int Position(char c);                //确定c在中序序列mid中的下标,假设树的各个节点的值各不相同</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() </span><br><span class="line">&#123; </span><br><span class="line">    PNode root1 = NULL, root2= NULL;</span><br><span class="line"></span><br><span class="line">    PreMidCreateTree(root1, 0, 0, strlen(mid));</span><br><span class="line">    PostTravelTree(root1); cout&lt;&lt;endl;    </span><br><span class="line">    PostMidCreateTree(root2, strlen(post)-1, 0, strlen(mid));</span><br><span class="line">    PreTravelTree(root2); cout&lt;&lt;endl;    </span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int Position(char c)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">return</span> strchr(mid,c)-mid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*  利用前序中序序列创建树,参考了http://hi.baidu.com/sulipol/blog/item/f01a20011dcce31a738b6524.html</span><br><span class="line"> *的实现,代码十分简洁,竟然只有短短的<span class="string">"令人发指"</span>的8行,递归实在太彪悍了!!!!!!!!!!!!!!!!!!!!!</span><br><span class="line"> *        i: 子树的前序序列字符串的首字符在pre[]中的下标</span><br><span class="line"> *        j: 子树的中序序列字符串的首字符在mid[]中的下标</span><br><span class="line"> *      len: 子树的字符串序列的长度</span><br><span class="line"> */</span><br><span class="line">void PreMidCreateTree(PNode &amp;pn, int i, int j, int len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= 0)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    </span><br><span class="line">    pn = new Node;</span><br><span class="line">    pn-&gt;v = pre[i];</span><br><span class="line">    int m = Position(pre[i]);</span><br><span class="line">    PreMidCreateTree(pn-&gt;left, i+1, j, m-j);            //m-j为左子树字符串长度</span><br><span class="line">    PreMidCreateTree(pn-&gt;right, i+(m-j)+1, m+1, len-1-(m-j));    //len-1-(m-j)为右子树字符串长度</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*  利用后序中序序列创建树</span><br><span class="line"> *        i: 子树的后序序列字符串的尾字符在post[]中的下标</span><br><span class="line"> *        j: 子树的中序序列字符串的首字符在mid[]中的下标</span><br><span class="line"> *      len: 子树的字符串序列的长度</span><br><span class="line"> */</span><br><span class="line">void PostMidCreateTree(PNode &amp;pn, int i, int j, int len)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= 0)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line"></span><br><span class="line">    pn = new Node;</span><br><span class="line">    pn-&gt;v = post[i];</span><br><span class="line">    int m = Position(post[i]);</span><br><span class="line">    PostMidCreateTree(pn-&gt;left, i-1-(len-1-(m-j)), j, m-j);//注意参数:m-j左子树的长度,len-1-(m-j)右子树的长度</span><br><span class="line">    PostMidCreateTree(pn-&gt;right, i-1, m+1, len-1-(m-j));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PostTravelTree(PNode pn)        //后序递归遍历</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(pn)</span><br><span class="line">    &#123;</span><br><span class="line">        PostTravelTree(pn-&gt;left);    </span><br><span class="line">        PostTravelTree(pn-&gt;right);</span><br><span class="line">        cout&lt;&lt;pn-&gt;v&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PreTravelTree(PNode pn)        //前序递归遍历</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(pn)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;pn-&gt;v&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        PreTravelTree(pn-&gt;left);    </span><br><span class="line">        PreTravelTree(pn-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>二叉树前序、中序、后序遍历<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/16/二叉树前序、中序、后序遍历/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -418,37 +337,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjfg76ob5000ffwi2iddlyezs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjfg7iqus000fc4i2jtpl5rjt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>首先，举个例子吧：<br>(3 + 4) × 5 - 6 就是中缀表达式</p>
-<ul>
-<li>× + 3 4 5 6 前缀表达式<br>3 4 + 5 × 6 - 后缀表达式</li>
-</ul>
-<p><img src="/upload_image/图示.jpg" alt=""><br>如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。<br>** 二叉树前序、中序、后序遍历见文章<a href="http://readyfly.github.io">我的博客</a></p>
-<h2 id="中缀表达式"><a href="#中缀表达式" class="headerlink" title="中缀表达式"></a>中缀表达式</h2><p>操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。</p>
-<h2 id="前缀表达式"><a href="#前缀表达式" class="headerlink" title="前缀表达式"></a>前缀表达式</h2><p>前缀表达式的运算符位于操作数之前。</p>
-<ul>
-<li><p>从右至左扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算（栈顶元素 op 次顶元素），并将结果入栈；重复上述过程直到表达式最左端，最后运算得出的值即为表达式的结果。<br>例如前缀表达式“- × + 3 4 5 6”：<br>(1) 从右至左扫描，将6、5、4、3压入堆栈；<br>(2) 遇到+运算符，因此弹出3和4（3为栈顶元素，4为次顶元素，注意与后缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 接下来是×运算符，因此弹出7和5，计算出7×5=35，将35入栈；<br>(4) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
-</li>
-<li><p>将中缀转换为前缀<br>遵循以下步骤：</p>
-</li>
-</ul>
-<p>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从右至左扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为右括号“)”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的较高或相等，也将运算符压入S1；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是右括号“)”，则直接压入S1；<br>(5-2) 如果是左括号“(”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到右括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最左边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果即为中缀表达式对应的前缀表达式。<br>例如，将中缀表达式“1+((2+3)×4)-5”转换为前缀表达式的过程如下：</p>
-<p><img src="/upload_image/后缀.jpg" alt=""></p>
-<h2 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h2><p>后缀表达式与前缀表达式类似，只是运算符位于操作数之后</p>
-<ul>
-<li><p>例如后缀表达式“3 4 + 5 × 6 -”：<br>(1) 从左至右扫描，将3和4压入堆栈；<br>(2) 遇到+运算符，因此弹出4和3（4为栈顶元素，3为次顶元素，注意与前缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 将5入栈；<br>(4) 接下来是×运算符，因此弹出5和7，计算出7×5=35，将35入栈；<br>(5) 将6入栈；<br>(6) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
-</li>
-<li><p>将中缀表达式转换为后缀表达式：<br>与转换为前缀表达式相似，遵循以下步骤：<br>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从左至右扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为左括号“(”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的高，也将运算符压入S1（注意转换为前缀表达式时是优先级较高或相同，而这里则不包括相同的情况）；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是左括号“(”，则直接压入S1；<br>(5-2) 如果是右括号“)”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到左括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最右边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果的逆序即为中缀表达式对应的后缀表达式（转换为前缀表达式时不用逆序）。</p>
-</li>
-</ul>
-<p>例如，将中缀表达式“1+((2+3)×4)-5”转换为后缀表达式的过程如下：</p>
-<p><img src="/upload_image/中缀.jpg" alt=""></p>
-
+        <p>数据结构之前缀、中缀、后缀表达式<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -487,57 +387,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjfg76o7z0000fwi23usvb2s1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/08/C-里非常实用的库函数/" data-id="cjfg7iqrw0000c4i2jb9br681" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="include里的函数"><a href="#include里的函数" class="headerlink" title="#include里的函数"></a>#include<algorithm>里的函数</algorithm></h2><p>#include<algorithm></algorithm></p>
-<ul>
-<li>非修改性序列操作（12个）：</li>
-</ul>
-<p>循环    对序列中的每个元素执行某操作    for_each()<br>查找    在序列中找出某个值的第一次出现的位置    find()<br>在序列中找出符合某谓词的第一个元素    find_if()<br>在序列中找出一子序列的最后一次出现的位置    find_end()<br>在序列中找出第一次出现指定值集中之值的位置    find_first_of()<br>在序列中找出相邻的一对值    adjacent_find()<br>计数    在序列中统计某个值出现的次数    count()<br>在序列中统计与某谓词匹配的次数    count_if()<br>比较    找出两个序列相异的第一个元素    mismatch()<br>两个序列中的对应元素都相同时为真    equal()<br>搜索    在序列中找出一子序列的第一次出现的位置    search()<br>在序列中找出一值的连续n次出现的位置    search_n()</p>
-<ul>
-<li>修改性序列操作（27个）</li>
-</ul>
-<p>复制    从序列的第一个元素起进行复制    copy()<br>从序列的最后一个元素起进行复制    copy_backward()<br>交换    交换两个元素    swap()<br>交换指定范围的元素    swap_ranges()<br>交换由迭代器所指的两个元素    iter_swap()<br>变换    将某操作应用于指定范围的每个元素    transform()<br>替换    用一个给定值替换一些值    replace()<br>替换满足谓词的一些元素    replace_if()<br>复制序列时用一给定值替换元素    replace_copy()<br>复制序列时替换满足谓词的元素    replace_copy_if()<br>填充    用一给定值取代所有元素    fill()<br>用一给定值取代前n个元素    fill_n()<br>生成    用一操作的结果取代所有元素    generate()<br>用一操作的结果取代前n个元素    generate_n()<br>删除    删除具有给定值的元素    remove()<br>删除满足谓词的元素    remove_if()<br>复制序列时删除具有给定值的元素    remove_copy()<br>复制序列时删除满足谓词的元素    remove_copy_if()<br>唯一    删除相邻的重复元素    unique()<br>复制序列时删除相邻的重复元素    unique_copy()<br>反转    反转元素的次序    reverse()<br>复制序列时反转元素的次序    reverse_copy()<br>环移    循环移动元素    rotate()<br>复制序列时循环移动元素    rotate_copy()<br>随机    采用均匀分布来随机移动元素    random_shuffle()<br>划分    将满足某谓词的元素都放到前面    partition()<br>将满足某谓词的元素都放到前面并维持原顺序    stable_partition()</p>
-<ul>
-<li>序列排序及相关操作（27个）</li>
-</ul>
-<p>排序    以很好的平均效率排序    sort()<br>排序，并维持相同元素的原有顺序    stable_sort()<br>将序列的前一部分排好序    partial_sort()<br>复制的同时将序列的前一部分排好序    partial_sort_copy()<br>第n个元素    将第n各元素放到它的正确位置    nth_element()<br>二分检索    找到大于等于某值的第一次出现    lower_bound()<br>找到大于某值的第一次出现    upper_bound()<br>找到（在不破坏顺序的前提下）可插入给定值的最大范围    equal_range()<br>在有序序列中确定给定元素是否存在    binary_search()<br>归并    归并两个有序序列    merge()<br>归并两个接续的有序序列    inplace_merge()<br>有序结构上的集合操作    一序列为另一序列的子序列时为真    includes()<br>构造两个集合的有序并集    set_union()<br>构造两个集合的有序交集    set_intersection()<br>构造两个集合的有序差集    set_difference()<br>构造两个集合的有序对称差集（并-交）    set_symmetric_difference()<br>堆操作    向堆中加入元素    push_heap()<br>从堆中弹出元素    pop_heap()<br>从序列构造堆    make_heap()<br>给堆排序    sort_heap()<br>最大和最小    两个值中较小的    min()<br>两个值中较大的    max()<br>序列中的最小元素    min_element()<br>序列中的最大元素    max_element()<br>词典比较    两个序列按字典序的第一个在前    lexicographical_compare()<br>排列生成器    按字典序的下一个排列    next_permutation()<br>按字典序的前一个排列    prev_permutation()</p>
-<h2 id="include-字符串操作"><a href="#include-字符串操作" class="headerlink" title="#include   字符串操作"></a>#include <string>  字符串操作</string></h2><ul>
-<li>参考于<a href="http://blog.csdn.net/tzheng2008/article/details/7342562" target="_blank" rel="noopener">博客</a></li>
-</ul>
-<p>#include<string></string></p>
-<p>string类型作为一个类而不是基础数据类型，有其构造方法，库函数中提供的方法我认为比较好用的有以下几种：</p>
-<p>(1)strings;   //生成一个空字符串s<br>(2)string s(str) //拷贝构造函数生成str的复制品</p>
-<p>(3)strings(chars,chars_len) //将C字符串前chars_len个字符作为字符串s的初值。</p>
-<p>除了构造方法之外，还有一些字符串操作的函数，很好用，初学者可以把string类型当成int类型来看。（重载运算符真是c++中一个非常高明的地方）：</p>
-<p>(1)=,assign()   //赋以新值<br>(2)swap()   //交换两个字符串的内容<br>(3)+=,append(),push_back() //在尾部添加字符<br>(4) insert() //插入字符<br>(5) erase() //删除字符<br>(6) clear() //删除全部字符</p>
-<p>(7)replace()//替换字符</p>
-<p>(8)+//串联字符串<br>(9)==,!=,&lt;,&lt;=,&gt;,&gt;=,compare()  //比较字符串</p>
-<p>(10)size(),length()  //返回字符数量<br>(11)empty()  //判断字符串是否为空 </p>
-<h2 id="include-容器数组操作"><a href="#include-容器数组操作" class="headerlink" title="#include 容器数组操作"></a>#include<vector> 容器数组操作</vector></h2><p>相关内容来自于<a href="http://blog.csdn.net/u010455757/article/details/49364011" target="_blank" rel="noopener">博客</a></p>
-<p>#include<vector></vector></p>
-<p>vector作为容器，时常用在我需要动态存储数据时，有时为了减小空间复杂度，不会设置固定大小的数组，而使用vector，相关的操作函数也很简单，可能起到的作用比存储还要多。其构造方法常用的为：</p>
-<p>（1）vector<int>  c               // 创建一个空的vector<br>（2）vector<int> c1(c2)          // 复制一个vector<br>（3）vector<int> c(n)            // 创建一个vector，含有n个数据，数据均已缺省构造产生</int></int></int></p>
-<p>相关的操作函数为：</p>
-<p>c.assign(beg,end)   // 将[beg; end)区间中的数据赋值给c。</p>
-<p>c.assign(n,elem)     // 将n个elem的拷贝赋值给c。<br>c.at(idx)      //传回索引idx所指的数据，如果idx越界，抛出out_of_range。<br>c.back()     // 传回最后一个数据，不检查这个数据是否存在。<br>c.begin()    // 传回迭代器中的第一个数据地址。<br>c.capacity() // 返回容器中数据个数。<br>c.clear()    // 移除容器中所有数据。<br>c.empty()    // 判断容器是否为空。<br>c.end()      // 指向迭代器中末端元素的下一个，指向一个不存在元素。<br>c.erase(pos) // 删除pos位置的数据，传回下一个数据的位置。<br>c.erase(beg,end) //删除[beg,end)区间的数据，传回下一个数据的位置。<br>c.front()    // 传回第一个数据。<br>c.get_allocator // 使用构造函数返回一个拷贝。<br>c.insert(pos,elem)   // 在pos位置插入一个elem拷贝，传回新数据位置。<br>c.insert(pos,n,elem) // 在pos位置插入n个elem数据。无返回值。<br>c.insert(pos,beg,end)// 在pos位置插入在[beg,end)区间的数据。无返回值。<br>c.max_size()      // 返回容器中最大数据的数量。<br>c.pop_back()      // 删除最后一个数据。<br>c.push_back(elem) // 在尾部加入一个数据。<br>c.rbegin()        // 传回一个逆向队列的第一个数据。<br>c.rend()          // 传回一个逆向队列的最后一个数据的下一个位置。<br>c.resize(num)     // 重新指定队列的长度。<br>c.reserve()       // 保留适当的容量。<br>c.size()          // 返回容器中实际数据的个数。<br>c1.swap(c2)<br>swap(c1,c2)       // 将c1和c2元素互换。同上操作。</p>
-<h2 id="include-队列操作"><a href="#include-队列操作" class="headerlink" title="#include 队列操作"></a>#include<queue> 队列操作</queue></h2><p>#include<queue></queue></p>
-<p>队列其实很多操作和vector一样，马上要讲到的stack其实也一样，不过学了数据结构的新手们还是能稍微分别两者的一些差别的，不多说，先上函数：</p>
-<p>empty():返回bool类型的值，是否队列为空</p>
-<p>push():会将一个元素置入queue中<br>front():会返回queue内的第一个元素（队头）<br>back():会返回queue中的最后一个元素（队尾）<br>pop():会移除queue内的第一个元素（队头，与stack不同，先进者先出）</p>
-<p>size():返回队列中元素多少</p>
-<h2 id="include-栈操作"><a href="#include-栈操作" class="headerlink" title="#include 栈操作"></a>#include<stack> 栈操作</stack></h2><p>#include<stack></stack></p>
-<p>栈的操作与队列相差不多，直接上函数：</p>
-<p>empty():返回bool类型的值，是否为空</p>
-<p>push():入栈，将一个元素插入到栈顶</p>
-<p>pop():出栈，讲一个元素移除栈顶，不返回该值</p>
-<p>top():返回栈顶元素</p>
-<p>size():返回栈中元素的多少</p>
-
+        <p>整理了C++里非常实用的库函数，有的方法不用自己再写！<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/08/C-里非常实用的库函数/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -576,13 +437,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjfg76oas000dfwi2mp2nnnrt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjfg7iqug000dc4i28zu6qo1z" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p> 重要的排序算法！<br>
+        <p> 一些重要的排序算法！<br>
         
           <p class="article-more-link">
             <a href="/2018/03/07/排序算法总结/#more" class="more-link">More <span class="meta-nav">→</span></a>
@@ -626,23 +487,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjfg76obq000hfwi2b05opp8y" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/最短路径算法/" data-id="cjfg7iqv3000hc4i2n7guaeub" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Dijkstra算法</p>
-<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>1)算法思想：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组，第一组为已求出最短路径的顶点集合</span><br><span class="line">（用S表示，初始时S中只有一个源点，以后每求得一条最短路径 , 就将加入到集合S中，直到全部顶点都加入到S中，算法就结束了）</span><br><span class="line">第二组为其余未确定最短路径的顶点集合（用U表示），按最短路径长度的递增次序依次把第二组的顶点加入S中。</span><br><span class="line">在加入的过程中，总保持从源点v到S中各顶点的最短路径长度不大于从源点v到U中任何顶点的最短路径长度。</span><br><span class="line"></span><br><span class="line">此外，每个顶点对应一个距离，S中的顶点的距离就是从v到此顶点的最短路径长度，U中的顶点的距离，是从v到此顶点只包括S中的顶点为中间顶点的当前最短路径长度。</span><br></pre></td></tr></table></figure></p>
-<p>2)算法步骤：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a.初始时，S只包含源点，即S＝&#123;v&#125;，v的距离为0。U包含除v外的其他顶点，即:U=&#123;其余顶点&#125;，若v与U中顶点u有边，则&lt;u,v&gt;正常有权值，若u不是v的出边邻接点，则&lt;u,v&gt;权值为∞。</span><br><span class="line"></span><br><span class="line">b.从U中选取一个距离v最小的顶点k，把k，加入S中（该选定的距离就是v到k的最短路径长度）。</span><br><span class="line"></span><br><span class="line">c.以k为新考虑的中间点，修改U中各顶点的距离；若从源点v到顶点u的距离（经过顶点k）比原来距离（不经过顶点k）短，则修改顶点u的距离值，修改后的距离值的顶点k的距离加上边上的权。</span><br><span class="line"></span><br><span class="line">d.重复步骤b和c直到所有顶点都包含在S中。</span><br></pre></td></tr></table></figure></p>
-<p>执行动画过程如下图:</p>
-<p><img src="/upload_image/2.gif" alt=""></p>
-<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">/***************************************</span><br><span class="line">* About:    有向图的Dijkstra算法实现</span><br><span class="line">* Author:   Feng</span><br><span class="line">***************************************/</span><br><span class="line"> </span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"> </span><br><span class="line">const int maxnum = 100;</span><br><span class="line">const int maxint = 999999;</span><br><span class="line"> </span><br><span class="line">// 各数组都从下标1开始</span><br><span class="line">int dist[maxnum];     // 表示当前点到源点的最短路径长度</span><br><span class="line">int prev[maxnum];     // 记录当前点的前一个结点</span><br><span class="line">int c[maxnum][maxnum];   // 记录图的两点间路径长度</span><br><span class="line">int n, line;             // 图的结点数和路径数</span><br><span class="line"> </span><br><span class="line">// n -- n nodes</span><br><span class="line">// v -- the <span class="built_in">source</span> node</span><br><span class="line">// dist[] -- the distance from the ith node to the <span class="built_in">source</span> node</span><br><span class="line">// prev[] -- the previous node of the ith node</span><br><span class="line">// c[][] -- every two nodes<span class="string">' distance</span></span><br><span class="line"><span class="string">void Dijkstra(int n, int v, int *dist, int *prev, int c[maxnum][maxnum])</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	bool s[maxnum];    // 判断是否已存入该点到S集合中</span></span><br><span class="line"><span class="string">	for(int i=1; i&lt;=n; ++i)</span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		dist[i] = c[v][i];</span></span><br><span class="line"><span class="string">		s[i] = 0;     // 初始都未用过该点</span></span><br><span class="line"><span class="string">		if(dist[i] == maxint)</span></span><br><span class="line"><span class="string">			prev[i] = 0;</span></span><br><span class="line"><span class="string">		else</span></span><br><span class="line"><span class="string">			prev[i] = v;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	dist[v] = 0;</span></span><br><span class="line"><span class="string">	s[v] = 1;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	// 依次将未放入S集合的结点中，取dist[]最小值的结点，放入结合S中</span></span><br><span class="line"><span class="string">	// 一旦S包含了所有V中顶点，dist就记录了从源点到所有其他顶点之间的最短路径长度</span></span><br><span class="line"><span class="string">         // 注意是从第二个节点开始，第一个为源点</span></span><br><span class="line"><span class="string">	for(int i=2; i&lt;=n; ++i)</span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		int tmp = maxint;</span></span><br><span class="line"><span class="string">		int u = v;</span></span><br><span class="line"><span class="string">		// 找出当前未使用的点j的dist[j]最小值</span></span><br><span class="line"><span class="string">		for(int j=1; j&lt;=n; ++j)</span></span><br><span class="line"><span class="string">			if((!s[j]) &amp;&amp; dist[j]&lt;tmp)</span></span><br><span class="line"><span class="string">			&#123;</span></span><br><span class="line"><span class="string">				u = j;              // u保存当前邻接点中距离最小的点的号码</span></span><br><span class="line"><span class="string">				tmp = dist[j];</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">		s[u] = 1;    // 表示u点已存入S集合中</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">		// 更新dist</span></span><br><span class="line"><span class="string">		for(int j=1; j&lt;=n; ++j)</span></span><br><span class="line"><span class="string">			if((!s[j]) &amp;&amp; c[u][j]&lt;maxint)</span></span><br><span class="line"><span class="string">			&#123;</span></span><br><span class="line"><span class="string">				int newdist = dist[u] + c[u][j];</span></span><br><span class="line"><span class="string">				if(newdist &lt; dist[j])</span></span><br><span class="line"><span class="string">				&#123;</span></span><br><span class="line"><span class="string">					dist[j] = newdist;</span></span><br><span class="line"><span class="string">					prev[j] = u;</span></span><br><span class="line"><span class="string">				&#125;</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">// 查找从源点v到终点u的路径，并输出</span></span><br><span class="line"><span class="string">void searchPath(int *prev,int v, int u)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	int que[maxnum];</span></span><br><span class="line"><span class="string">	int tot = 1;</span></span><br><span class="line"><span class="string">	que[tot] = u;</span></span><br><span class="line"><span class="string">	tot++;</span></span><br><span class="line"><span class="string">	int tmp = prev[u];</span></span><br><span class="line"><span class="string">	while(tmp != v)</span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		que[tot] = tmp;</span></span><br><span class="line"><span class="string">		tot++;</span></span><br><span class="line"><span class="string">		tmp = prev[tmp];</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">	que[tot] = v;</span></span><br><span class="line"><span class="string">	for(int i=tot; i&gt;=1; --i)</span></span><br><span class="line"><span class="string">		if(i != 1)</span></span><br><span class="line"><span class="string">			cout &lt;&lt; que[i] &lt;&lt; " -&gt; ";</span></span><br><span class="line"><span class="string">		else</span></span><br><span class="line"><span class="string">			cout &lt;&lt; que[i] &lt;&lt; endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">int main()</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">	freopen("input.txt", "r", stdin);</span></span><br><span class="line"><span class="string">	// 各数组都从下标1开始</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	// 输入结点数</span></span><br><span class="line"><span class="string">	cin &gt;&gt; n;</span></span><br><span class="line"><span class="string">	// 输入路径数</span></span><br><span class="line"><span class="string">	cin &gt;&gt; line;</span></span><br><span class="line"><span class="string">	int p, q, len;          // 输入p, q两点及其路径长度</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	// 初始化c[][]为maxint</span></span><br><span class="line"><span class="string">	for(int i=1; i&lt;=n; ++i)</span></span><br><span class="line"><span class="string">		for(int j=1; j&lt;=n; ++j)</span></span><br><span class="line"><span class="string">			c[i][j] = maxint;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	for(int i=1; i&lt;=line; ++i)  </span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		cin &gt;&gt; p &gt;&gt; q &gt;&gt; len;</span></span><br><span class="line"><span class="string">		if(len &lt; c[p][q])       // 有重边</span></span><br><span class="line"><span class="string">		&#123;</span></span><br><span class="line"><span class="string">			c[p][q] = len;      // p指向q</span></span><br><span class="line"><span class="string">			c[q][p] = len;      // q指向p，这样表示无向图</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	for(int i=1; i&lt;=n; ++i)</span></span><br><span class="line"><span class="string">		dist[i] = maxint;</span></span><br><span class="line"><span class="string">	for(int i=1; i&lt;=n; ++i)</span></span><br><span class="line"><span class="string">	&#123;</span></span><br><span class="line"><span class="string">		for(int j=1; j&lt;=n; ++j)</span></span><br><span class="line"><span class="string">			printf("%8d", c[i][j]);</span></span><br><span class="line"><span class="string">		printf("\n");</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	Dijkstra(n, 1, dist, prev, c);</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	// 最短路径长度</span></span><br><span class="line"><span class="string">	cout &lt;&lt; "源点到最后一个顶点的最短路径长度: " &lt;&lt; dist[n] &lt;&lt; endl;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">	// 路径</span></span><br><span class="line"><span class="string">	cout &lt;&lt; "源点到最后一个顶点的路径为: ";</span></span><br><span class="line"><span class="string">	searchPath(prev, 1, n);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><p>先给出一个无向图：</p>
-<p><img src="/upload_image/2.jpg" alt=""></p>
-<p>用Dijkstra算法找出以A为起点的单源最短路径步骤如下:</p>
-<p><img src="/upload_image/3.jpg" alt=""></p>
-
+        <p>到处都会碰到的最短路径算法……<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/07/最短路径算法/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -654,6 +510,9 @@
 </a>
     
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径算法/">最短路径算法</a></li></ul>
+
     </footer>
 </article>
 
@@ -678,7 +537,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjfg76oak000bfwi2m82em6x5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjfg7iqu8000bc4i2iqan3qfs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -770,7 +629,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法/">最短路径算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -779,7 +638,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最短路径算法/" style="font-size: 10px;">最短路径算法</a>
     </div>
   </aside>
 

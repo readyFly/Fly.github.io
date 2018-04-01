@@ -4,12 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="首先，举个例子吧：(3 + 4) × 5 - 6 就是中缀表达式
-
-× + 3 4 5 6 前缀表达式3 4 + 5 × 6 - 后缀表达式
-
-如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。** 二叉树前序、中序、后序遍历见文章我的博客
-中缀表达式操作符以中缀形" />
+  <meta name="description" content="数据结构之前缀、中缀、后缀表达式" />
   
 
   
@@ -20,21 +15,21 @@
   
   <title>数据结构之前缀、中缀、后缀表达式 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先，举个例子吧：(3 + 4) × 5 - 6 就是中缀表达式  × + 3 4 5 6 前缀表达式3 4 + 5 × 6 - 后缀表达式  如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。** 二叉树前序、中序、后序遍历见文章我的博客 中缀表达式操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。 前缀表达式前缀表达式的运算符位于操作数之前">
+  <meta name="description" content="数据结构之前缀、中缀、后缀表达式">
 <meta name="keywords" content="前缀、中缀、后缀表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构之前缀、中缀、后缀表达式">
 <meta property="og:url" content="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="首先，举个例子吧：(3 + 4) × 5 - 6 就是中缀表达式  × + 3 4 5 6 前缀表达式3 4 + 5 × 6 - 后缀表达式  如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。** 二叉树前序、中序、后序遍历见文章我的博客 中缀表达式操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。 前缀表达式前缀表达式的运算符位于操作数之前">
+<meta property="og:description" content="数据结构之前缀、中缀、后缀表达式">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/图示.jpg">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/后缀.jpg">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/中缀.jpg">
-<meta property="og:updated_time" content="2018-03-16T02:24:21.689Z">
+<meta property="og:updated_time" content="2018-04-01T02:48:07.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构之前缀、中缀、后缀表达式">
-<meta name="twitter:description" content="首先，举个例子吧：(3 + 4) × 5 - 6 就是中缀表达式  × + 3 4 5 6 前缀表达式3 4 + 5 × 6 - 后缀表达式  如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。** 二叉树前序、中序、后序遍历见文章我的博客 中缀表达式操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。 前缀表达式前缀表达式的运算符位于操作数之前">
+<meta name="twitter:description" content="数据结构之前缀、中缀、后缀表达式">
 <meta name="twitter:image" content="https://readyfly.github.io/upload_image/图示.jpg">
   
   
@@ -104,13 +99,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjfg76ob5000ffwi2iddlyezs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjfg7iqus000fc4i2jtpl5rjt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>首先，举个例子吧：<br>(3 + 4) × 5 - 6 就是中缀表达式</p>
+        <p>数据结构之前缀、中缀、后缀表达式<br><a id="more"></a></p>
+<p>首先，举个例子吧：<br>(3 + 4) × 5 - 6 就是中缀表达式</p>
 <ul>
 <li>× + 3 4 5 6 前缀表达式<br>3 4 + 5 × 6 - 后缀表达式</li>
 </ul>
@@ -219,7 +215,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法/">最短路径算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -228,7 +224,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最短路径算法/" style="font-size: 10px;">最短路径算法</a>
     </div>
   </aside>
 
