@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="最近遇到的一些干货知识整理" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>python学习 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近遇到的一些干货知识整理">
+<meta name="keywords" content="python sklearn机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习">
+<meta property="og:url" content="https://readyfly.github.io/2018/04/01/python学习/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="最近遇到的一些干货知识整理">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/py1.jpg">
+<meta property="og:updated_time" content="2018-04-01T02:35:26.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习">
+<meta name="twitter:description" content="最近遇到的一些干货知识整理">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/py1.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <!--
+  <script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') == '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+-->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <a href="https://readyfly.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-python学习" class="post-python学习 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      python学习
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjfg76o9n0005fwi2g910al16" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>最近遇到的一些干货知识整理</p>
+<a id="more"></a>
+<h2 id="生成训练集和测试集："><a href="#生成训练集和测试集：" class="headerlink" title="生成训练集和测试集："></a>生成训练集和测试集：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_train,X_test,y_train,y_test=train_test_split(data[feature],data[colum_names[7]],random_state=10,test_size=0.2)</span><br></pre></td></tr></table></figure>
+<h2 id="线性回归模型："><a href="#线性回归模型：" class="headerlink" title="线性回归模型："></a>线性回归模型：</h2><p>线性回归：通过拟合线性模型的回归系数W =（w_1，…，w_p）来减少数据中观察到的结果和实际结果之间的残差平方和，并通过线性逼近进行预测。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import LinearRegression</span><br><span class="line">lr = LinearRegression()  <span class="comment">#线性回归模型</span></span><br><span class="line">lr.fit(X_train,y_train)</span><br><span class="line">lr_y_predict = lr.predict(X_test)</span><br><span class="line">linear_result = []</span><br><span class="line">linear_result = [metrics.mean_absolute_error(y_test,lr_y_predict),metrics.mean_squared_error(y_test,lr_y_predict),np.mean(np.abs((y_test - lr_y_predict) / y_test))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use LinearRegression predict:'</span></span><br><span class="line"><span class="comment">#print 'the mean_absolute_error of is ',linear_result[0]</span></span><br><span class="line"><span class="comment">#print 'the mean_squared_error of is ',linear_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,linear_result[2]</span><br></pre></td></tr></table></figure>
+<h2 id="梯度下降："><a href="#梯度下降：" class="headerlink" title="梯度下降："></a>梯度下降：</h2><p>梯度下降的目标是最小化代价函数，当代价函数是凸函数的时候，梯度下降会有唯一解，权重更新的公式为：<br><img src="/upload_image/py1.jpg" alt=""><br>学习率太大，容易发生震荡，学习率太小，达到最优解的速度太慢，需要根据情况选择合适的学习率<br>如果使用上面的梯度下降方法(批量梯度下降BGD)进行训练，则每次训练的时候会使用全部的训练集数据，对于数据量很大的训练集来说，这种训练方法过于耗时，因此可以采用一种随机梯度下降(SGD)的方法，每次只采用一个训练样本进行梯度下降<br>如果代价函数有局部最小值，而不是全局最小值，则BGD一般难以跳出局部最优，而SGD常常可以跳出全局最优<br>BGD一般到达最优解之后很少跳动，而SGD一般在到达最优解之后仍然会小幅跳动，即它可以保证解较好，但是不一定是最优的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.linear_model import SGDRegressor</span><br><span class="line">sgdr=SGDRegressor()</span><br><span class="line">sgdr.fit(X_train,y_train)</span><br><span class="line">sgdr_y_predict=sgdr.predict(X_test)</span><br><span class="line"><span class="built_in">print</span> sgdr.score(X_test,y_test)</span><br><span class="line">SGD_result = []</span><br><span class="line">SGD_result = [metrics.mean_absolute_error(y_test,sgdr_y_predict),metrics.mean_squared_error(y_test,sgdr_y_predict),np.sqrt(metrics.mean_squared_error(y_test, sgdr_y_predict))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use SGDRegressor predict:'</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_absolute_error of is '</span>,SGD_result[0]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_squared_error of is '</span>,SGD_result[1]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,SGD_result[2]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'y_test-y_predict = '</span>,(y_test-sgdr_y_predict)</span><br></pre></td></tr></table></figure>
+<h2 id="集成回归模型"><a href="#集成回归模型" class="headerlink" title="集成回归模型"></a>集成回归模型</h2><p>集成回归模型综合考量多个回归器的预测结果从而做出决策，这种“综合考量”的方式大体上分为两种：</p>
+<p>（1）利用相同的训练数据同时搭建多个独立的回归模型，然后通过投票的方式，以少数服从多数的原则作出最终的回归决策。比较有代表性的是随机森林分类器</p>
+<p>（2）按照一定次序搭建多个分类模型，这些模型之间存在依赖关系，一般而言，每一个后续模型的加入都需要对现有的集成模型的综合性能有所贡献，进而不断提升更新过后的集成模型的性能。比较有代表性的是梯度提升回归模型。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 集成-回归模型 </span></span><br><span class="line">model_gbr_disorder=GradientBoostingRegressor()  </span><br><span class="line">model_gbr_disorder.fit(X_train,y_train)    </span><br><span class="line">gbr_y_predict=model_gbr_disorder.predict(X_test)</span><br><span class="line">model_gbr_result = []</span><br><span class="line">model_gbr_result = [metrics.mean_absolute_error(y_test,gbr_y_predict),metrics.mean_squared_error(y_test,gbr_y_predict),np.mean(np.abs((y_test - gbr_y_predict) / y_test))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use model_mlp predict:'</span></span><br><span class="line"><span class="comment"># print 'the mean_absolute_error of is ',model_gbr_result[0]</span></span><br><span class="line"><span class="comment"># print 'the mean_squared_error of is ',model_gbr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,model_gbr_result[2]</span><br><span class="line">gbr_score_disorder=model_gbr_disorder.score(X_test,y_test)  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">'sklearn集成-回归模型得分'</span>,gbr_score_disorder)<span class="comment">#准确率较高 0.853817723868</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多层感知器-回归模型  </span></span><br><span class="line">model_mlp = MLPRegressor(solver=<span class="string">'lbfgs'</span>, hidden_layer_sizes=(20, 20, 20), random_state=1)  </span><br><span class="line">model_mlp.fit(X_train,y_train)  </span><br><span class="line">mlp_y_predict=model_mlp.predict(X_test)</span><br><span class="line">model_mlp_result = []</span><br><span class="line">model_mlp_result = [metrics.mean_absolute_error(y_test,mlp_y_predict),metrics.mean_squared_error(y_test,mlp_y_predict),np.mean(np.abs((y_test - mlp_y_predict) / y_test))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use model_mlp predict:'</span></span><br><span class="line"><span class="comment">#print 'the mean_absolute_error of is ',model_mlp_result[0]</span></span><br><span class="line"><span class="comment">#print 'the mean_squared_error of is ',model_mlp_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,model_mlp_result[2]</span><br><span class="line">mlp_score=model_mlp.score(X_test,y_test)  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">'sklearn多层感知器-回归模型得分'</span>,mlp_score)</span><br></pre></td></tr></table></figure>
+<h2 id="支持向量机："><a href="#支持向量机：" class="headerlink" title="支持向量机："></a>支持向量机：</h2><p><a href="https://www.zhihu.com/question/21094489" target="_blank" rel="noopener">支持向量机形象理解</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.svm import SVR <span class="comment">#支持向量机</span></span><br><span class="line">linear_svr=SVR(kernel=<span class="string">'linear'</span>)  <span class="comment">#线性核函数配置</span></span><br><span class="line">linear_svr.fit(X_train,y_train)</span><br><span class="line">linear_svr_y_predict=linear_svr.predict(X_test)</span><br><span class="line">linear_svr_result = []</span><br><span class="line">linear_svr_result = [metrics.mean_absolute_error(y_test,linear_svr_y_predict),metrics.mean_squared_error(y_test,linear_svr_y_predict),np.sqrt(metrics.mean_squared_error(y_test, linear_svr_y_predict))]</span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">'use svr predict:'</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_absolute_error of is '</span>,linear_svr_result[0]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_squared_error of is '</span>,linear_svr_result[1]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the sqrt_error of is '</span>,linear_svr_result[2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">poly_svr=SVR(kernel=<span class="string">'poly'</span>) <span class="comment">#多项式核函数配置</span></span><br><span class="line">poly_svr.fit(X_train,y_train)</span><br><span class="line">poly_svr_y_predict=poly_svr.predict(X_test)</span><br><span class="line">poly_svr_result = []</span><br><span class="line">poly_svr_result = [metrics.mean_absolute_error(y_test,poly_svr_y_predict),metrics.mean_squared_error(y_test,poly_svr_y_predict),np.sqrt(metrics.mean_squared_error(y_test, poly_svr_y_predict))]</span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">'use poly svr predict:'</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_absolute_error of is '</span>,poly_svr_result[0]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_squared_error of is '</span>,poly_svr_result[1]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the sqrt_error of is '</span>,poly_svr_result[2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rbf_svr=SVR(kernel=<span class="string">'rbf'</span>)</span><br><span class="line">rbf_svr.fit(X_train,y_train)</span><br><span class="line">rbf_svr_y_predict=rbf_svr.predict(X_test)</span><br><span class="line">rbf_svr_result = []</span><br><span class="line">rbf_svr_result = [metrics.mean_absolute_error(y_test,rbf_svr_y_predict),metrics.mean_squared_error(y_test,rbf_svr_y_predict),np.sqrt(metrics.mean_squared_error(y_test, rbf_svr_y_predict))]</span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">'use rbf svr predict:'</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_absolute_error of is '</span>,rbf_svr_result[0]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the mean_squared_error of is '</span>,rbf_svr_result[1]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'the sqrt_error of is '</span>,rbf_svr_result[2]</span><br></pre></td></tr></table></figure>
+<h2 id="K近邻法"><a href="#K近邻法" class="headerlink" title="K近邻法"></a>K近邻法</h2><p>K近邻(回归)模型同样是无参数模型，只是借助K个最近训练样本的目标数值，对待测样本的回归值进行决策。即根据样本的相似度预测回归值。<br>衡量样本待测样本回归值的不同方式：<br>（1）对K个近邻目标数值使用普通的算术平均算法<br>（2）对K个近邻目标数值考虑距离的差异进行加权平均。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.neighbors import KNeighborsRegressor</span><br><span class="line">uni_knr=KNeighborsRegressor(weights=<span class="string">'uniform'</span>)<span class="comment">#平均回归</span></span><br><span class="line">uni_knr.fit(X_train,y_train)</span><br><span class="line">uni_knr_y_predict=uni_knr.predict(X_test)</span><br><span class="line">uni_knr_result = []</span><br><span class="line">uni_knr_result = [metrics.mean_absolute_error(y_test,uni_knr_y_predict),metrics.mean_squared_error(y_test,uni_knr_y_predict),np.mean(np.abs((y_test - uni_knr_y_predict) / y_test))]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">'use rbf KNeighbor predict:'</span></span><br><span class="line"><span class="comment"># print 'the mean_absolute_error of is ',uni_knr_result[0]</span></span><br><span class="line"><span class="comment"># print 'the mean_squared_error of is ',uni_knr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the sqrt_error of is '</span>,uni_knr_result[2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#距离加权回归</span></span><br><span class="line">dis_knr=KNeighborsRegressor(weights=<span class="string">'distance'</span>)</span><br><span class="line">dis_knr.fit(X_train,y_train)</span><br><span class="line">dis_knr_y_predict=dis_knr.predict(X_test)</span><br><span class="line">dis_knr_result = []</span><br><span class="line">dis_knr_result = [metrics.mean_absolute_error(y_test,dis_knr_y_predict),metrics.mean_squared_error(y_test,dis_knr_y_predict),np.mean(np.abs((y_test - dis_knr_y_predict) / y_test))]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">'use dis KNeighbor predict:'</span></span><br><span class="line"><span class="comment">#print 'the mean_absolute_error of is ',dis_knr_result[0]</span></span><br><span class="line"><span class="comment">#print 'the mean_squared_error of is ',dis_knr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,dis_knr_result[2]</span><br></pre></td></tr></table></figure>
+<h2 id="决策树："><a href="#决策树：" class="headerlink" title="决策树："></a>决策树：</h2><p>决策树是一种无监督的学习方法，用于分类和回归。它对数据中蕴含的决策规则建模，以预测目标变量的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#回归树</span></span><br><span class="line">from sklearn.tree import DecisionTreeRegressor</span><br><span class="line">dtr=DecisionTreeRegressor()</span><br><span class="line">dtr.fit(X_train,y_train)</span><br><span class="line">dtr_y_predict=dtr.predict(X_test)</span><br><span class="line">dtr_result = []</span><br><span class="line">dtr_result = [metrics.mean_absolute_error(y_test,dtr_y_predict),metrics.mean_squared_error(y_test,dtr_y_predict),np.mean(np.abs((y_test - dtr_y_predict) / y_test))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use rbf DecisionTreeRegressor predict:'</span></span><br><span class="line"><span class="comment"># print 'the mean_absolute_error of is ',dtr_result[0]</span></span><br><span class="line"><span class="comment"># print 'the mean_squared_error of is ',dtr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,dtr_result[2]</span><br></pre></td></tr></table></figure>
+<h2 id="普通随机森林回归模型-："><a href="#普通随机森林回归模型-：" class="headerlink" title="普通随机森林回归模型 ："></a>普通随机森林回归模型 ：</h2><p>鉴于决策树容易过拟合的缺点，随机森林采用多个决策树的投票机制来改善决策树。随机森林的生成方法：</p>
+<p>1.从样本集中通过重采样的方式产生n个样本</p>
+<p>2.假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策树的方式获得最佳分割点</p>
+<p>3.重复m次，产生m棵决策树</p>
+<p>4.多数投票机制来进行预测</p>
+<p>（需要注意的一点是，这里m是指循环的次数，n是指样本的数目，n个样本构成训练的样本集，而m次循环中又会产生m个这样的样本集）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机森林</span></span><br><span class="line">from sklearn.ensemble import RandomForestRegressor,ExtraTreesRegressor</span><br><span class="line">rfr=RandomForestRegressor()</span><br><span class="line">rfr.fit(X_train,y_train)</span><br><span class="line">rfr_y_predict=rfr.predict(X_test)</span><br><span class="line">rfr_result = []</span><br><span class="line">rfr_result = [metrics.mean_absolute_error(y_test,rfr_y_predict),metrics.mean_squared_error(y_test,rfr_y_predict),np.mean(np.abs((y_test - rfr_y_predict) / y_test)) ]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use rbf RandomForestRegressor predict:'</span></span><br><span class="line"><span class="comment"># print 'the mean_absolute_error of is ',rfr_result[0]</span></span><br><span class="line"><span class="comment"># print 'the mean_squared_error of is ',rfr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,rfr_result[2]</span><br></pre></td></tr></table></figure>
+<h2 id="极端随机森林回归模型"><a href="#极端随机森林回归模型" class="headerlink" title="极端随机森林回归模型"></a>极端随机森林回归模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">etr=ExtraTreesRegressor()</span><br><span class="line">etr.fit(X_train,y_train)</span><br><span class="line">etr_y_predict=etr.predict(X_test)</span><br><span class="line">etr_result = []</span><br><span class="line">etr_result = [metrics.mean_absolute_error(y_test,etr_y_predict),metrics.mean_squared_error(y_test,etr_y_predict),np.mean(np.abs((y_test - etr_y_predict) / y_test))]</span><br><span class="line"><span class="built_in">print</span> <span class="string">'use rbf ExtraTreesRegressor predict:'</span></span><br><span class="line"><span class="comment">#print 'the mean_absolute_error of is ',etr_result[0]</span></span><br><span class="line"><span class="comment">#print 'the mean_squared_error of is ',etr_result[1]</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'the MAPE of is '</span>,etr_result[2]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>极端随机森林和普通随机森林模型不同的是：极端随机森林在每当构建一棵树的分裂节点时，不会任意地选取特征，而是先随机收集一部分特征，然后利用信息熵和基尼不纯性等指标挑选最佳的节点特征。</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/04/01/python学习/">
+    <time datetime="2018-04-01T01:59:31.000Z" class="entry-date">
+        2018-04-01
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/03/20/双向循环链表/" rel="next">双向循环链表 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/01/python学习/">python学习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/双向循环链表/">双向循环链表</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/17/mysql学习笔记2/">mysql学习笔记2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/17/mysql学习笔记/">mysql学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/二叉树前序、中序、后序遍历/">二叉树前序、中序、后序遍历</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a>
+    </div>
+  </aside>
+
+  
+    <p class="asidetitle">打赏他</p>
+<div>
+<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
+    <br/>
+    <input name="optEmail" type="hidden" value="your 支付宝账号" />
+    <input name="payAmount" type="hidden" value="默认捐赠金额(元)" />
+    <input id="title" name="title" type="hidden" value="博主，打赏你的！" />
+    <input name="memo" type="hidden" value="你Y加油，继续写博客！" />
+    <input name="pay" type="image" value="转账" src="http://7xig3q.com1.z0.glb.clouddn.com/alipay-donate-website.png" />
+</form>
+</div>
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次, 本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  <!--
+ <embed src="//music.163.com/style/swf/widget.swf?sid=528283&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+ <img src = "/upload_image/cute.gif" width ="100" height="180" />
+ -->
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
