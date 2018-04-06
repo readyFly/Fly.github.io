@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="今天复习一下贪心算法……" />
+  
 
   
   
@@ -11,15 +13,27 @@
   
   
   
-  <title>Tag: 最短路径算法 | readyFly</title>
+  <title>贪心算法 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="readyFly">
-<meta property="og:url" content="https://readyfly.github.io/tags/最短路径算法/index.html">
+  <meta name="description" content="今天复习一下贪心算法……">
+<meta name="keywords" content="贪心算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贪心算法">
+<meta property="og:url" content="https://readyfly.github.io/2018/04/06/贪心算法/index.html">
 <meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="今天复习一下贪心算法……">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/coin.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/coin2.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/coin3.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/activity.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/activity2.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/图片1.png">
+<meta property="og:updated_time" content="2018-04-06T10:35:00.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="readyFly">
+<meta name="twitter:title" content="贪心算法">
+<meta name="twitter:description" content="今天复习一下贪心算法……">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/coin.jpg">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -73,46 +87,83 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-贪心算法" class="post-贪心算法 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/07/最短路径算法/">最短路径算法</a>
+    <h1 class="entry-title article-title">
+      贪心算法
     </h1>
   
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/07/最短路径算法/">
-    <time datetime="2018-03-07T11:58:27.000Z" class="entry-date">
-        2018-03-07
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjfntdm4t000fhgi2x1m4ld4h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>今天复习一下贪心算法……<br><a id="more"></a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>贪心算法是指在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，只做出在某种意义上的局部最优解。贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。<br>关键点：</p>
+<ul>
+<li>局部最优解</li>
+<li>满足最优子问题结构</li>
+</ul>
+<p>最常见的例子就是找零钱问题了：<br><img src="/upload_image/coin.jpg" alt=""></p>
+<p>用动态规划解答的话，表达式可以这样写出：<br><img src="/upload_image/coin2.jpg" alt=""></p>
+<p>例如：<br><img src="/upload_image/coin3.jpg" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">n = 15</span><br><span class="line">C = [999 <span class="keyword">for</span> i <span class="keyword">in</span> range(n+1)]</span><br><span class="line">denom = [0 <span class="keyword">for</span> i <span class="keyword">in</span> range(n+1)] <span class="comment">#找钱的方法</span></span><br><span class="line">def compute_change(n,d,k):<span class="comment">#n是要找钱的数量，d为找钱的值，k为钱值的种类数量</span></span><br><span class="line">    C[0] = 0</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(1,n+1):</span><br><span class="line">        C[j] = 999</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">            <span class="keyword">if</span> j&gt;=d[i] and 1+C[j<span class="_">-d</span>[i]]&lt; C[j]: </span><br><span class="line">                C[j] = 1 + C[j<span class="_">-d</span>[i]]</span><br><span class="line">                denom[j] = d[i]</span><br><span class="line">               <span class="comment">## print denom[j]</span></span><br><span class="line">                </span><br><span class="line">def print_coin(denom,j):</span><br><span class="line">    <span class="keyword">if</span> j&gt;0:</span><br><span class="line">        print_coin(denom,j-denom[j])</span><br><span class="line">        <span class="built_in">print</span> denom[j]</span><br><span class="line">        </span><br><span class="line">d = [1,5,10,50,100]</span><br><span class="line"></span><br><span class="line">compute_change(n,d,5)</span><br><span class="line">print_coin(denom,n)<span class="comment">#最佳找钱方案</span></span><br></pre></td></tr></table></figure>
+<p>但是这个的缺点就是对于每一种情况都会去遍历，当数量很大时浪费空间。</p>
+<p>用贪心算法：<br>每一次都选择小于等于所找面额中的最大硬币值：<br><code>`</code> bash </p>
+<p>#例如：<br>n = 58<br>d = [1,5,10,50,100]<br>C = [999 for i in range(n+1)]<br>denom = []</p>
+<p>#denom = [0 for i in range(n+1)] #找钱的方法<br>def compute_change(n,d):<br>    while(n&gt;0):<br>        for i in range(len(d)):<br>            if(n&gt;=d[i]):<br>                continue<br>            denom.append(d[i-1])<br>            break<br>        n = n-d[i-1]<br>    print denom<br>compute_change(n,d)</p>
+<p>···</p>
+<p>对于经典的背包问题：在选择物品i装入背包时，可以选择物品的一部分，而不一定要全部装入背包。这种情况就可以使用贪心算法求解。计算每种物品的单位重量价值作为贪心选择的依据指标，选择单位重量价值最高的物品，将尽可能多的该物品装入背包，依此策略一直地进行下去，直到背包装满为止。</p>
+<ul>
+<li>在零一背包问题中贪心选择之所以不能得到最优解原因是贪心选择无法保证最终能将背包装满，部分闲置的背包空间使每公斤背包空间的价值降低了。</li>
+</ul>
+<p> 对于贪心算法，经典的例子还有活动选择问题</p>
+<p><img src="/upload_image/activity.jpg" alt=""><br>1.具有最优子结构<br>2.贪心选择</p>
+<p><img src="/upload_image/activity2.jpg" alt=""></p>
+<p>伪代码：<br><img src="/upload_image/图片1.png" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/04/06/贪心算法/">
+    <time datetime="2018-04-06T08:47:17.000Z" class="entry-date">
+        2018-04-06
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径算法/">最短路径算法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心算法/">贪心算法</a></li></ul>
 
     </footer>
 </article>
-  
-  
-    </div></section>
-  
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/04/01/python学习/" rel="next">python学习 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
