@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="怎么样用hexo快速配置属于自己的博客！" />
+  <meta name="description" content="划重点！动态规划" />
   
 
   
@@ -13,23 +13,22 @@
   
   
   
-  <title>如何快速配置hexo博客 | readyFly</title>
+  <title>动态规划 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="怎么样用hexo快速配置属于自己的博客！">
-<meta name="keywords" content="hexo 博客">
+  <meta name="description" content="划重点！动态规划">
+<meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何快速配置hexo博客">
-<meta property="og:url" content="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/index.html">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="https://readyfly.github.io/2018/04/08/动态规划/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="怎么样用hexo快速配置属于自己的博客！">
+<meta property="og:description" content="划重点！动态规划">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/1.jpg">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/8.jpg">
-<meta property="og:updated_time" content="2018-04-01T02:48:23.361Z">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/dp1.png">
+<meta property="og:updated_time" content="2018-04-08T04:17:42.693Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何快速配置hexo博客">
-<meta name="twitter:description" content="怎么样用hexo快速配置属于自己的博客！">
-<meta name="twitter:image" content="https://readyfly.github.io/upload_image/1.jpg">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="划重点！动态规划">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/dp1.png">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -83,7 +82,7 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-如何快速配置hexo博客" class="post-如何快速配置hexo博客 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-动态规划" class="post-动态规划 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -91,49 +90,57 @@
         
   
     <h1 class="entry-title article-title">
-      如何快速配置hexo博客
+      动态规划
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/如何快速配置hexo博客/" data-id="cjfqaswg1000biki2szn8o6so" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjfqaswft000aiki2yzejgvs1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>怎么样用hexo快速配置属于自己的博客！<br><a id="more"></a></p>
-<p>现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。在参考一些网站介绍学习下，也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，以免过后遗忘，且当备份之用。</p>
-<h2 id="start"><a href="#start" class="headerlink" title="start"></a>start</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*下载node.js并安装（官网下载安装），默认会安装npm。</span><br><span class="line">*下载安装git（官网下载安装）</span><br><span class="line">*下载安装hexo。方法：打开cmd 运行npm install -g hexo（要翻墙）</span><br></pre></td></tr></table></figure>
-<h3 id="本地搭建hexo静态博客"><a href="#本地搭建hexo静态博客" class="headerlink" title="本地搭建hexo静态博客"></a>本地搭建hexo静态博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建一个文件夹，如MyBlog</span><br><span class="line">进入该文件夹内，右击运行git，输入：hexo init（生成hexo模板，可能要翻墙）</span><br><span class="line">生成完模板，运行npm install（目前貌似不用运行这一步）</span><br><span class="line">最后运行：hexo server （运行程序，访问本地localhost:4000可以看到博客已经搭建成功）</span><br></pre></td></tr></table></figure>
-<h3 id="将博客与Github关联"><a href="#将博客与Github关联" class="headerlink" title="将博客与Github关联"></a>将博客与Github关联</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在Github上创建名字为XXX.github.io的项目，XXX为自己的github用户名。</span><br><span class="line">打开本地的MyBlog文件夹项目内的_config.yml配置文件，将其中的<span class="built_in">type</span>设置为git</span><br></pre></td></tr></table></figure>
-<p><img src="/upload_image/1.jpg" alt=""></p>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行：npm install hexo-deployer-git –save</span><br><span class="line">运行：hexo g（本地生成静态文件）</span><br><span class="line">运行：hexo d（将本地静态文件推送至Github）</span><br></pre></td></tr></table></figure>
-<p>此时，打开浏览器，即可访问<a href="http://readyfly.github.io">我的博客</a></p>
-<h3 id="更新博客内容"><a href="#更新博客内容" class="headerlink" title="更新博客内容"></a>更新博客内容</h3><p>至此博客已经搭建完毕，那么剩下的问题就是更新内容了。</p>
-<h3 id="更新文章"><a href="#更新文章" class="headerlink" title="更新文章"></a>更新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">在MyBlog目录下执行：hexo new “我的第一篇文章”，会在<span class="built_in">source</span>-&gt;_posts文件夹内生成一个.md文件。</span><br><span class="line">编辑该文件（遵循Markdown规则）</span><br><span class="line">修改起始字段</span><br><span class="line">     title 文章的标题</span><br><span class="line">     date 创建日期 （文件的创建日期 ）</span><br><span class="line">     updated 修改日期 （ 文件的修改日期）</span><br><span class="line">     comments 是否开启评论 <span class="literal">true</span></span><br><span class="line">     tags 标签</span><br><span class="line">     categories 分类</span><br><span class="line">     permalink url中的名字（文件名）</span><br><span class="line">编写正文内容（MakeDown）</span><br><span class="line">hexo clean 删除本地静态文件（Public目录），可不执行。</span><br><span class="line">hexo g 生成本地静态文件（Public目录）</span><br><span class="line">hexo deploy 将本地静态文件推送至github（hexo d）</span><br></pre></td></tr></table></figure>
-<h3 id="设置自己喜欢的主题"><a href="#设置自己喜欢的主题" class="headerlink" title="设置自己喜欢的主题"></a>设置自己喜欢的主题</h3><p>访问 <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">主题列表</a>，获取主题代码。</p>
-<p>进入themes目录，进入以下操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">下载主题 (以next主题为例)</span><br><span class="line"></span><br><span class="line">1</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next.git（主题的地址）</span><br><span class="line">打开__config.yml文件，将themes修改为next（下载到的主题文件夹的名字）</span><br><span class="line"></span><br><span class="line">  hexo g</span><br><span class="line">  hexo d</span><br></pre></td></tr></table></figure></p>
-<p>关于hexo-next主题下的一些个性化配置，参考：<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next主题配置</a></p>
-<center>
-
-<p><img src="/upload_image/8.jpg" alt=""><br></p></center><br><br><p></p>
+        <p>划重点！动态规划<br><a id="more"></a></p>
+<p>动态规划，对于子问题重叠的情况特别有效，因为它将子问题的解保存在表格中，当需要某个子问题的解时，直接取值即可，从而避免重复计算。</p>
+<ul>
+<li>适用情况<br>(a) 最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。</li>
+</ul>
+<p>(b) 无后效性：即某阶段状态（定义的新子问题）一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与其以前的状态有关。</p>
+<p>(c)有重叠子问题：即子问题之间是不独立的（分治法是独立的），一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
+<ul>
+<li>求解步骤</li>
+</ul>
+<p>（1）分析最优解的性质，并刻画其结构特征，这一步的开始时一定要从子问题入手。</p>
+<p>（2）定义最优解变量，定义递归最优解公式。</p>
+<p>（3）以自底向上计算出最优值（或自顶向下的记忆化方式（即备忘录法））</p>
+<p>（4）根据计算最优值时得到的信息，构造问题的最优解</p>
+<p> 例子：<br><img src="/upload_image/dp1.png" alt=""></p>
+<p>使用动态规划求解：<br>1、带备忘录的自顶向下方法：保存每一个子问题的解，求解时首先检查是否已经保存过，如果是，则直接返回保存的值；否则，计算该值。<br>2、自底向上法：<br>求解子问题时，其需要的子子问题都已经求解完毕。</p>
+<ul>
+<li><p>带备忘录的自顶向下方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;vector&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int cut(int *p,int n,int *r)</span><br><span class="line">&#123;</span><br><span class="line">	int q;</span><br><span class="line">	<span class="keyword">if</span>(r[n]&gt;=0)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> r[n];</span><br><span class="line">	 &#125; </span><br><span class="line">	<span class="keyword">if</span>(n==0)</span><br><span class="line">	&#123;</span><br><span class="line">		q=0;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">     	 q=-999;</span><br><span class="line">		 <span class="keyword">for</span>(int i=1;i&lt;=n;i++)</span><br><span class="line">	     &#123;</span><br><span class="line">	    	q=max(q,p[i]+cut(p,n-i,r));</span><br><span class="line">	    </span><br><span class="line">		 &#125;</span><br><span class="line">   &#125;</span><br><span class="line">	r[n] = q;</span><br><span class="line">	<span class="built_in">return</span> q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int p[]=&#123;0,1,5,8,9,10,17,17,20,24,30&#125;;</span><br><span class="line">	int r[11];</span><br><span class="line">	<span class="keyword">for</span> (int i=0;i&lt;=10;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		r[i] = -999;</span><br><span class="line">	&#125;</span><br><span class="line">	int n = 7;</span><br><span class="line">	cout&lt;&lt;cut(p,n,r)&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">for</span> (int i=1;i&lt;=10;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;r[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自底向上法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int bottom_up_cut(int *r,int *p,int n)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>(int j=1;j&lt;=n;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		int q= -999;</span><br><span class="line">		<span class="keyword">for</span>(int i=1;i&lt;=j;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			q = max(q,p[i]+r[j-i]);</span><br><span class="line">		&#125; </span><br><span class="line">		r[j]=q;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">return</span> r[n];</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int p[]=&#123;0,1,5,8,9,10,17,17,20,24,30&#125;;</span><br><span class="line">	int r[11];</span><br><span class="line">	<span class="keyword">for</span> (int i=0;i&lt;=10;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		r[i] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int n = 7;</span><br><span class="line"></span><br><span class="line">	cout&lt;&lt;bottom_up_cut(r,p,n)&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">for</span> (int i=1;i&lt;=10;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;r[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2018/03/07/如何快速配置hexo博客/">
-    <time datetime="2018-03-07T03:01:13.000Z" class="entry-date">
-        2018-03-07
+    <a href="/2018/04/08/动态规划/">
+    <time datetime="2018-04-08T03:00:51.000Z" class="entry-date">
+        2018-04-08
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-博客/">hexo 博客</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li></ul>
 
     </footer>
 </article>
@@ -143,10 +150,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/2018/03/07/最短路径算法/" rel="prev"><span class="meta-nav">←</span> 最短路径算法</a></span>
     
-    
-        <span class="nav-next"><a href="/2018/03/07/hello-world/" rel="next">我的第一篇文章 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/2018/04/06/贪心算法/" rel="next">贪心算法 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
