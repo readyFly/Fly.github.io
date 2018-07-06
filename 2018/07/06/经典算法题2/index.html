@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="汉诺塔问题约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。
+
+分析
+
+
+移动n个盘子到终点，总的来说分三步：1、把n-1个盘" />
+  
 
   
   
@@ -11,15 +18,22 @@
   
   
   
-  <title>Archives: 2018/3 | readyFly</title>
+  <title>经典算法题2 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="readyFly">
-<meta property="og:url" content="https://readyfly.github.io/archives/2018/03/index.html">
+  <meta name="description" content="汉诺塔问题约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。  分析   移动n个盘子到终点，总的来说分三步：1、把n-1个盘子移动到暂放区2、把最大的移到终点3、把暂放区的n-1个盘子移到终点 很明显是一个递归问题 用f(n">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典算法题2">
+<meta property="og:url" content="https://readyfly.github.io/2018/07/06/经典算法题2/index.html">
 <meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="汉诺塔问题约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。  分析   移动n个盘子到终点，总的来说分三步：1、把n-1个盘子移动到暂放区2、把最大的移到终点3、把暂放区的n-1个盘子移到终点 很明显是一个递归问题 用f(n">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/hnt.gif">
+<meta property="og:updated_time" content="2018-07-06T03:41:33.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="readyFly">
+<meta name="twitter:title" content="经典算法题2">
+<meta name="twitter:description" content="汉诺塔问题约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。  分析   移动n个盘子到终点，总的来说分三步：1、把n-1个盘子移动到暂放区2、把最大的移到终点3、把暂放区的n-1个盘子移到终点 很明显是一个递归问题 用f(n">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/hnt.gif">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -73,277 +87,70 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-经典算法题2" class="post-经典算法题2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/20/双向循环链表/">双向循环链表</a>
+    <h1 class="entry-title article-title">
+      经典算法题2
     </h1>
   
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/20/双向循环链表/">
-    <time datetime="2018-03-20T01:48:46.000Z" class="entry-date">
-        2018-03-20
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjj9fpwkh000qy8i2ulv289qv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。</p>
+<ul>
+<li>分析</li>
+</ul>
+<p><img src="/upload_image/hnt.gif" alt=""></p>
+<p>移动n个盘子到终点，总的来说分三步：<br>1、把n-1个盘子移动到暂放区<br>2、把最大的移到终点<br>3、把暂放区的n-1个盘子移到终点</p>
+<p>很明显是一个递归问题</p>
+<p>用f(n, a, b, c)表示要求解的问题，其含义是有a、b、c三根棒和n只盘，且这n个盘叠放在a棒上，依次叠放为大盘在下，小盘在上。借助b棒将n只盘从a棒移到c棒上。每次只移一个盘，在移动时保持大盘在下，小盘在上。</p>
+<p>将f(n, a, b, c)转化分解为如下三个子问题：<br>①f(n - 1, a, c, b)，即将a棒上面的n-1个盘移到b棒，借助c棒。<br>②move(a, c)，即将在a棒上的一个盘移到c棒。<br>③f(n - 1, b, a, c)，即将b棒上面的n-1个盘移到c棒，借助a棒。</p>
+<p>编程实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;stdlib.h&gt;</span></span><br><span class="line"> </span><br><span class="line">void move(char from, char to) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>, from, to);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void hanoit(int n, char a, char b, char c) &#123;</span><br><span class="line">	<span class="keyword">if</span>(n == 1)&#123;</span><br><span class="line">		move(a, c);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		hanoit(n - 1, a, c, b);</span><br><span class="line">		move(a, c);</span><br><span class="line">		hanoit(n - 1, b, a, c);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	int m;</span><br><span class="line">	scanf(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">	hanoit(m, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/07/06/经典算法题2/">
+    <time datetime="2018-07-06T03:06:25.000Z" class="entry-date">
+        2018-07-06
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双向循环链表/">双向循环链表</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
 </article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/17/mysql学习笔记2/">mysql学习笔记2</a>
-    </h1>
-  
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/17/mysql学习笔记2/">
-    <time datetime="2018-03-17T11:56:54.000Z" class="entry-date">
-        2018-03-17
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/17/mysql学习笔记/">mysql学习笔记</a>
-    </h1>
-  
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/17/mysql学习笔记/">
-    <time datetime="2018-03-17T11:35:10.000Z" class="entry-date">
-        2018-03-17
-    </time>
-</a>
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
     
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+        <span class="nav-next"><a href="/2018/07/06/经典算法题1/" rel="next">经典算法题1 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
 
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/16/二叉树前序、中序、后序遍历/">二叉树前序、中序、后序遍历</a>
-    </h1>
-  
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/16/二叉树前序、中序、后序遍历/">
-    <time datetime="2018-03-16T02:25:19.000Z" class="entry-date">
-        2018-03-16
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a></li></ul>
 
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">数据结构之前缀、中缀、后缀表达式</a>
-    </h1>
-  
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">
-    <time datetime="2018-03-16T02:02:24.000Z" class="entry-date">
-        2018-03-16
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a></li></ul>
 
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/08/C-里非常实用的库函数/">C++里非常实用的库函数</a>
-    </h1>
-  
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/08/C-里非常实用的库函数/">
-    <time datetime="2018-03-08T13:18:41.000Z" class="entry-date">
-        2018-03-08
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-库函数/">C++ 库函数</a></li></ul>
-
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/07/排序算法总结/">排序算法总结</a>
-    </h1>
-  
-
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/07/排序算法总结/">
-    <time datetime="2018-03-07T14:27:08.000Z" class="entry-date">
-        2018-03-07
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序算法/">排序算法</a></li></ul>
-
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/07/最短路径算法/">最短路径算法</a>
-    </h1>
-  
-
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/07/最短路径算法/">
-    <time datetime="2018-03-07T11:58:27.000Z" class="entry-date">
-        2018-03-07
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a></li></ul>
-
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/07/如何快速配置hexo博客/">如何快速配置hexo博客</a>
-    </h1>
-  
-
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/07/如何快速配置hexo博客/">
-    <time datetime="2018-03-07T03:01:13.000Z" class="entry-date">
-        2018-03-07
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-博客/">hexo 博客</a></li></ul>
-
-    </footer>
-</article>
-  
-    
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2018/03/07/hello-world/">我的第一篇文章</a>
-    </h1>
-  
-
-  </header>
-  <footer class="entry-meta">
-    <a href="/2018/03/07/hello-world/">
-    <time datetime="2018-03-06T16:00:00.000Z" class="entry-date">
-        2018-03-07
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hello-world/">hello world</a></li></ul>
-
-    </footer>
-</article>
-  
-  
-    </div></section>
-  
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">

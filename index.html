@@ -75,6 +75,61 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-经典算法题2" class="post-经典算法题2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/07/06/经典算法题2/">经典算法题2</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjj9fpwkh000qy8i2ulv289qv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>约19世纪末，在欧州的商店中出售一种智力玩具，在一块铜板上有三根杆，最左边的杆上自上而下、由小到大顺序串着由64个圆盘构成的塔。目的是将最左边杆上的盘全部移到右边的杆上，条件是一次只能移动一个盘，且不允许大盘放在小盘的上面。</p>
+<ul>
+<li>分析</li>
+</ul>
+<p><img src="/upload_image/hnt.gif" alt=""></p>
+<p>移动n个盘子到终点，总的来说分三步：<br>1、把n-1个盘子移动到暂放区<br>2、把最大的移到终点<br>3、把暂放区的n-1个盘子移到终点</p>
+<p>很明显是一个递归问题</p>
+<p>用f(n, a, b, c)表示要求解的问题，其含义是有a、b、c三根棒和n只盘，且这n个盘叠放在a棒上，依次叠放为大盘在下，小盘在上。借助b棒将n只盘从a棒移到c棒上。每次只移一个盘，在移动时保持大盘在下，小盘在上。</p>
+<p>将f(n, a, b, c)转化分解为如下三个子问题：<br>①f(n - 1, a, c, b)，即将a棒上面的n-1个盘移到b棒，借助c棒。<br>②move(a, c)，即将在a棒上的一个盘移到c棒。<br>③f(n - 1, b, a, c)，即将b棒上面的n-1个盘移到c棒，借助a棒。</p>
+<p>编程实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;stdlib.h&gt;</span></span><br><span class="line"> </span><br><span class="line">void move(char from, char to) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>, from, to);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void hanoit(int n, char a, char b, char c) &#123;</span><br><span class="line">	<span class="keyword">if</span>(n == 1)&#123;</span><br><span class="line">		move(a, c);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		hanoit(n - 1, a, c, b);</span><br><span class="line">		move(a, c);</span><br><span class="line">		hanoit(n - 1, b, a, c);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	int m;</span><br><span class="line">	scanf(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">	hanoit(m, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/07/06/经典算法题2/">
+    <time datetime="2018-07-06T03:06:25.000Z" class="entry-date">
+        2018-07-06
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-经典算法题1" class="post-经典算法题1 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -90,7 +145,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjj9dh499000pc4i2oox3mfkw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjj9fpwkb000py8i2s0y5yqmr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -141,7 +196,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjj9dh489000hc4i2f3snfnnh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjj9fpwjg000hy8i2sivbg8b1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -189,7 +244,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjj9dh46j0009c4i27y7l42vt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjj9fpwi40009y8i2lmlkcih4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -236,7 +291,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjj9dh49f000qc4i23386n5ha" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjj9fpwni0019y8i25lrhljp8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -286,7 +341,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjj9dh46w000bc4i2y5sibhob" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjj9fpwid000by8i2k4h6m1d7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -336,7 +391,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjj9dh49p000sc4i2xi96b9gx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjj9fpwkq000sy8i2obj2knzj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -386,7 +441,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjj9dh45r0005c4i2ge4v73nu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjj9fpwhi0005y8i2099yvyqg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -436,7 +491,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjj9dh475000dc4i2jknzhr46" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjj9fpwio000dy8i26k0boxbl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -486,7 +541,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjj9dh45l0004c4i2ns60d0t1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjj9fpwh20003y8i2yc5nyqva" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -509,56 +564,6 @@
 </a>
     
     
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-mysql学习笔记" class="post-mysql学习笔记 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/03/17/mysql学习笔记/">mysql学习笔记</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记/" data-id="cjj9dh4590003c4i2arrwb2yw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>最近初识mysql，首先在安装上就费了好多时间……感觉有必要记录一下。<br>
-        
-          <p class="article-more-link">
-            <a href="/2018/03/17/mysql学习笔记/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/03/17/mysql学习笔记/">
-    <time datetime="2018-03-17T11:35:10.000Z" class="entry-date">
-        2018-03-17
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
     </footer>
 </article>
 
@@ -597,6 +602,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/06/经典算法题2/">经典算法题2</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/06/经典算法题1/">经典算法题1</a>
           </li>
         
@@ -612,10 +621,6 @@
             <a href="/2018/04/19/计网知识梳理/">计网知识梳理</a>
           </li>
         
-          <li>
-            <a href="/2018/04/08/动态规划/">动态规划</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -625,7 +630,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -634,7 +639,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
     </div>
   </aside>
 
