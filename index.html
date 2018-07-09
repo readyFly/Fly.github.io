@@ -90,7 +90,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjj9fpwkh000qy8i2ulv289qv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjjdvs0o2000f6si23jgremj9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -106,7 +106,22 @@
 <p>用f(n, a, b, c)表示要求解的问题，其含义是有a、b、c三根棒和n只盘，且这n个盘叠放在a棒上，依次叠放为大盘在下，小盘在上。借助b棒将n只盘从a棒移到c棒上。每次只移一个盘，在移动时保持大盘在下，小盘在上。</p>
 <p>将f(n, a, b, c)转化分解为如下三个子问题：<br>①f(n - 1, a, c, b)，即将a棒上面的n-1个盘移到b棒，借助c棒。<br>②move(a, c)，即将在a棒上的一个盘移到c棒。<br>③f(n - 1, b, a, c)，即将b棒上面的n-1个盘移到c棒，借助a棒。</p>
 <p>编程实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;stdlib.h&gt;</span></span><br><span class="line"> </span><br><span class="line">void move(char from, char to) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>, from, to);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">void hanoit(int n, char a, char b, char c) &#123;</span><br><span class="line">	<span class="keyword">if</span>(n == 1)&#123;</span><br><span class="line">		move(a, c);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		hanoit(n - 1, a, c, b);</span><br><span class="line">		move(a, c);</span><br><span class="line">		hanoit(n - 1, b, a, c);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	int m;</span><br><span class="line">	scanf(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">	hanoit(m, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="求最小公倍数和最大公约数"><a href="#求最小公倍数和最大公约数" class="headerlink" title="求最小公倍数和最大公约数"></a>求最小公倍数和最大公约数</h2><p>1、求最小公倍数：</p>
+<pre><code>最小公倍数=两整数的乘积 / 最大公约数
+</code></pre><p>2、最大公约数：</p>
+<pre><code>辗转相除法:
 
+① a%b得余数c
+
+② 若c=0，则b即为两数的最大公约数
+
+③ 若c≠0，则a=b，b=c，再回去执行①
+
+例如求27和15的最大公约数过程为：
+
+27÷15 余1215÷12余312÷3余0因此，3即为最大公约数
+</code></pre><p>编码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   int a,b,a1,b1,c;</span><br><span class="line">   scanf(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</span><br><span class="line"></span><br><span class="line">   a1 = a;</span><br><span class="line">   b1 = b;</span><br><span class="line">   c = a%b;</span><br><span class="line">   <span class="keyword">while</span>(c!=0)</span><br><span class="line">   &#123;</span><br><span class="line">   	 a1 = b1;</span><br><span class="line">   	 b1 = c ;</span><br><span class="line">   	 c = a1%b1;</span><br><span class="line">   	 </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"最大公约数为：%d"</span>,b1);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -145,7 +160,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjj9fpwkb000py8i2s0y5yqmr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjjdvs0r5000m6si2fdahas79" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -196,7 +211,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjj9fpwjg000hy8i2sivbg8b1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjjdvs0sn000q6si2rvi4fyrk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -244,7 +259,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjj9fpwi40009y8i2lmlkcih4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjjdvs0l400096si2ipfdk77j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -291,7 +306,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjj9fpwni0019y8i25lrhljp8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjjdvs0yr00166si2mjc1im0b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -341,7 +356,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjj9fpwid000by8i2k4h6m1d7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjjdvs0m1000b6si20kjhy7ag" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -391,7 +406,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjj9fpwkq000sy8i2obj2knzj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjjdvs0zf00176si2k9mljqro" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -441,7 +456,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjj9fpwhi0005y8i2099yvyqg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjjdvs0f900016si26h2orm7j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -491,7 +506,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjj9fpwio000dy8i26k0boxbl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjjdvs0ql000l6si2892xt846" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -541,7 +556,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjj9fpwh20003y8i2yc5nyqva" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/17/mysql学习笔记2/" data-id="cjjdvs0id00046si22b215uyd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
