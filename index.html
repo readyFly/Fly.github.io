@@ -90,7 +90,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/09/经典算法题3/" data-id="cjjf17upb000l7oi2q4uor7en" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/09/经典算法题3/" data-id="cjjjxtjzl000lt0i2ar0gh02r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -107,6 +107,19 @@
 <p>  FCPM ek t Ojetm pfeqejkemx!<br>  Lgr-Tje-Xgp?</p>
 <p>编码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line">char s[26];</span><br><span class="line">char tran_s[26];</span><br><span class="line">bool is_in(char a)//判断a是否在输入密钥中存在 </span><br><span class="line">&#123;</span><br><span class="line">	int i=0;</span><br><span class="line">	<span class="keyword">for</span>(i;i&lt;strlen(tran_s);i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(tran_s[i]==a)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(<span class="string">"%s"</span>,s);</span><br><span class="line">	int i;</span><br><span class="line">	char cha;</span><br><span class="line">	int k=0;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;strlen(s);i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tran_s[i]=s[strlen(s)-i-1];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,tran_s);</span><br><span class="line">	<span class="keyword">for</span>(i;i&lt;26;i++)//构造26个字母对应密钥生成的对应字母 </span><br><span class="line">	&#123;</span><br><span class="line">		cha = <span class="string">'a'</span> + k;</span><br><span class="line">		<span class="keyword">if</span>(!is_in(cha))</span><br><span class="line">		&#123;</span><br><span class="line">			</span><br><span class="line">			tran_s[i] = cha; //转换成对应的字符 </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		    i--;//如果在密钥中出现，则跳过改字母 </span><br><span class="line">		k++;</span><br><span class="line">		 </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,tran_s);</span><br><span class="line">	char input[100];</span><br><span class="line">	gets(input);//读取空行 </span><br><span class="line">	gets(input);</span><br><span class="line">	<span class="keyword">while</span>(input[0]!=<span class="string">'#'</span>)//用<span class="comment">#表示输入结束 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=0;i&lt;strlen(input);i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(input[i]&gt;=<span class="string">'A'</span> &amp;&amp; input[i]&lt;=<span class="string">'Z'</span>)//大写字母</span><br><span class="line">			&#123;</span><br><span class="line">			   <span class="built_in">printf</span>(<span class="string">"%c"</span>,<span class="string">'A'</span>+ (tran_s[input[i]-<span class="string">'A'</span>]-<span class="string">'a'</span>));//大写字母转成小写字母对应的加密字母-&gt;变成对应的大写字母 </span><br><span class="line">			&#125; </span><br><span class="line">			</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(input[i]&gt;=<span class="string">'a'</span> &amp;&amp; input[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">		      <span class="built_in">printf</span>(<span class="string">"%c"</span>,tran_s[input[i]-<span class="string">'a'</span>]);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">else</span> </span><br><span class="line">			&#123;</span><br><span class="line">			   <span class="built_in">printf</span>(<span class="string">"%c"</span>,input[i]);</span><br><span class="line">			&#125;	</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		gets(input);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><p>C(m,n)=m!/(n!(m-n)!)</p>
+<p>代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="built_in">float</span> fun(int n)//求阶乘 </span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==0 || n==1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> 1;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(n&gt;1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> fun(n-1) * n;  </span><br><span class="line">	&#125;  </span><br><span class="line"> &#125; </span><br><span class="line"> </span><br><span class="line"> int main() </span><br><span class="line"> &#123;</span><br><span class="line"> 	int m,n,sum;</span><br><span class="line"> 	<span class="built_in">printf</span>(<span class="string">"请输入m,n:"</span>);</span><br><span class="line"> 	scanf(<span class="string">"%d %d"</span>,&amp;m,&amp;n);</span><br><span class="line"> 	sum = fun(m)/(fun(n)*fun(m-n));//求组合数公式 </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>但组合数过大时，不能通过组合数的计算公式C(m,n)=m!/(n!(m-n)!)直接来求(因为可能会溢出)，可以根据C(m,n)=C(m-1,n)+C(m-1,n-1),C(i,0)=1,c(i,i)=1来求，用a[i][j]来表示C(i,j)，通过循环求出来C(m,n)</p>
+<p>代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line">int a[101][101];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m,n,i,j;</span><br><span class="line">    scanf(<span class="string">"%d %d"</span>,&amp;m,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;=100;i++)      //初始化C(i,0)=1,C(i,i)=1 </span><br><span class="line">    &#123;</span><br><span class="line">        a[i][0]=1;</span><br><span class="line">        a[i][i]=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=1;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=1;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i][j]=a[i-1][j-1]+a[i-1][j];  //循环 </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a[m][n]);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拆分偶数"><a href="#拆分偶数" class="headerlink" title="拆分偶数"></a>拆分偶数</h2><p>把一个偶数拆成两个不同素数的和，有几种拆法呢？<br>输入包含一些正的偶数，其值不会超过10000，个数不会超过500，若遇0，则结束。<br>input：<br>30<br>26<br>0</p>
+<p>output：<br>3<br>2</p>
+<ul>
+<li>分析</li>
+</ul>
+<p>首先，判断是否为素数；其次两个素数的和，若一个为i，则另一个为n-i，分别判断这两个数是否为素数即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;math.h&gt;</span></span><br><span class="line">int is_prime(int n)//判断是不是素数</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==0)</span><br><span class="line">            <span class="built_in">return</span> 0;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,sum;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        sum=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=2;i&lt;n/2;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(is_prime(i)&amp;&amp;is_prime(n-i))</span><br><span class="line">                sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div><!-- .entry-content -->
 
@@ -145,7 +158,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjjf17upj000m7oi2zpj5gq8v" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题2/" data-id="cjjjxtk1c000pt0i2wd4h89ol" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -228,7 +241,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjjf17upw000p7oi28mwtrbd2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/06/经典算法题1/" data-id="cjjjxtjys000jt0i2jwoijgdt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -279,7 +292,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjjf17uqi000s7oi2h901a1wv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/18/广度优先和深度优先遍历/" data-id="cjjjxtjuw000dt0i28snlve2l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -327,7 +340,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjjf17um600087oi25lvtmojk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjjjxtju1000bt0i275x5z6bt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -374,7 +387,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjjf17uq3000q7oi2x9kibcki" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/19/计网知识梳理/" data-id="cjjjxtk44000ut0i2t7httf51" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -424,7 +437,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjjf17umz000b7oi207p4dhmo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/08/动态规划/" data-id="cjjjxtjwz000ft0i2hfl3o9a2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -474,7 +487,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjjf17uqr000u7oi2nx1dv3rm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/06/贪心算法/" data-id="cjjjxtk29000qt0i2seb5gz1d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -524,7 +537,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjjf17ul900047oi2royfblrm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/04/01/python学习/" data-id="cjjjxtjn20001t0i261o2x0ni" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -574,7 +587,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjjf17uoi000f7oi2kz78n5xi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/20/双向循环链表/" data-id="cjjjxtjrw0008t0i2mb82ae52" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
