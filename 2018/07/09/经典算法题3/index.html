@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>经典算法题3 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典算法题3">
+<meta property="og:url" content="https://readyfly.github.io/2018/07/09/经典算法题3/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-07-13T13:07:27.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典算法题3">
+<meta name="twitter:description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-经典算法题3" class="post-经典算法题3 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      经典算法题3
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/09/经典算法题3/" data-id="cjjs8eaky000wdki2xbo0z9m1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="加密问题"><a href="#加密问题" class="headerlink" title="加密问题"></a>加密问题</h2><p>  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下一个，直到a-z这26个字符都有对应为止。请见下面举例说明：</p>
+<p>  假设key为字符串‘welovencut’, 将它反转为：‘tucnevolew’</p>
+<p>  将a-z对应如下： <br>  a b c d e f g h i j k l m n o p q r s t u v w x y z </p>
+<p>  t u c n e v o l e w a b d f g h i j k m p q r s x y</p>
+<p>  对于s中的大写字母，将其转换成小写字母后可按照上述规则进行加密，但输出时还要输出加密后的小写字母所对应的大写字母；s中的其他非字母符号则直接输出即可。</p>
+<p>  Input <br>  输入为第一行为密钥key，余下的行每行表示一个待加密的字符串s，输入一个“#”表示输入结束。</p>
+<p>  Output<br>  输出为被加密后的字符串，每行一个对应的加密结果。</p>
+<p>  welovencut <br>  NCUT is a Great university! <br>  How-Are-You?</p>
+<p>  FCPM ek t Ojetm pfeqejkemx!<br>  Lgr-Tje-Xgp?</p>
+<p>编码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line">char s[26];</span><br><span class="line">char tran_s[26];</span><br><span class="line">bool is_in(char a)//判断a是否在输入密钥中存在 </span><br><span class="line">&#123;</span><br><span class="line">	int i=0;</span><br><span class="line">	<span class="keyword">for</span>(i;i&lt;strlen(tran_s);i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(tran_s[i]==a)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(<span class="string">"%s"</span>,s);</span><br><span class="line">	int i;</span><br><span class="line">	char cha;</span><br><span class="line">	int k=0;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;strlen(s);i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tran_s[i]=s[strlen(s)-i-1];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,tran_s);</span><br><span class="line">	<span class="keyword">for</span>(i;i&lt;26;i++)//构造26个字母对应密钥生成的对应字母 </span><br><span class="line">	&#123;</span><br><span class="line">		cha = <span class="string">'a'</span> + k;</span><br><span class="line">		<span class="keyword">if</span>(!is_in(cha))</span><br><span class="line">		&#123;</span><br><span class="line">			</span><br><span class="line">			tran_s[i] = cha; //转换成对应的字符 </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		    i--;//如果在密钥中出现，则跳过改字母 </span><br><span class="line">		k++;</span><br><span class="line">		 </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,tran_s);</span><br><span class="line">	char input[100];</span><br><span class="line">	gets(input);//读取空行 </span><br><span class="line">	gets(input);</span><br><span class="line">	<span class="keyword">while</span>(input[0]!=<span class="string">'#'</span>)//用<span class="comment">#表示输入结束 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=0;i&lt;strlen(input);i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(input[i]&gt;=<span class="string">'A'</span> &amp;&amp; input[i]&lt;=<span class="string">'Z'</span>)//大写字母</span><br><span class="line">			&#123;</span><br><span class="line">			   <span class="built_in">printf</span>(<span class="string">"%c"</span>,<span class="string">'A'</span>+ (tran_s[input[i]-<span class="string">'A'</span>]-<span class="string">'a'</span>));//大写字母转成小写字母对应的加密字母-&gt;变成对应的大写字母 </span><br><span class="line">			&#125; </span><br><span class="line">			</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(input[i]&gt;=<span class="string">'a'</span> &amp;&amp; input[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">		      <span class="built_in">printf</span>(<span class="string">"%c"</span>,tran_s[input[i]-<span class="string">'a'</span>]);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">else</span> </span><br><span class="line">			&#123;</span><br><span class="line">			   <span class="built_in">printf</span>(<span class="string">"%c"</span>,input[i]);</span><br><span class="line">			&#125;	</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		gets(input);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><p>C(m,n)=m!/(n!(m-n)!)</p>
+<p>代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="built_in">float</span> fun(int n)//求阶乘 </span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==0 || n==1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> 1;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(n&gt;1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> fun(n-1) * n;  </span><br><span class="line">	&#125;  </span><br><span class="line"> &#125; </span><br><span class="line"> </span><br><span class="line"> int main() </span><br><span class="line"> &#123;</span><br><span class="line"> 	int m,n,sum;</span><br><span class="line"> 	<span class="built_in">printf</span>(<span class="string">"请输入m,n:"</span>);</span><br><span class="line"> 	scanf(<span class="string">"%d %d"</span>,&amp;m,&amp;n);</span><br><span class="line"> 	sum = fun(m)/(fun(n)*fun(m-n));//求组合数公式 </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>但组合数过大时，不能通过组合数的计算公式C(m,n)=m!/(n!(m-n)!)直接来求(因为可能会溢出)，可以根据C(m,n)=C(m-1,n)+C(m-1,n-1),C(i,0)=1,c(i,i)=1来求，用a[i][j]来表示C(i,j)，通过循环求出来C(m,n)</p>
+<p>代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line">int a[101][101];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m,n,i,j;</span><br><span class="line">    scanf(<span class="string">"%d %d"</span>,&amp;m,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;=100;i++)      //初始化C(i,0)=1,C(i,i)=1 </span><br><span class="line">    &#123;</span><br><span class="line">        a[i][0]=1;</span><br><span class="line">        a[i][i]=1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=1;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=1;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i][j]=a[i-1][j-1]+a[i-1][j];  //循环 </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a[m][n]);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拆分偶数"><a href="#拆分偶数" class="headerlink" title="拆分偶数"></a>拆分偶数</h2><p>把一个偶数拆成两个不同素数的和，有几种拆法呢？<br>输入包含一些正的偶数，其值不会超过10000，个数不会超过500，若遇0，则结束。<br>input：<br>30<br>26<br>0</p>
+<p>output：<br>3<br>2</p>
+<ul>
+<li>分析</li>
+</ul>
+<p>首先，判断是否为素数；其次两个素数的和，若一个为i，则另一个为n-i，分别判断这两个数是否为素数即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;math.h&gt;</span></span><br><span class="line">int is_prime(int n)//判断是不是素数</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=2;i&lt;=sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==0)</span><br><span class="line">            <span class="built_in">return</span> 0;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 1;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,sum;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        sum=0;</span><br><span class="line">        <span class="keyword">for</span>(int i=2;i&lt;n/2;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(is_prime(i)&amp;&amp;is_prime(n-i))</span><br><span class="line">                sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/07/09/经典算法题3/">
+    <time datetime="2018-07-09T08:40:31.000Z" class="entry-date">
+        2018-07-09
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/07/15/经典算法题练习4/" rel="prev"><span class="meta-nav">←</span> 经典算法题练习4</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/07/06/经典算法题2/" rel="next">经典算法题2 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/机器学习-1/">机器学习(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/经典算法题练习4/">经典算法题练习4</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/经典算法题3/">经典算法题3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/经典算法题2/">经典算法题2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/K-means-无监督学习/" style="font-size: 10px;">K-means 无监督学习</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+</html>

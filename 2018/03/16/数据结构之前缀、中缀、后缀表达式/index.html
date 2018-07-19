@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="数据结构之前缀、中缀、后缀表达式" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>数据结构之前缀、中缀、后缀表达式 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据结构之前缀、中缀、后缀表达式">
+<meta name="keywords" content="前缀、中缀、后缀表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之前缀、中缀、后缀表达式">
+<meta property="og:url" content="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="数据结构之前缀、中缀、后缀表达式">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/图示.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/后缀.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/中缀.jpg">
+<meta property="og:updated_time" content="2018-04-01T02:48:07.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之前缀、中缀、后缀表达式">
+<meta name="twitter:description" content="数据结构之前缀、中缀、后缀表达式">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/图示.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-数据结构之前缀、中缀、后缀表达式" class="post-数据结构之前缀、中缀、后缀表达式 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      数据结构之前缀、中缀、后缀表达式
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/16/数据结构之前缀、中缀、后缀表达式/" data-id="cjjs8eajm000mdki2jnsev70s" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>数据结构之前缀、中缀、后缀表达式<br><a id="more"></a></p>
+<p>首先，举个例子吧：<br>(3 + 4) × 5 - 6 就是中缀表达式</p>
+<ul>
+<li>× + 3 4 5 6 前缀表达式<br>3 4 + 5 × 6 - 后缀表达式</li>
+</ul>
+<p><img src="/upload_image/图示.jpg" alt=""><br>如果对这个中缀表达式树进行前序和后序遍历，则输出的结果就是其对应的前缀和后缀表达式。<br>** 二叉树前序、中序、后序遍历见文章<a href="http://readyfly.github.io">我的博客</a></p>
+<h2 id="中缀表达式"><a href="#中缀表达式" class="headerlink" title="中缀表达式"></a>中缀表达式</h2><p>操作符以中缀形式处于操作数的中间。中缀表达式是人们常用的算术表示方法。</p>
+<h2 id="前缀表达式"><a href="#前缀表达式" class="headerlink" title="前缀表达式"></a>前缀表达式</h2><p>前缀表达式的运算符位于操作数之前。</p>
+<ul>
+<li><p>从右至左扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算（栈顶元素 op 次顶元素），并将结果入栈；重复上述过程直到表达式最左端，最后运算得出的值即为表达式的结果。<br>例如前缀表达式“- × + 3 4 5 6”：<br>(1) 从右至左扫描，将6、5、4、3压入堆栈；<br>(2) 遇到+运算符，因此弹出3和4（3为栈顶元素，4为次顶元素，注意与后缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 接下来是×运算符，因此弹出7和5，计算出7×5=35，将35入栈；<br>(4) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
+</li>
+<li><p>将中缀转换为前缀<br>遵循以下步骤：</p>
+</li>
+</ul>
+<p>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从右至左扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为右括号“)”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的较高或相等，也将运算符压入S1；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是右括号“)”，则直接压入S1；<br>(5-2) 如果是左括号“(”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到右括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最左边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果即为中缀表达式对应的前缀表达式。<br>例如，将中缀表达式“1+((2+3)×4)-5”转换为前缀表达式的过程如下：</p>
+<p><img src="/upload_image/后缀.jpg" alt=""></p>
+<h2 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h2><p>后缀表达式与前缀表达式类似，只是运算符位于操作数之后</p>
+<ul>
+<li><p>例如后缀表达式“3 4 + 5 × 6 -”：<br>(1) 从左至右扫描，将3和4压入堆栈；<br>(2) 遇到+运算符，因此弹出4和3（4为栈顶元素，3为次顶元素，注意与前缀表达式做比较），计算出3+4的值，得7，再将7入栈；<br>(3) 将5入栈；<br>(4) 接下来是×运算符，因此弹出5和7，计算出7×5=35，将35入栈；<br>(5) 将6入栈；<br>(6) 最后是-运算符，计算出35-6的值，即29，由此得出最终结果。</p>
+</li>
+<li><p>将中缀表达式转换为后缀表达式：<br>与转换为前缀表达式相似，遵循以下步骤：<br>(1) 初始化两个栈：运算符栈S1和储存中间结果的栈S2；<br>(2) 从左至右扫描中缀表达式；<br>(3) 遇到操作数时，将其压入S2；<br>(4) 遇到运算符时，比较其与S1栈顶运算符的优先级：<br>(4-1) 如果S1为空，或栈顶运算符为左括号“(”，则直接将此运算符入栈；<br>(4-2) 否则，若优先级比栈顶运算符的高，也将运算符压入S1（注意转换为前缀表达式时是优先级较高或相同，而这里则不包括相同的情况）；<br>(4-3) 否则，将S1栈顶的运算符弹出并压入到S2中，再次转到(4-1)与S1中新的栈顶运算符相比较；<br>(5) 遇到括号时：<br>(5-1) 如果是左括号“(”，则直接压入S1；<br>(5-2) 如果是右括号“)”，则依次弹出S1栈顶的运算符，并压入S2，直到遇到左括号为止，此时将这一对括号丢弃；<br>(6) 重复步骤(2)至(5)，直到表达式的最右边；<br>(7) 将S1中剩余的运算符依次弹出并压入S2；<br>(8) 依次弹出S2中的元素并输出，结果的逆序即为中缀表达式对应的后缀表达式（转换为前缀表达式时不用逆序）。</p>
+</li>
+</ul>
+<p>例如，将中缀表达式“1+((2+3)×4)-5”转换为后缀表达式的过程如下：</p>
+<p><img src="/upload_image/中缀.jpg" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/16/数据结构之前缀、中缀、后缀表达式/">
+    <time datetime="2018-03-16T02:02:24.000Z" class="entry-date">
+        2018-03-16
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/03/16/二叉树前序、中序、后序遍历/" rel="prev"><span class="meta-nav">←</span> 二叉树前序、中序、后序遍历</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/03/08/C-里非常实用的库函数/" rel="next">C++里非常实用的库函数 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/机器学习-1/">机器学习(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/经典算法题练习4/">经典算法题练习4</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/经典算法题3/">经典算法题3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/经典算法题2/">经典算法题2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/K-means-无监督学习/" style="font-size: 10px;">K-means 无监督学习</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+</html>

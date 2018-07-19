@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="一些重要的排序算法！" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>排序算法总结 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一些重要的排序算法！">
+<meta name="keywords" content="排序算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法总结">
+<meta property="og:url" content="https://readyfly.github.io/2018/03/07/排序算法总结/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="一些重要的排序算法！">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/5.png">
+<meta property="og:updated_time" content="2018-04-01T02:48:19.470Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序算法总结">
+<meta name="twitter:description" content="一些重要的排序算法！">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/5.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-排序算法总结" class="post-排序算法总结 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      排序算法总结
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/03/07/排序算法总结/" data-id="cjjs8eaj7000jdki2hd4efu92" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p> 一些重要的排序算法！<br><a id="more"></a></p>
+<h2 id="冒泡排序："><a href="#冒泡排序：" class="headerlink" title="冒泡排序："></a>冒泡排序：</h2><p>冒泡排序算是简单的排序之一了，其大体思想就是通过与相邻元素的比较和交换来把小的数交换到最前面。这个过程类似于水泡向上升一样，因此而得名。</p>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><p>1、比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>2、对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<br>3、针对所有的元素重复以上的步骤，除了最后一个。<br>4、持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<ul>
+<li>举个栗子，对5,3,8,6,4这个无序序列进行冒泡排序。<br>首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。<br>同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6,3.<br>这样一次冒泡就完了，把最小的数3排到最前面了。<br>对剩下的序列依次冒泡就会得到一个有序序列。</li>
+</ul>
+<p>冒泡排序的时间复杂度为O(n^2)。</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/***************************************</span><br><span class="line">* About:    bubble_sort</span><br><span class="line">* Author:   Feng</span><br><span class="line">***************************************/</span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">//整数或浮点数皆可使用</span><br><span class="line">void bubble_sort(T arr[], int len)</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;  T temp;</span><br><span class="line">    <span class="keyword">for</span> (i = 0; i &lt; len - 1; i++)</span><br><span class="line">        <span class="keyword">for</span> (j = 0; j &lt; len - 1 - i; j++)</span><br><span class="line">        <span class="keyword">if</span> (arr[j] &gt; arr[j + 1])</span><br><span class="line">        &#123;</span><br><span class="line">            temp = arr[j];</span><br><span class="line">            arr[j] = arr[j + 1];</span><br><span class="line">            arr[j + 1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">//例子</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int arr[] = &#123; 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 &#125;;</span><br><span class="line">    int len = (int) sizeof(arr) / sizeof(*arr);</span><br><span class="line">    bubble_sort(arr, len);</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; len; i++)</span><br><span class="line">        cout &lt;&lt; arr[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">float</span> arrf[] = &#123; 17.5, 19.1, 0.6, 1.9, 10.5, 12.4, 3.8, 19.7, 1.5, 25.4, 28.6, 4.4, 23.8, 5.4 &#125;;</span><br><span class="line">    len = (int) sizeof(arrf) / sizeof(*arrf);</span><br><span class="line">    bubble_sort(arrf, len);</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; len; i++)</span><br><span class="line">        cout &lt;&lt; arrf[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>插入排序不是通过交换位置而是通过比较找到合适的位置插入元素来达到排序的目的的。<br>相信大家都有过打扑克牌的经历，特别是牌数较大的。在分牌时可能要整理自己的牌，牌多的时候怎么整理呢？<br>就是拿到一张牌，找到一个合适的位置插入。这个原理其实和插入排序是一样的。</p>
+<ul>
+<li>举个栗子，对5,3,8,6,4这个无序序列进行简单插入排序，首先假设第一个数的位置时正确的，想一下在拿到第一张牌的时候，没必要整理。然后3要插到5前面，把5后移一位，变成3,5,8,6,4.想一下整理牌的时候应该也是这样吧。然后8不用动，6插在8前面，8后移一位，4插在5前面，从5开始都向后移一位。</li>
+</ul>
+<p>注意在插入一个数的时候要保证这个数前面的数已经有序。</p>
+<p>简单插入排序的时间复杂度也是O(n^2)。</p>
+<h3 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h3><p>1、从第一个元素开始，该元素可以认为已经被排序<br>2、取出下一个元素，在已经排序的元素序列中从后向前扫描<br>3、如果该元素（已排序）大于新元素，将该元素移到下一位置<br>4、重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>5、将新元素插入到下一位置中<br>6、重复步骤2~5</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/***************************************</span><br><span class="line">* About:    bubble_sort</span><br><span class="line">* Author:   Feng</span><br><span class="line">***************************************/</span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cmath&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void insert_sort(int *array,int n)</span><br><span class="line">&#123;</span><br><span class="line">	int i,j;</span><br><span class="line">	int temp;</span><br><span class="line">	<span class="keyword">for</span>(i=1;i&lt;n;i++)////假设第一个数位置时正确的；要往后移，必须要假设第一个。</span><br><span class="line">	&#123;</span><br><span class="line">	   temp=array[i];//待插入的</span><br><span class="line">	   int j=i;</span><br><span class="line">	   //后移 </span><br><span class="line">	   <span class="keyword">while</span>(j&gt;0 &amp;&amp; array[j-1]&gt;temp)</span><br><span class="line">	   &#123;</span><br><span class="line">	   	 array[j]=array[j-1];</span><br><span class="line">	   	 j--;</span><br><span class="line">	   &#125;</span><br><span class="line">	   array[j]=temp;</span><br><span class="line">	  </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[] = &#123; 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 &#125;;</span><br><span class="line">    int len = (int) sizeof(arr) / sizeof(*arr);</span><br><span class="line">    insert_sort(arr, len);</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; len; i++)</span><br><span class="line">        cout &lt;&lt; arr[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; endl; </span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>  选择排序的思想其实和冒泡排序有点类似，都是在一次排序后把最小的元素放到最前面。<br>  但是过程不同，冒泡排序是通过相邻的比较和交换。而选择排序是通过对整体的选择。</p>
+<ul>
+<li><p>举个栗子，对5,3,8,6,4这个无序序列进行简单选择排序，首先要选择5以外的最小数来和5交换，也就是选择3和5交换，一次排序后就变成了3,5,8,6,4.对剩下的序列一次进行选择和交换，最终就会得到一个有序序列。</p>
+<p>其实选择排序可以看成冒泡排序的优化，因为其目的相同，只是选择排序只有在确定了最小数的前提下才进行交换，大大减少了交换的次数。</p>
+<p>选择排序的时间复杂度为O(n^2)</p>
+</li>
+</ul>
+<h3 id="步骤：-2"><a href="#步骤：-2" class="headerlink" title="步骤："></a>步骤：</h3><p>1、在待排序记录r[1]~r[n]中选出最小的记录，将它与r[1]交换；<br>2、在待排序记录r[2]~r[n]中选出最小的记录，将它与r[2]交换；<br>3、以此类推，第i趟在待排序记录r[i]~r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕</p>
+<ul>
+<li>实现算法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> void select_sort(int *array,int n)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>(int i=0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int k=i;</span><br><span class="line">		<span class="keyword">for</span>(int j=i+1;j&lt;n;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(array[j]&lt;array[k])</span><br><span class="line">			&#123;</span><br><span class="line">				k=j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(k!=i)</span><br><span class="line">		&#123;</span><br><span class="line">			int temp=array[i];</span><br><span class="line">			array[i]=array[k];</span><br><span class="line">			array[k]=temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用数组的第一个数）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。</p>
+<ul>
+<li><p>值得注意的是，快速排序不是一种稳定的排序算法，也就是说，多个相同的值的相对位置也许会在算法结束时产生变动。</p>
+</li>
+<li><p>举个栗子：对5,3,8,6,4这个无序序列进行快速排序，思路是右指针找比基准数小的，左指针找比基准数大的，交换之。</p>
+<p>** 5,3,8,6,4 用5作为比较的基准，最终会把5小的移动到5的左边，比5大的移动到5的右边。</p>
+<p>** 5,3,8,6,4 首先设置i,j两个指针分别指向两端，j指针先扫描（思考一下为什么？）4比5小停止。然后i扫描，8比5大停止。交换i,j位置。</p>
+<p>** 5,3,4,6,8 然后j指针再扫描，这时j扫描4时两指针相遇。停止。然后交换4和基准数。</p>
+<p>** 4,3,5,6,8 一次划分后达到了左边比5小，右边比5大的目的。之后对左右子序列递归排序，最终得到有序序列。</p>
+</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、设置两个变量i、j，排序开始的时候：i=0，j=N-1；<br>2、以第一个数组元素作为关键数据，赋值给key，即key=A[0]；<br>3、从j开始向前搜索，即由后开始向前搜索(j–)，找到第一个小于key的值A[j]，将A[j]和A[i]互换；<br>4、从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于key的A[i]，将A[i]和A[j]互换；<br>5、重复第3、4步，直到i=j； </p>
+<p>  (3,4步中，没找到符合条件的值，即3中A[j]不小于key,4中A[i]不大于key的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i， j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）</p>
+<ul>
+<li>实现算法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">void quick_sort(int *array,int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">	int first=low,last=high;</span><br><span class="line">	<span class="keyword">if</span>(first &gt;= last)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	int key=array[first];//选择第一个作为比较值 </span><br><span class="line">	<span class="keyword">while</span>(first&lt;last)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span>(first&lt;last &amp;&amp; array[last]&gt;=key)</span><br><span class="line">		&#123;</span><br><span class="line">			last--;</span><br><span class="line">		&#125;</span><br><span class="line">		array[first] = array[last];//将比比较值小的移到低端</span><br><span class="line">		<span class="keyword">while</span>(first&lt;last &amp;&amp; array[first]&lt;=key)</span><br><span class="line">		&#123;</span><br><span class="line">			first++;</span><br><span class="line">		&#125;</span><br><span class="line">		array[last] = array[first];//将比比较值大的移到高端</span><br><span class="line">	&#125;</span><br><span class="line">	array[first] = key ; </span><br><span class="line">	quick_sort(array,low,first-1);</span><br><span class="line">	quick_sort(array,first+1,high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>归并排序使用了递归分治的思想，所以理解起来比较容易。其基本思想是，先递归划分子问题，然后合并结果。把待排序列看成由两个有序的子序列，然后合并两个子序列，然后把子序列看成由两个有序序列。</p>
+<ul>
+<li>举个例子<br><img src="/upload_image/5.png" alt=""></li>
+</ul>
+<h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h3><p>1、申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列<br>2、设定两个指针，最初位置分别为两个已经排序序列的起始位置<br>3、比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置</p>
+<p>4、重复步骤3直到某一指针超出序列尾</p>
+<p>比较a[i]和b[j]的大小，若a[i]≤b[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；<br>否则将第二个有序表中的元素b[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。</p>
+<ul>
+<li><p>速度仅次于快速排序，为稳定排序算法</p>
+</li>
+<li><p>时间复杂度 O(n log n)  ，空间复杂度 O(n) </p>
+</li>
+</ul>
+<p>归并排序的算法通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。</p>
+<ul>
+<li>代码实例</li>
+</ul>
+<pre><code class="bash"><span class="comment">#include &lt;iostream&gt;  </span>
+using namespace std;  
+
+//将有二个有序数列a[first...mid]和a[mid...last]合并。  
+void __merge(int a[], int first, int mid, int last, int temp[])  
+{  
+    int i = first, j = mid + 1;  
+    int m = mid,   n = last;  
+    int k = 0;  
+
+    <span class="keyword">while</span> (i &lt;= m &amp;&amp; j &lt;= n)  
+    {  
+        <span class="keyword">if</span> (a[i] &lt;= a[j])  
+            temp[k++] = a[i++];  
+        <span class="keyword">else</span>  
+            temp[k++] = a[j++];  
+    }  
+
+    <span class="keyword">while</span> (i &lt;= m)  
+        temp[k++] = a[i++];  
+
+    <span class="keyword">while</span> (j &lt;= n)  
+        temp[k++] = a[j++];  
+
+    <span class="keyword">for</span> (i = 0; i &lt; k; i++)  
+        a[first + i] = temp[i];  
+}  
+
+void __merge_sort(int a[], int first, int last, int temp[])  
+{  
+    <span class="keyword">if</span>(first &lt; last)  
+    {  
+        int mid = (first + last) / 2;  
+        __merge_sort(a, first, mid, temp);  
+        __merge_sort(a, mid + 1, last, temp);  
+        __merge(a, first, mid, last, temp);  
+    }  
+}  
+bool MergeSort(int a[], int n)  
+{  
+    int *p = new int[n];  
+    <span class="keyword">if</span>(p == NULL)  
+    {  
+        <span class="built_in">return</span> <span class="literal">false</span>;  
+    }  
+    <span class="keyword">else</span>  
+    {  
+        __merge_sort(a, 0, n - 1, p);  
+        delete[] p;  
+        <span class="built_in">return</span> <span class="literal">true</span>;  
+    }  
+}  
+
+int main()  
+{  
+    const int LEN = 10;  
+
+    int a[LEN] = {23, 40, 45, 19, 12, 16, 90, 39, 87, 71};  
+
+    cout &lt;&lt; <span class="string">"Before the merge sort, the Array is:"</span> &lt;&lt; endl;  
+    <span class="keyword">for</span>(int i = 0; i &lt; LEN; ++i)  
+    {  
+        cout &lt;&lt; <span class="string">"a[ "</span> &lt;&lt; i + 1 &lt;&lt; <span class="string">" ] is: "</span>&lt;&lt; a[i] &lt;&lt; endl;  
+    }  
+    cout &lt;&lt; endl;  
+
+    MergeSort(a, LEN);  
+    cout &lt;&lt; <span class="string">"After the merge sort, the Array is:"</span> &lt;&lt; endl;  
+    <span class="keyword">for</span>(int i = 0; i &lt; LEN; ++i)  
+    {  
+        cout &lt;&lt; <span class="string">"a[ "</span> &lt;&lt; i + 1 &lt;&lt; <span class="string">" ] is: "</span>&lt;&lt; a[i] &lt;&lt; endl;  
+    }  
+
+    <span class="built_in">return</span> 0;  
+}  
+
+</code></pre>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/07/排序算法总结/">
+    <time datetime="2018-03-07T14:27:08.000Z" class="entry-date">
+        2018-03-07
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序算法/">排序算法</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/03/08/C-里非常实用的库函数/" rel="prev"><span class="meta-nav">←</span> C++里非常实用的库函数</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/03/07/最短路径算法/" rel="next">最短路径算法 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/机器学习-1/">机器学习(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/经典算法题练习4/">经典算法题练习4</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/经典算法题3/">经典算法题3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/经典算法题2/">经典算法题2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/K-means-无监督学习/" style="font-size: 10px;">K-means 无监督学习</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+</html>

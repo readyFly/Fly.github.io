@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="感觉很有必要再次回顾一下随机森林，结合网上的一些讲解整理而得。" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>决策树，随机森林，极端森林 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="感觉很有必要再次回顾一下随机森林，结合网上的一些讲解整理而得。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树，随机森林，极端森林">
+<meta property="og:url" content="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="感觉很有必要再次回顾一下随机森林，结合网上的一些讲解整理而得。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-07-18T15:37:09.217Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="决策树，随机森林，极端森林">
+<meta name="twitter:description" content="感觉很有必要再次回顾一下随机森林，结合网上的一些讲解整理而得。">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-决策树，随机森林，极端森林" class="post-决策树，随机森林，极端森林 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      决策树，随机森林，极端森林
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/05/06/决策树，随机森林，极端森林/" data-id="cjjs8eahz000bdki2qauoygt1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>感觉很有必要再次回顾一下随机森林，结合网上的一些讲解整理而得。<br><a id="more"></a></p>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>在很多情况下，像逻辑回归模型，支持向量机在某种程度上都会要求数据特征和目标之间有一定的线性假设，但是，在大多数场景下，不存在这种线性关系的。而决策树是机器学习最基本的模型，可以解决很多问题。</p>
+<h3 id="分类树和回归树"><a href="#分类树和回归树" class="headerlink" title="分类树和回归树"></a>分类树和回归树</h3><p>决策树分为两大类，分类树和回归树。<br>分类树是我们比较熟悉的决策树，比如C4.5分类决策树。分类树用于分类标签值，如晴天/阴天、用户性别、网页是否是垃圾页面。而回 归树用于预测实数值，如明天的温度、用户的年龄、网页的相关程度。也就是分类树的输出是定性的，而回归树的输出是定量的。</p>
+<p>决策树节点：代表数据特征<br>每个节点下的分支：代表对应特征值的分类<br>叶子节点：代表决策结果</p>
+<h3 id="度量标准：G基尼不纯度、信息熵、增益"><a href="#度量标准：G基尼不纯度、信息熵、增益" class="headerlink" title="度量标准：G基尼不纯度、信息熵、增益"></a>度量标准：G基尼不纯度、信息熵、增益</h3><ul>
+<li>对于熵的理解</li>
+</ul>
+<p>通常熵表示事物的混乱程度，熵越大表示混乱程度越大，越小表示混乱程度越小。</p>
+<p>如果一件事发生的可能是1，不发生的可能性为0那么这件事的熵为=0，这就表明这件事肯定发生，没有不发生的情况，那么它的混乱程度是最小的0。同理当不发生的可能是1，混乱程度也是0。当发生与不发生各占一半时，这件事就越不好确定，所以此时熵为最大。</p>
+<ul>
+<li>信息增益</li>
+</ul>
+<p>随机事件按照某个属性的不同取值划分时的熵减去按照某个属性的不同取值划分时的熵。即前后两次熵的差值。当差值越大说明按照此划分对于事件的混乱程度减少越有帮助。</p>
+<h3 id="生成过程"><a href="#生成过程" class="headerlink" title="生成过程"></a>生成过程</h3><p>1.对于每一个特征，找到一个使得Gini值最小的分割点（这个分割点可以是&gt;,&lt;,&gt;=这样的判断，也可以是=，!=），然后比较每个特征之间最小的Gini值，作为当前最优的特征的最优分割点（这实际上涉及到了两个步骤，选择最优特征以及选择最优分割点）。</p>
+<p>2.在第一步完成后，会生成两个叶节点，我们对这两个叶节点做判断，计算它的Gini值是否足够小（若是，就将其作为叶子不再分类）</p>
+<p>3.将上步得到的叶节点作为新的集合，进行步骤1的分类，延伸出两个新的叶子节点（当然此时该节点变成了父节点）</p>
+<p>4.循环迭代至不再有Gini值不符合标准的叶节点</p>
+<p>（利用增益度量的话，就是选择当前信息增益最大的属性来作为当前决策树的节点，事件还不能完全确定的话，就递归再次计算熵和信息增益，选择信息增益最大的属性来作为下一个节点，直到整个事件能够确定下来，或者是低于一个最小的阀值）</p>
+<ul>
+<li>回归树<br>回归树总体流程也是类似，区别在于，回归树的每个节点（不一定是叶子节点）都会得一个预测值，以年龄为例，该预测值等于属于这个节点的所有人年龄的平均值。<br>分枝时穷举每一个feature的每个阈值找最好的分割点，但衡量最好的标准不再是最大熵，而是最小化均方差即(每个人的年龄-预测年龄)^2 的总和 / N。<br>也就是被预测出错的人数越多，错的越离谱，均方差就越大，通过最小化均方差能够找到最可靠的分枝依据。分枝直到每个叶子节点上人的年龄都唯一或者达到预设的终止条件(如叶子个数上限)，若最终叶子节点上人的年龄不唯一，则以该节点上所有人的平均年龄做为该叶子节点的预测年龄。</li>
+</ul>
+<h3 id="过渡拟合"><a href="#过渡拟合" class="headerlink" title="过渡拟合"></a>过渡拟合</h3><p>采用上面算法生成的决策树在事件中往往会导致过滤拟合。也就是该决策树对训练数据可以得到很低的错误率，但是运用到测试数据上却得到非常高的错误率。</p>
+<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>尽管有剪枝等等方法解决决策树的过拟合等缺点，但一棵树的生成肯定还是不如多棵树，因此就有了随机森林，解决决策树泛化能力弱的缺点。</p>
+<p>而同一批数据，用同样的算法只能产生一棵树，这时Bagging策略可以帮助我们产生不同的数据集。</p>
+<ul>
+<li>bagging 策略<br>从样本集（假设样本集N个数据点）中重采样选出N个样本（有放回的采样，样本数据点个数仍然不变为N），在所有样本上，对这N个样本建立分类器（ID3\C4.5\CART\SVM\LOGISTIC），重复以上两步m次，获得m个分类器，最后根据这m个分类器的投票结果，决定数据属于哪一类。</li>
+</ul>
+<p> 随机森林在bagging的基础上更进一步：</p>
+<ol>
+<li><p>样本的随机：假如有N个样本，则有放回的随机选择N个样本(每次随机选择一个样本，然后返回继续选择)。这选择好了的N个样本用来训练一个决策树，作为决策树根节点处的样本。</p>
+</li>
+<li><p>特征的随机：当每个样本有M个属性时，在决策树的每个节点需要分裂时，随机从这M个属性中选取出m个属性，满足条件m &lt;&lt; M。然后从这m个属性中采用某种策略（比如说信息增益）来选择1个属性作为该节点的分裂属性。</p>
+</li>
+<li><p>决策树形成过程中每个节点都要按照步骤2来分裂（很容易理解，如果下一次该节点选出来的那一个属性是刚刚其父节点分裂时用过的属性，则该节点已经达到了叶子节点，无须继续分裂了）。一直到不能够再分裂为止。注意整个决策树形成过程中没有进行剪枝。</p>
+</li>
+<li><p>按照步骤1~3建立大量的决策树，这样就构成了随机森林了。</p>
+</li>
+</ol>
+<p>在建立每一棵决策树的过程中，有两点需要注意采样与完全分裂。</p>
+<p>首先是两个随机采样的过程，random forest对输入的数据要进行行、列的采样。对于行采样，采用有放回的方式，也就是在采样得到的样本集合中，可能有重复的样本。假设输入样本为N个，那么采样的样本也为N个。这样使得在训练的时候，每一棵树的输入样本都不是全部的样本，使得相对不容易出现over-fitting。然后进行列采样，从M个feature中，选择m个（m &lt;&lt; M）。</p>
+<p>之后就是对采样之后的数据使用完全分裂的方式建立出决策树，这样决策树的某一个叶子节点要么是无法继续分裂的，要么里面的所有样本的都是指向的同一个分类。一般很多的决策树算法都一个重要的步骤——剪枝，但是这里不这样干，由于之前的两个随机采样的过程保证了随机性，所以就算不剪枝，也不会出现over-fitting。</p>
+<h2 id="极端森林"><a href="#极端森林" class="headerlink" title="极端森林"></a>极端森林</h2><p>与随机森林不同的是，极端森林在每一次构建一棵树的分裂节点时，不会任意的选择特征，而是先随机收集一部分特征，然后利用信息熵和基尼不纯性等指标挑选最佳的节点特征。</p>
+<p>区别：<br>1、随机森林应用的是Bagging模型，而ET是使用所有的训练样本得到每棵决策树，也就是每棵决策树应用的是相同的全部训练样本；</p>
+<p>2、随机森林是在一个随机子集内得到最佳分叉属性，而ET是完全随机的得到分叉值，从而实现对决策树进行分叉的。</p>
+<p>仅以二叉树为例，当特征属性是类别的形式时，随机选择具有某些类别的样本为左分支，而把具有其他类别的样本作为右分支；当特征属性是数值的形式时，随机选择一个处于该特征属性的最大值和最小值之间的任意数，当样本的该特征属性值大于该值时，作为左分支，当小于该值时，作为右分支。这样就实现了在该特征属性下把样本随机分配到两个分支上的目的。然后计算此时的分叉值（如果特征属性是类别的形式，可以应用基尼指数；如果特征属性是数值的形式，可以应用均方误差）。遍历节点内的所有特征属性，按上述方法得到所有特征属性的分叉值，我们选择分叉值最大的那种形式实现对该节点的分叉。从上面的介绍可以看出，这种方法比随机森林的随机性更强。</p>
+<p>虽然对于某棵决策树，由于它的最佳分叉属性是随机选择的，用它的预测结果往往是不准确的，但多棵决策树组合在一起，就可以达到很好的预测效果。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/05/06/决策树，随机森林，极端森林/">
+    <time datetime="2018-05-06T11:05:54.000Z" class="entry-date">
+        2018-05-06
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/05/18/广度优先和深度优先遍历/" rel="prev"><span class="meta-nav">←</span> 广度优先和深度优先遍历</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/04/19/计网知识梳理/" rel="next">计网知识梳理 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/机器学习-1/">机器学习(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/经典算法题练习4/">经典算法题练习4</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/经典算法题3/">经典算法题3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/经典算法题2/">经典算法题2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/K-means-无监督学习/" style="font-size: 10px;">K-means 无监督学习</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+</html>
