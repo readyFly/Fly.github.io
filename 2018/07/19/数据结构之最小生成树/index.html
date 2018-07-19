@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="最小生成树是一副连通加权无向图中一棵权值最小的生成树。" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>数据结构之最小生成树 | readyFly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最小生成树是一副连通加权无向图中一棵权值最小的生成树。">
+<meta name="keywords" content="最小生成树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之最小生成树">
+<meta property="og:url" content="https://readyfly.github.io/2018/07/19/数据结构之最小生成树/index.html">
+<meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="最小生成树是一副连通加权无向图中一棵权值最小的生成树。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/Minimum_spanning_tree.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s1.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s2.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s3.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s4.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s5.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s6.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/s7.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k1.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k2.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k3.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k4.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k5.png">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/k6.png">
+<meta property="og:updated_time" content="2018-07-19T11:47:20.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之最小生成树">
+<meta name="twitter:description" content="最小生成树是一副连通加权无向图中一棵权值最小的生成树。">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/Minimum_spanning_tree.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <!--
+  <script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') == '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+-->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <a href="https://readyfly.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="readyFly" rel="home">readyFly</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-数据结构之最小生成树" class="post-数据结构之最小生成树 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      数据结构之最小生成树
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/19/数据结构之最小生成树/" data-id="cjjshtqsj000mogi25eh94nmv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>最小生成树是一副连通加权无向图中一棵权值最小的生成树。</p>
+<p><img src="/upload_image/Minimum_spanning_tree.png" alt=""></p>
+<a id="more"></a>
+<p>一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和。</p>
+<h2 id="最小生成树算法之Prim算法"><a href="#最小生成树算法之Prim算法" class="headerlink" title="最小生成树算法之Prim算法"></a>最小生成树算法之Prim算法</h2><p>Prim算法从任意一个顶点开始，每次选择一个与当前顶点集最近的一个顶点，并将两顶点之间的边加入到树中。Prim算法在找当前最近顶点时使用到了贪婪算法。</p>
+<p>算法描述：</p>
+<p>1、在一个加权连通图中，顶点集合V，边集合为E</p>
+<p>2、任意选出一个点作为初始顶点,标记为visit,计算所有与之相连接的点的距离，选择距离最短的，标记visit.</p>
+<p>3、在剩下的点中，计算与已标记visit点距离最小的点，标记visit,加入最小生成树。重复该操作，直到所有点都被标记为visit。</p>
+<p>主要来说就是一步一步的寻找离当前点权重最小的点。</p>
+<p><a href="https://www.jianshu.com/p/efcd21494dff" target="_blank" rel="noopener">详细算法图解</a>：</p>
+<p>1、随便从一个点开始，生成最小生成树</p>
+<p><img src="/upload_image/s1.png" alt=""></p>
+<p>2、假如选择顶点a，顶点a置成visit（涂黑部分）,计算周围与它连接的点的距离</p>
+<p><img src="/upload_image/s2.png" alt=""></p>
+<p>3、与之相连的点距离分别为7,6,4，选择C点距离最短，将C加入所选（visit），同时将这条边加入最小生成树。</p>
+<p><img src="/upload_image/s3.png" alt=""></p>
+<p>4、现在已选集合中有a,c，选择剩下的点中，离这两个最近的点。分别有7,6,8,9 所以选择6也就是b点加入集合（visit）同时将bc这条边加入最小生成树。</p>
+<p><img src="/upload_image/s4.png" alt=""></p>
+<p>5、重复4，直到所有的点都加入集合（visit），依次所得的即为一颗 最小生成树</p>
+<p><img src="/upload_image/s5.png" alt=""></p>
+<p><img src="/upload_image/s6.png" alt=""></p>
+<p><img src="/upload_image/s7.png" alt=""></p>
+<p>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#define INF 10000</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 6;</span><br><span class="line">bool visit[N];</span><br><span class="line">int dist[N] = &#123; 0, &#125;;</span><br><span class="line">int graph[N][N] = &#123; &#123;INF,7,4,INF,INF,INF&#125;,   //INF代表两点之间不可达</span><br><span class="line">                    &#123;7,INF,6,2,INF,4&#125;, </span><br><span class="line">                    &#123;4,6,INF,INF,9,8&#125;, </span><br><span class="line">                    &#123;INF,2,INF,INF,INF,7&#125;, </span><br><span class="line">                    &#123;INF,INF,9,INF,INF,1&#125;, </span><br><span class="line">                    &#123;INF,4,8,7,1,INF&#125;</span><br><span class="line">                  &#125;;</span><br><span class="line">int prim(int cur)</span><br><span class="line">&#123;</span><br><span class="line">    int index = cur;</span><br><span class="line">    int sum = 0;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    cout &lt;&lt; index &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    memset(visit, <span class="literal">false</span>, sizeof(visit));</span><br><span class="line">    visit[cur] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = 0; i &lt; N; i++)</span><br><span class="line">        dist[i] = graph[cur][i];//初始化，每个与a邻接的点的距离存入dist</span><br><span class="line">    <span class="keyword">for</span> (i = 1; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int minor = INF;</span><br><span class="line">        <span class="keyword">for</span> (j = 0; j &lt; N; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visit[j] &amp;&amp; dist[j] &lt; minor)          //找到未访问的点中，距离当前最小生成树距离最小的点</span><br><span class="line">            &#123;</span><br><span class="line">                minor = dist[j];</span><br><span class="line">                index = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        visit[index] = <span class="literal">true</span>;</span><br><span class="line">        cout &lt;&lt; index &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        sum += minor;</span><br><span class="line">        <span class="keyword">for</span> (j = 0; j &lt; N; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visit[j] &amp;&amp; dist[j]&gt;graph[index][j])      //执行更新，如果点距离当前点的距离更近，就更新dist</span><br><span class="line">            &#123;</span><br><span class="line">                dist[j] = graph[index][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">return</span> sum;               //返回最小生成树的总路径值</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; prim(0) &lt;&lt; endl;//从顶点a开始</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="最小生成树算法之Kruskal"><a href="#最小生成树算法之Kruskal" class="headerlink" title="最小生成树算法之Kruskal"></a>最小生成树算法之Kruskal</h2><p>如果说prime算法是对点的选择，那么Kruskal算法可以说是对于边的选择。</p>
+<p>每一次选择权重最小的边，判断其顶点是否已存在集合中，若无则将其加入集合。（特别注意：不能连成环！）</p>
+<p>图解：</p>
+<p><img src="/upload_image/k1.png" alt=""></p>
+<p>1、取出最小边，也就是将a,e放入同一个集合</p>
+<p><img src="/upload_image/k2.png" alt=""></p>
+<p>2、接着寻找最小边，也就是将c,d加入同一个集合</p>
+<p><img src="/upload_image/k3.png" alt=""></p>
+<p>3、重复寻找</p>
+<p><img src="/upload_image/k4.png" alt=""></p>
+<p>4、因为b,e都属于同一个集合了，会构成环。所以不能选择be这条边!</p>
+<p><img src="/upload_image/k5.png" alt=""></p>
+<p>5、再找到bc，因为不属于同一个集合，所以合并这两个集合。所有的点都选择完毕，生成最小生成树。</p>
+<p><img src="/upload_image/k6.png" alt=""></p>
+<p>代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#define N 7</span></span><br><span class="line">using namespace std;</span><br><span class="line">typedef struct _node&#123;</span><br><span class="line">    int val;</span><br><span class="line">    int start;</span><br><span class="line">    int end;</span><br><span class="line">&#125;Node;</span><br><span class="line">Node V[N];</span><br><span class="line">int cmp(const void *a, const void *b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">return</span> (*(Node *)a).val - (*(Node*)b).val;</span><br><span class="line">&#125;</span><br><span class="line">int edge[N][3] = &#123;  &#123; 0, 1, 3 &#125;,</span><br><span class="line">                    &#123; 0, 4, 1 &#125;, </span><br><span class="line">                    &#123; 1, 2, 5 &#125;, </span><br><span class="line">                    &#123; 1, 4, 4 &#125;,</span><br><span class="line">                    &#123; 2, 3, 2 &#125;, </span><br><span class="line">                    &#123; 2, 4, 6 &#125;, </span><br><span class="line">                    &#123; 3, 4, 7&#125; </span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">int father[N] = &#123; 0, &#125;;</span><br><span class="line">int <span class="built_in">cap</span>[N] = &#123;0,&#125;;</span><br><span class="line"></span><br><span class="line">void make_set()              //初始化集合，让所有的点都各成一个集合，每个集合都只包含自己</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i] = i;</span><br><span class="line">        <span class="built_in">cap</span>[i] = 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int find_set(int x)              //判断一个点属于哪个集合，点如果都有着共同的祖先结点，就可以说他们属于一个集合</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (x != father[x])</span><br><span class="line">     &#123;                              </span><br><span class="line">        father[x] = find_set(father[x]);</span><br><span class="line">    &#125;     </span><br><span class="line">    <span class="built_in">return</span> father[x];</span><br><span class="line">&#125;                                  </span><br><span class="line"></span><br><span class="line">void Union(int x, int y)         //将x,y合并到同一个集合</span><br><span class="line">&#123;</span><br><span class="line">    x = find_set(x);</span><br><span class="line">    y = find_set(y);</span><br><span class="line">    <span class="keyword">if</span> (x == y)</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">cap</span>[x] &lt; <span class="built_in">cap</span>[y])</span><br><span class="line">        father[x] = find_set(y);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">cap</span>[x] == <span class="built_in">cap</span>[y])</span><br><span class="line">            <span class="built_in">cap</span>[x]++;</span><br><span class="line">        father[y] = find_set(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Kruskal(int n)</span><br><span class="line">&#123;</span><br><span class="line">    int sum = 0;</span><br><span class="line">    make_set();</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; N; i++)//将边的顺序按从小到大取出来</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (find_set(V[i].start) != find_set(V[i].end))     //如果改变的两个顶点还不在一个集合中，就并到一个集合里，生成树的长度加上这条边的长度</span><br><span class="line">        &#123;</span><br><span class="line">            Union(V[i].start, V[i].end);  //合并两个顶点到一个集合</span><br><span class="line">            sum += V[i].val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; N; i++)   //初始化边的数据，在实际应用中可根据具体情况转换并且读取数据,这边只是测试用例</span><br><span class="line">    &#123;</span><br><span class="line">        V[i].start = edge[i][0];</span><br><span class="line">        V[i].end = edge[i][1];</span><br><span class="line">        V[i].val = edge[i][2];</span><br><span class="line">    &#125;</span><br><span class="line">    qsort(V, N, sizeof(V[0]), cmp);</span><br><span class="line">    cout &lt;&lt; Kruskal(0)&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ps:代码与图解来自<a href="https://www.jianshu.com/p/efcd21494dff" target="_blank" rel="noopener">网页</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/07/19/数据结构之最小生成树/">
+    <time datetime="2018-07-19T10:10:55.000Z" class="entry-date">
+        2018-07-19
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小生成树/">最小生成树</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/07/19/机器学习之K近邻/" rel="next">机器学习之K近邻 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/19/数据结构之最小生成树/">数据结构之最小生成树</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/19/机器学习之K近邻/">机器学习之K近邻</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/机器学习之K-mean/">机器学习(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/经典算法题4/">经典算法题练习4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-库函数/">C++ 库函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K近邻/">K近邻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello-world/">hello world</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-博客/">hexo 博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-sklearn机器学习/">python sklearn机器学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序、中序、后序遍历/">前序、中序、后序遍历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前缀、中缀、后缀表达式/">前缀、中缀、后缀表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向循环链表/">双向循环链表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最小生成树/">最小生成树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路径算法-dijkstra算法-floyd算法/">最短路径算法 dijkstra算法 floyd算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/C-库函数/" style="font-size: 10px;">C++ 库函数</a> <a href="/tags/K-means-无监督学习/" style="font-size: 10px;">K-means 无监督学习</a> <a href="/tags/K近邻/" style="font-size: 10px;">K近邻</a> <a href="/tags/hello-world/" style="font-size: 10px;">hello world</a> <a href="/tags/hexo-博客/" style="font-size: 10px;">hexo 博客</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python-sklearn机器学习/" style="font-size: 10px;">python sklearn机器学习</a> <a href="/tags/前序、中序、后序遍历/" style="font-size: 10px;">前序、中序、后序遍历</a> <a href="/tags/前缀、中缀、后缀表达式/" style="font-size: 10px;">前缀、中缀、后缀表达式</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/双向循环链表/" style="font-size: 10px;">双向循环链表</a> <a href="/tags/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/最小生成树/" style="font-size: 10px;">最小生成树</a> <a href="/tags/最短路径算法-dijkstra算法-floyd算法/" style="font-size: 10px;">最短路径算法 dijkstra算法 floyd算法</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a>
+    </div>
+  </aside>
+
+  
+    <p class="asidetitle">打赏他</p>
+<div>
+<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
+    <br/>
+    <input name="optEmail" type="hidden" value="your 支付宝账号" />
+    <input name="payAmount" type="hidden" value="默认捐赠金额(元)" />
+    <input id="title" name="title" type="hidden" value="博主，打赏你的！" />
+    <input name="memo" type="hidden" value="你Y加油，继续写博客！" />
+    <input name="pay" type="image" value="转账" src="http://7xig3q.com1.z0.glb.clouddn.com/alipay-donate-website.png" />
+</form>
+</div>
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 Feng_linhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次, 本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  <!--
+ <embed src="//music.163.com/style/swf/widget.swf?sid=528283&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+ <img src = "/upload_image/cute.gif" width ="100" height="180" />
+ -->
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+</html>
