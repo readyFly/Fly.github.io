@@ -4,9 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。
-今天学习的是K-means聚类算法
-K-means聚" />
+  <meta name="description" content="K近邻法(k-nearest neighbors,KNN)是一种很基本的机器学习方法了，在我们平常的生活中也会不自主的应用。比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。这里就运用了KNN的思想。KNN方法既可以做分类，也可以做回归，这点和决策树算法相同。参考文章" />
   
 
   
@@ -15,23 +13,23 @@ K-means聚" />
   
   
   
-  <title>机器学习(1) | readyFly</title>
+  <title>机器学习之K近邻 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
-<meta name="keywords" content="K-means 无监督学习">
+  <meta name="description" content="K近邻法(k-nearest neighbors,KNN)是一种很基本的机器学习方法了，在我们平常的生活中也会不自主的应用。比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。这里就运用了KNN的思想。KNN方法既可以做分类，也可以做回归，这点和决策树算法相同。参考文章">
+<meta name="keywords" content="K近邻">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习(1)">
-<meta property="og:url" content="https://readyfly.github.io/2018/07/15/机器学习-1/index.html">
+<meta property="og:title" content="机器学习之K近邻">
+<meta property="og:url" content="https://readyfly.github.io/2018/07/19/机器学习之K近邻/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
+<meta property="og:description" content="K近邻法(k-nearest neighbors,KNN)是一种很基本的机器学习方法了，在我们平常的生活中也会不自主的应用。比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。这里就运用了KNN的思想。KNN方法既可以做分类，也可以做回归，这点和决策树算法相同。参考文章">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/K-means.png">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/Kmeans.png">
-<meta property="og:updated_time" content="2018-07-19T05:47:15.832Z">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/K近邻.jpg">
+<meta property="og:image" content="https://readyfly.github.io/upload_image/K近邻2.jpg">
+<meta property="og:updated_time" content="2018-07-19T07:59:57.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习(1)">
-<meta name="twitter:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
-<meta name="twitter:image" content="https://readyfly.github.io/upload_image/K-means.png">
+<meta name="twitter:title" content="机器学习之K近邻">
+<meta name="twitter:description" content="K近邻法(k-nearest neighbors,KNN)是一种很基本的机器学习方法了，在我们平常的生活中也会不自主的应用。比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。这里就运用了KNN的思想。KNN方法既可以做分类，也可以做回归，这点和决策树算法相同。参考文章">
+<meta name="twitter:image" content="https://readyfly.github.io/upload_image/K近邻.jpg">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -85,7 +83,7 @@ K-means聚" />
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="w-机器学习-1" class="w-机器学习-1 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-机器学习之K近邻" class="post-机器学习之K近邻 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -93,43 +91,55 @@ K-means聚" />
         
   
     <h1 class="entry-title article-title">
-      机器学习(1)
+      机器学习之K近邻
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/15/机器学习-1/" data-id="cjjs9mrv7000q8oi2e2ihy4ag" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/19/机器学习之K近邻/" data-id="cjjs9mrvf000s8oi2l0iuixyk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。</p>
-<p>今天学习的是K-means聚类算法</p>
-<h3 id="K-means聚类算法"><a href="#K-means聚类算法" class="headerlink" title="K-means聚类算法"></a>K-means聚类算法</h3><p>K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集</p>
-<p>经过不断迭代后，最终收敛为想要的类别数。</p>
-<p><img src="/upload_image/K-means.png" alt=""></p>
-<p>其中Ci表示对于每一个点Xi它到每一个聚类中心最近的一个，也就是他的值为1……k<br>对于划分后的Xi，重新求得相同Ci的类的聚类中心，更新Uk，如此迭代，知道收敛。</p>
-<ul>
-<li>步骤</li>
-</ul>
-<p><img src="/upload_image/Kmeans.png" alt=""></p>
+        <p>　K近邻法(k-nearest neighbors,KNN)是一种很基本的机器学习方法了，在我们平常的生活中也会不自主的应用。比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。这里就运用了KNN的思想。KNN方法既可以做分类，也可以做回归，这点和决策树算法相同。<a href="https://zhuanlan.zhihu.com/p/25994179" target="_blank" rel="noopener">参考文章</a></p>
+<a id="more"></a>
+<h3 id="K近邻"><a href="#K近邻" class="headerlink" title="K近邻"></a>K近邻</h3><p>K近邻算法，即是给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的K个实例，这K个实例的多数属于某个类，就把该输入实例分类到这个类中。（这就类似于现实生活中少数服从多数的思想）根据这个说法，咱们来看下引自维基百科上的一幅图：</p>
+<p><img src="/upload_image/K近邻.jpg" alt=""></p>
+<p>如上图所示，有两类不同的样本数据，分别用蓝色的小正方形和红色的小三角形表示，而图正中间的那个绿色的圆所标示的数据则是待分类的数据。这也就是我们的目的，来了一个新的数据点，我要得到它的类别是什么？好的，下面我们根据k近邻的思想来给绿色圆点进行分类。</p>
+<p>如果K=3，绿色圆点的最邻近的3个点是2个红色小三角形和1个蓝色小正方形，少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于红色的三角形一类。</p>
+<p>如果K=5，绿色圆点的最邻近的5个邻居是2个红色三角形和3个蓝色的正方形，还是少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于蓝色的正方形一类。</p>
+<p>可是在实际问题中，K值的选取是一个问题。我们选取较小的k值，那么就会意味着我们的整体模型会变得复杂，容易发生过拟合！</p>
+<p><img src="/upload_image/K近邻2.jpg" alt=""></p>
+<p>如果我们选取较大的k值，就相当于用较大邻域中的训练数据进行预测，这时与输入实例较远的（不相似）训练实例也会对预测起作用，使预测发生错误，k值的增大意味着整体模型变得简单。</p>
+<p>所以k值的选取，既不能太大，也不能太小，何值为最好，需要实验调整参数确定！</p>
+<p>几种度量俩个点之间距离的标准：</p>
+<p>1、欧氏距离</p>
+<p>2、曼哈顿距离</p>
+<p>为了保证每个特征同等重要性，可对每个特征进行归一化</p>
+<p>KNN的主要优点有：</p>
+<p>　1） 理论成熟，思想简单，既可以用来做分类也可以用来做回归</p>
+<p>　2） 可用于非线性分类</p>
+<p>　3） 训练时间复杂度比支持向量机之类的算法低，仅为O(n)</p>
+<p>　4） 和朴素贝叶斯之类的算法比，对数据没有假设，准确度高，对异常点不敏感</p>
+<p>　5） 由于KNN方法主要靠周围有限的邻近的样本，而不是靠判别类域的方法来确定所属类别的，因此对于类域的交叉或重叠较多的待分样本集来说，KNN方法较其他方法更为适合<br>　<br>  6）该算法比较适用于样本容量比较大的类域的自动分类，而那些样本容量较小的类域采用这种算法比较容易产生误分
+　　　　</p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2018/07/15/机器学习-1/">
-    <time datetime="2018-07-15T09:44:44.000Z" class="entry-date">
-        2018-07-15
+    <a href="/2018/07/19/机器学习之K近邻/">
+    <time datetime="2018-07-19T07:40:16.000Z" class="entry-date">
+        2018-07-19
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K近邻/">K近邻</a></li></ul>
 
     </footer>
 </article>
@@ -139,10 +149,8 @@ K-means聚" />
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/2018/07/19/操作系统复习/" rel="prev"><span class="meta-nav">←</span> 操作系统复习</a></span>
     
-    
-        <span class="nav-next"><a href="/2018/07/15/经典算法题练习4/" rel="next">经典算法题练习4 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/2018/07/19/操作系统复习/" rel="next">操作系统复习 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 

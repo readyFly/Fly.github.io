@@ -4,10 +4,6 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。
-今天学习的是K-means聚类算法
-K-means聚" />
-  
 
   
   
@@ -15,23 +11,15 @@ K-means聚" />
   
   
   
-  <title>机器学习(1) | readyFly</title>
+  <title>Tag: K近邻 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
-<meta name="keywords" content="K-means 无监督学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="机器学习(1)">
-<meta property="og:url" content="https://readyfly.github.io/2018/07/15/机器学习-1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="readyFly">
+<meta property="og:url" content="https://readyfly.github.io/tags/K近邻/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/K-means.png">
-<meta property="og:image" content="https://readyfly.github.io/upload_image/Kmeans.png">
-<meta property="og:updated_time" content="2018-07-19T05:47:15.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习(1)">
-<meta name="twitter:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
-<meta name="twitter:image" content="https://readyfly.github.io/upload_image/K-means.png">
+<meta name="twitter:title" content="readyFly">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -85,72 +73,46 @@ K-means聚" />
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="w-机器学习-1" class="w-机器学习-1 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
+        <div id="primary" class="site-content"><div id="content" role="main">
   
-    <h1 class="entry-title article-title">
-      机器学习(1)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="post type-post status-publish format-standard hentry archive-type-post">
+  <header class="entry-header">
+      
+  
+    <h1 class="entry-title">
+      <a class="archive-article-title" href="/2018/07/19/机器学习之K近邻/">机器学习之K近邻</a>
     </h1>
   
 
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/15/机器学习-1/" data-id="cjjs9mrv7000q8oi2e2ihy4ag" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。</p>
-<p>今天学习的是K-means聚类算法</p>
-<h3 id="K-means聚类算法"><a href="#K-means聚类算法" class="headerlink" title="K-means聚类算法"></a>K-means聚类算法</h3><p>K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集</p>
-<p>经过不断迭代后，最终收敛为想要的类别数。</p>
-<p><img src="/upload_image/K-means.png" alt=""></p>
-<p>其中Ci表示对于每一个点Xi它到每一个聚类中心最近的一个，也就是他的值为1……k<br>对于划分后的Xi，重新求得相同Ci的类的聚类中心，更新Uk，如此迭代，知道收敛。</p>
-<ul>
-<li>步骤</li>
-</ul>
-<p><img src="/upload_image/Kmeans.png" alt=""></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/07/15/机器学习-1/">
-    <time datetime="2018-07-15T09:44:44.000Z" class="entry-date">
-        2018-07-15
+  </header>
+  <footer class="entry-meta">
+    <a href="/2018/07/19/机器学习之K近邻/">
+    <time datetime="2018-07-19T07:40:16.000Z" class="entry-date">
+        2018-07-19
     </time>
 </a>
     
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K-means-无监督学习/">K-means 无监督学习</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K近邻/">K近邻</a></li></ul>
 
     </footer>
 </article>
-
-
-    
-<nav class="nav-single">
-    <h3 class="assistive-text">文章导航</h3>
-    
-        <span class="nav-previous"><a href="/2018/07/19/操作系统复习/" rel="prev"><span class="meta-nav">←</span> 操作系统复习</a></span>
-    
-    
-        <span class="nav-next"><a href="/2018/07/15/经典算法题练习4/" rel="next">经典算法题练习4 <span class="meta-nav">→</span></a></span>
-    
-</nav><!-- .nav-single -->
-
-
-
-
-
-
+  
+  
+    </div></section>
+  
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
