@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若" />
+  <meta name="description" content="主要是算法题练习记录3……" />
   
 
   
@@ -15,18 +15,18 @@
   
   <title>经典算法题3 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+  <meta name="description" content="主要是算法题练习记录3……">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典算法题3">
 <meta property="og:url" content="https://readyfly.github.io/2018/07/09/经典算法题3/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+<meta property="og:description" content="主要是算法题练习记录3……">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-07-13T13:07:27.413Z">
+<meta property="og:updated_time" content="2018-12-15T13:06:42.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典算法题3">
-<meta name="twitter:description" content="加密问题  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下">
+<meta name="twitter:description" content="主要是算法题练习记录3……">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -95,13 +95,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/09/经典算法题3/" data-id="cjppgxrbh000wioi2j2rltrw8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/09/经典算法题3/" data-id="cjppi8f9l0013wwi237u4c233" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="加密问题"><a href="#加密问题" class="headerlink" title="加密问题"></a>加密问题</h2><p>  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下一个，直到a-z这26个字符都有对应为止。请见下面举例说明：</p>
+        <p>主要是算法题练习记录3……<br><a id="more"></a></p>
+<h2 id="加密问题"><a href="#加密问题" class="headerlink" title="加密问题"></a>加密问题</h2><p>  给定一个长度不超过80个字符的字符串s，用输入的密钥key对s进行加密。其中，s可包含大小写字母与其他非字母符号等，key为长度不超过12的全部由小写字母构成的字符串。加密规则为，先将key反转，然后将a-z这26个字母从a开始依次与反转后的key的每个字符对应，对应完毕后a-z中会有若干个字符无对应，则从a开始按照字母表的顺序给余下的字符对应值，对应时，若key中已出现过的字符则取下一个，直到a-z这26个字符都有对应为止。请见下面举例说明：</p>
 <p>  假设key为字符串‘welovencut’, 将它反转为：‘tucnevolew’</p>
 <p>  将a-z对应如下： <br>  a b c d e f g h i j k l m n o p q r s t u v w x y z </p>
 <p>  t u c n e v o l e w a b d f g h i j k m p q r s x y</p>
@@ -188,6 +189,14 @@
       <ul>
         
           <li>
+            <a href="/2018/12/15/好久不见之BERTRT问题篇/">好久不见之BERT问题篇</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/15/好久不见之BERT——NLP/">好久不见之BERT——NLP</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/19/数据结构之最小生成树/">数据结构之最小生成树</a>
           </li>
         
@@ -197,14 +206,6 @@
         
           <li>
             <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/机器学习之K-mean/">机器学习(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/经典算法题4/">经典算法题练习4</a>
           </li>
         
       </ul>

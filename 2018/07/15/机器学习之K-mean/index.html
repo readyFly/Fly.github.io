@@ -4,9 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。
-今天学习的是K-means聚类算法
-K-means聚" />
+  <meta name="description" content="今天学习的是K-means聚类算法" />
   
 
   
@@ -17,20 +15,20 @@ K-means聚" />
   
   <title>机器学习(1) | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
+  <meta name="description" content="今天学习的是K-means聚类算法">
 <meta name="keywords" content="K-means 无监督学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习(1)">
 <meta property="og:url" content="https://readyfly.github.io/2018/07/15/机器学习之K-mean/index.html">
 <meta property="og:site_name" content="readyFly">
-<meta property="og:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
+<meta property="og:description" content="今天学习的是K-means聚类算法">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/K-means.png">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/Kmeans.png">
-<meta property="og:updated_time" content="2018-07-19T05:47:15.832Z">
+<meta property="og:updated_time" content="2018-12-15T13:06:13.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习(1)">
-<meta name="twitter:description" content="现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。 今天学习的是K-means聚类算法 K-means聚类算法K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集">
+<meta name="twitter:description" content="今天学习的是K-means聚类算法">
 <meta name="twitter:image" content="https://readyfly.github.io/upload_image/K-means.png">
   
   
@@ -100,13 +98,14 @@ K-means聚" />
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/15/机器学习之K-mean/" data-id="cjppgxrak000pioi204ype6pr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/07/15/机器学习之K-mean/" data-id="cjppi8f8d000uwwi2nxbdnx3b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。</p>
+        <p>今天学习的是K-means聚类算法<br><a id="more"></a></p>
+<p>现实生活中常常会有这样的问题：缺乏足够的先验知识，因此难以人工标注类别或进行人工类别标注的成本太高。很自然地，我们希望计算机能代我们完成这些工作，或至少提供一些帮助。根据类别未知(没有被标记)的训练样本解决模式识别中的各种问题，称之为无监督学习。</p>
 <p>今天学习的是K-means聚类算法</p>
 <h3 id="K-means聚类算法"><a href="#K-means聚类算法" class="headerlink" title="K-means聚类算法"></a>K-means聚类算法</h3><p>K-means聚类的思想其实还挺简单，输入的参数：1、要聚类的类别数量  2、无标签的数据集</p>
 <p>经过不断迭代后，最终收敛为想要的类别数。</p>
@@ -180,6 +179,14 @@ K-means聚" />
       <ul>
         
           <li>
+            <a href="/2018/12/15/好久不见之BERTRT问题篇/">好久不见之BERT问题篇</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/15/好久不见之BERT——NLP/">好久不见之BERT——NLP</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/19/数据结构之最小生成树/">数据结构之最小生成树</a>
           </li>
         
@@ -189,14 +196,6 @@ K-means聚" />
         
           <li>
             <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/机器学习之K-mean/">机器学习(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/经典算法题4/">经典算法题练习4</a>
           </li>
         
       </ul>
