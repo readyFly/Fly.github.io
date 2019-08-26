@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="“达观杯”文本智能信息抽取挑战赛 https://www.biendata.com/competition/datagrand/" />
+  
 
   
   
@@ -13,14 +15,17 @@
   
   <title>实战篇——达观杯比赛，信息抽取 | readyFly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="“达观杯”文本智能信息抽取挑战赛 https://www.biendata.com/competition/datagrand/">
+<meta property="og:type" content="article">
 <meta property="og:title" content="实战篇——达观杯比赛，信息抽取">
 <meta property="og:url" content="https://readyfly.github.io/2019/08/26/实战篇——达观杯比赛，信息抽取/index.html">
 <meta property="og:site_name" content="readyFly">
+<meta property="og:description" content="“达观杯”文本智能信息抽取挑战赛 https://www.biendata.com/competition/datagrand/">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-08-26T09:08:07.036Z">
+<meta property="og:updated_time" content="2019-08-26T09:22:20.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实战篇——达观杯比赛，信息抽取">
+<meta name="twitter:description" content="“达观杯”文本智能信息抽取挑战赛 https://www.biendata.com/competition/datagrand/">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -89,13 +94,19 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2019/08/26/实战篇——达观杯比赛，信息抽取/" data-id="cjzs6k7th000a78vf119x7hjd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2019/08/26/实战篇——达观杯比赛，信息抽取/" data-id="cjzs70w2i000dzwvf4k76msgb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        
+        <p>“达观杯”文本智能信息抽取挑战赛 <a href="https://www.biendata.com/competition/datagrand/" target="_blank" rel="noopener">https://www.biendata.com/competition/datagrand/</a><br><a id="more"></a></p>
+<h2 id="大赛简介"><a href="#大赛简介" class="headerlink" title="大赛简介"></a>大赛简介</h2><p>大赛的任务是给定一定数量的标注语料以及海量的未标注语料，在3个字段上做信息抽取任务。<br>大赛提供的是一个全新的数据集，旨在促进不同领域下文档多字段的抽取任务研究。此外还提供了一个大规模的未标注预料供预训练语言模型。</p>
+<p>其中数据都是经过了脱敏处理的，且所有文本数据都经过清洗，以自然句为单位分句，每一行为一个自然句，之后为其每一个字和标点符号映射一个唯一的索引，即每一个字和标点符号都由一个独立的整数来表示。便于处理，用下划线连接。比如：“欢迎来到达观数据。”被转化为形如“1_2_3_4_5_6_7_8_9”的字符串。训练集，预测集和大规模未标注语料均由同一份索引表生成训练集有17000条，在17000条数据上标注了3个字段，共有字段a 9281处，字段b 14704处，字段c 9097处。预测集有3000条。</p>
+<h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><p>训练集每一行对应一条文本数据。每一个数字对应一个“字”或“标点符号”。字和字之间用‘_’连接，在对应字段后面标注/a、/b、/c，非字段文本标注/o。比如：“欢迎来到达观数据。”是形如“1_2_3_4_5_6_7_8_9”的字符串，如果“达观数据”是字段c，就会被标成“1_2_3_4/o 5_6_7_8/c 9/o”的形式。</p>
+<h2 id="正式开始吧！"><a href="#正式开始吧！" class="headerlink" title="正式开始吧！"></a>正式开始吧！</h2><p>首先，不得不说官方提供的baseline，分数是出奇的高呀。代码可见云盘<a href="https://pan.baidu.com/s/1egGezPG48dzqfJjsxQXbVg" target="_blank" rel="noopener">https://pan.baidu.com/s/1egGezPG48dzqfJjsxQXbVg</a> 提取码：cy1q</p>
+<p>其使用的是CRF++工具，简单粗暴有木有。</p>
+
       
     </div><!-- .entry-content -->
 
