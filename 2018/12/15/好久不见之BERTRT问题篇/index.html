@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://readyfly.github.io/upload_image/bert9.png">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/bert10.png">
 <meta property="og:image" content="https://readyfly.github.io/upload_image/bert11.png">
-<meta property="og:updated_time" content="2018-12-15T14:15:12.234Z">
+<meta property="og:updated_time" content="2018-12-16T08:20:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="好久不见之BERT问题篇">
 <meta name="twitter:description" content="整理的看BERT论文中的一些问题……有待更新">
@@ -105,7 +105,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/12/15/好久不见之BERTRT问题篇/" data-id="cjpqlk418000bqsi29yi7gcgy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://readyfly.github.io/2018/12/15/好久不见之BERTRT问题篇/" data-id="cjzrwu5zv001ka0vf5sj0xo6o" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -117,7 +117,7 @@
 <p>Encoder的作用主要是得到从中文句子中得到特征A，方法就是通过N层的  “由多头自注意力网络和前馈神经网络组成的”网络（图1红框）来提取特征。红框的网络下面部分是多头自注意力网络（图2），“多头”的意思是将一个大的向量划分成h个小的向量来计算（因为这样效果更好，我也不知道为啥会更好），“自注意力”是指将同一个向量作为V、K、Q的值输入。</p>
 <p>Decoder作用主要是根据encoder得到地特征A，结合输入的output embadding来得到分布B。它的网络是图1的蓝色框，由两层多头注意力网络和一层前馈神经网络组成。最下面那层多头注意力网络的输入是output embadding，上面那层的Q,K的输入是encoder得到的特征A，输入V是下面那层注意力网络的输出。<br>Transformer在BERT中的应用时input 和output是一样的，输出的时候不用去计算分布，只需要得到最后一个网络的结果就行，图一绿色箭头部分。</p>
 <p>附上transform学习：<br><a href="https://baijiahao.baidu.com/s?id=1614828439463695390&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1614828439463695390&amp;wfr=spider&amp;for=pc</a></p>
-<p>需要注意的是：BERT并不完全是Decoder and  encoder  , 实际上只有编码器 （这又是一个新问题……待解决）</p>
+<p>需要注意的是：BERT并不完全是Decoder and  encoder  , 实际上只有编码器encoder （这是一个新问题……待解决）</p>
 <h2 id="2、ELMo和MLM的理解"><a href="#2、ELMo和MLM的理解" class="headerlink" title="2、ELMo和MLM的理解"></a>2、ELMo和MLM的理解</h2><p>ELMo也是双向的 但是是对 两个方向的 一个线性组合 那么MLM和他最大的区别是将两个方向的信息同时利用而不是分别提取后再组合，这样理解对吗？<br>参考词向量技术：<a href="https://www.jianshu.com/p/a6bc14323d77" target="_blank" rel="noopener">https://www.jianshu.com/p/a6bc14323d77</a></p>
 <p>答：<br>ELMo是从左到右的LSTM和从右到左的LSTM网络训练得到的embadding拼接起来作为下游任务的输入，以这样的方法来得到单词的上下文信息。个人感觉这样做的话，确实是利用了上下文信息，但是感觉用的有点生硬。<br>MLM任务：随机遮住15%的单词，预测这些单词，相当于做完形填空。我认为这样做能够更准确地涵盖上下文的意思。所以在BERT这篇文章里面将MLM这样的embadding方式称为深层双向的模型。</p>
 <h2 id="3、mask一部分，因为在其他任务中不能mask掉这些词，所以采用了80-加mask-10-用随机词替换-10-保留原词-要msak的那个位置是定好了的吗-整个这个过程不太清楚？怎么计算预测的准确性呢？"><a href="#3、mask一部分，因为在其他任务中不能mask掉这些词，所以采用了80-加mask-10-用随机词替换-10-保留原词-要msak的那个位置是定好了的吗-整个这个过程不太清楚？怎么计算预测的准确性呢？" class="headerlink" title="3、mask一部分，因为在其他任务中不能mask掉这些词，所以采用了80%加mask   10%用随机词替换  10%保留原词    要msak的那个位置是定好了的吗  整个这个过程不太清楚？怎么计算预测的准确性呢？"></a>3、mask一部分，因为在其他任务中不能mask掉这些词，所以采用了80%加mask   10%用随机词替换  10%保留原词    要msak的那个位置是定好了的吗  整个这个过程不太清楚？怎么计算预测的准确性呢？</h2><p><img src="/upload_image/bert2.png" alt=""></p>
@@ -171,6 +171,7 @@
 </code></pre><p>如果要跑BERT的示例程序，那么执行命令中需要注意调一下以下参数：</p>
 <p><img src="/upload_image/bert11.png" alt=""></p>
 <p>这几个主要是对于建立在BERT预训练之后的网络</p>
+<p>数据集：GULE</p>
 <p>PS：解答来自某位师兄and网上，仅供参考！</p>
 <p>待完善…………</p>
 
@@ -234,6 +235,14 @@
       <ul>
         
           <li>
+            <a href="/2019/08/26/nlp/">nlp</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/NLP自然语言处理/">NLP自然语言处理</a>
+          </li>
+        
+          <li>
             <a href="/2018/12/15/好久不见之BERTRT问题篇/">好久不见之BERT问题篇</a>
           </li>
         
@@ -243,14 +252,6 @@
         
           <li>
             <a href="/2018/07/19/数据结构之最小生成树/">数据结构之最小生成树</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/19/机器学习之K近邻/">机器学习之K近邻</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/19/操作系统复习/">操作系统复习</a>
           </li>
         
       </ul>
@@ -291,7 +292,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2018 Feng_linhui
+    <p>&copy; 2019 Feng_linhui
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
     本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次, 本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
@@ -321,5 +322,5 @@
  <embed src="//music.163.com/style/swf/widget.swf?sid=528283&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
  <img src = "/upload_image/cute.gif" width ="100" height="180" />
  -->
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":50,"height":150},"mobile":{"show":true}});</script></body>
 </html>
